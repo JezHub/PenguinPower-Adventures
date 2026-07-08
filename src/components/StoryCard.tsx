@@ -107,157 +107,87 @@ export function playWebAudioChime(type: 'click' | 'lineComplete' | 'pageComplete
   }
 }
 
-function logDiagnostic(message: string) {
-  console.log(`[Diagnostic] ${message}`);
-  if (typeof window !== 'undefined') {
-    const timestamp = new Date().toLocaleTimeString();
-    window.dispatchEvent(
-      new CustomEvent('penguin-diagnostic', {
-        detail: `[${timestamp}] ${message}`,
-      })
-    );
-  }
-}
-
-function logSynthesisQueueStatus() {
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-    logDiagnostic(`Current synthesis state: speaking=${window.speechSynthesis.speaking}, pending=${window.speechSynthesis.pending}, paused=${window.speechSynthesis.paused}`);
-  }
-}
+// Warm, kid-friendly voices that ship on macOS / Windows / Chrome. Preferring
+// one of these makes the read-aloud sound pleasant instead of robotic.
+const FRIENDLY_VOICE_NAMES =
+  /samantha|victoria|karen|moira|ava|allison|susan|zira|google us english/i;
 
 // Custom Child-friendly Text-to-Speech with Chrome/Safari bug workarounds
 export function speakWord(word: string, isMuted: boolean) {
-  if (isMuted) {
-    logDiagnostic(`speakWord('${word}') skipped because app is muted.`);
-    return;
-  }
-  
-  logDiagnostic(`speakWord('${word}') invoked.`);
+  if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  // Clean word from surrounding punctuation
+  const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
+  if (!clean) return;
+
+  const synth = window.speechSynthesis;
+
+  const buildAndSpeak = () => {
     try {
-      logDiagnostic(`speechSynthesis exists. Active state: speaking=${window.speechSynthesis.speaking}, pending=${window.speechSynthesis.pending}, paused=${window.speechSynthesis.paused}`);
-      
-      // Force resume in case the synthesis state is suspended/stuck
-      window.speechSynthesis.resume();
-      logSynthesisQueueStatus();
+      const utterance = new SpeechSynthesisUtterance(clean);
 
-      // Clean word from trailing punctuation
-      const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
-      if (!clean) {
-        logDiagnostic(`Word clean up yielded empty string.`);
-        return;
-      }
+      // Child-friendly pacing & voice settings
+      utterance.lang = 'en-US';
+      utterance.volume = 1.0;
+      utterance.rate = 0.85;
+      utterance.pitch = 1.15;
 
-      // Only cancel active speech if we are currently speaking, to avoid Chrome's empty cancel lock bug
-      if (window.speechSynthesis.speaking) {
-        logDiagnostic(`Active speech detected. Requesting speechSynthesis.cancel().`);
-        window.speechSynthesis.cancel();
-      }
+      // Prefer a warm English voice when the browser exposes one.
+      const voices = synth.getVoices();
+      const friendly =
+        voices.find((v) => /^en/i.test(v.lang) && FRIENDLY_VOICE_NAMES.test(v.name)) ||
+        voices.find((v) => /^en/i.test(v.lang));
+      if (friendly) utterance.voice = friendly;
 
-      // A small timeout allows browsers (Safari/Chrome) to completely flush
-      // the cancel operation before starting the new speech.
-      setTimeout(() => {
-        try {
-          logDiagnostic(`Creating SpeechSynthesisUtterance for clean word: '${clean}'`);
-          const utterance = new SpeechSynthesisUtterance(clean);
-          
-          // Child-friendly pacing & voice settings
-          utterance.lang = 'en-US';
-          utterance.volume = 1.0;
-          utterance.rate = 0.85;
-          utterance.pitch = 1.15;
+      // Keep a reference so Chrome/Safari don't garbage-collect mid-utterance.
+      const w = window as any;
+      if (!w._activeSpeechUtterances) w._activeSpeechUtterances = [];
+      w._activeSpeechUtterances.push(utterance);
+      if (w._activeSpeechUtterances.length > 50) w._activeSpeechUtterances.shift();
 
-          // Apply selected voice
-          const voices = window.speechSynthesis.getVoices();
-          logDiagnostic(`Available voices count: ${voices.length}`);
-          
-          let preferredVoice = null;
-          if ((window as any)._selectedVoiceName) {
-            preferredVoice = voices.find((v: any) => v.name === (window as any)._selectedVoiceName);
-            if (preferredVoice) {
-              logDiagnostic(`Selected chosen voice: ${preferredVoice.name} (${preferredVoice.lang})`);
-            } else {
-              logDiagnostic(`Attempted to use custom voice '${(window as any)._selectedVoiceName}' but it wasn't found.`);
-            }
-          }
-          
-          if (!preferredVoice) {
-            preferredVoice = voices.find((v: any) => 
-              v.lang.startsWith('en-') && 
-              (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Zira') || v.name.includes('Hazel'))
-            ) || voices.find((v: any) => v.lang.startsWith('en-'));
-            
-            if (preferredVoice) {
-              logDiagnostic(`Auto-selected voice: ${preferredVoice.name} (${preferredVoice.lang})`);
-            } else {
-              logDiagnostic(`No English voice found. Using browser default voice.`);
-            }
-          }
+      const cleanup = () => {
+        const arr = w._activeSpeechUtterances;
+        if (!arr) return;
+        const idx = arr.indexOf(utterance);
+        if (idx > -1) arr.splice(idx, 1);
+      };
 
-          if (preferredVoice) {
-            utterance.voice = preferredVoice;
-          }
-
-          // Prevent GC (garbage collection) in Chrome/Safari by keeping references in a global array
-          if (!(window as any)._activeSpeechUtterances) {
-            (window as any)._activeSpeechUtterances = [];
-          }
-          (window as any)._activeSpeechUtterances.push(utterance);
-
-          // Bound array size to avoid memory leaks
-          if ((window as any)._activeSpeechUtterances.length > 50) {
-            (window as any)._activeSpeechUtterances.shift();
-          }
-
-          utterance.onstart = () => {
-            logDiagnostic(`Utterance onstart triggered successfully for '${clean}'`);
-          };
-
-          utterance.onend = () => {
-            logDiagnostic(`Utterance onend completed successfully for '${clean}'`);
-            // Clean up reference when speaking is complete
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          utterance.onerror = (e) => {
-            const errorType = e && typeof e === 'object' && 'error' in e ? (e as any).error : 'unknown';
-            logDiagnostic(`Utterance onerror triggered for '${clean}': error='${errorType}'`);
-            
-            // Benign cancellation/interruption errors due to rapid user clicking are safely ignored
-            const benignErrors = ['interrupted', 'canceled', 'cancelled', 'audio-busy', 'not-allowed'];
-            if (errorType && !benignErrors.includes(errorType)) {
-              console.warn('Speech synthesis state note:', errorType);
-            }
-            try {
-              window.speechSynthesis.resume();
-            } catch (_) {}
-
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          logDiagnostic(`Invoking window.speechSynthesis.speak()`);
-          window.speechSynthesis.speak(utterance);
-          logSynthesisQueueStatus();
-        } catch (innerError: any) {
-          logDiagnostic(`Exception inside speak timeout: ${innerError?.message || innerError}`);
-          console.error('Failed to speak word in timeout:', innerError);
+      utterance.onend = cleanup;
+      utterance.onerror = (e) => {
+        // 'interrupted' / 'canceled' just mean we started a new word on purpose.
+        if (e.error !== 'interrupted' && e.error !== 'canceled') {
+          console.error('Speech synthesis error on word click:', e.error);
         }
-      }, 30);
-    } catch (err: any) {
-      logDiagnostic(`Exception inside speakWord: ${err?.message || err}`);
-      console.error('Failed to initialize speech synthesis for word click:', err);
+        cleanup();
+      };
+
+      synth.speak(utterance);
+    } catch (innerError) {
+      console.error('Failed to speak word:', innerError);
     }
-  } else {
-    logDiagnostic(`speechSynthesis is NOT supported in this browser window!`);
+  };
+
+  try {
+    // Desktop Chrome can wedge itself into a paused state; nudge it awake.
+    if (synth.paused) synth.resume();
+
+    // If a previous word is still (or stuck) speaking, clear it first. Diagnostics
+    // on desktop Chrome showed utterances queuing with speaking=true but never
+    // firing onstart — i.e. wedged and silent — so we always cancel a lingering
+    // one before starting the next.
+    if (synth.speaking || synth.pending) {
+      synth.cancel();
+    }
+
+    // Speak *synchronously*, still inside the click's user-activation window.
+    // Desktop Chrome (Blink) only vocalizes speech started during a user gesture;
+    // a word started from a setTimeout gets queued (speaking=true) but never
+    // actually starts (no onstart) and stays silent — exactly what broke this on
+    // the iMac while it kept working on the iPhone (WebKit doesn't enforce it).
+    // Doing it in-gesture on every click keeps the engine unwedged.
+    buildAndSpeak();
+  } catch (err) {
+    console.error('Failed to initialize speech synthesis for word click:', err);
   }
 }
 
@@ -346,14 +276,7 @@ export default function StoryCard({
   const [showMicHelp, setShowMicHelp] = useState(false);
   const [useSimulator, setUseSimulator] = useState(false);
   const [showFirstWordFinger, setShowFirstWordFinger] = useState(false);
-  const [isSecurityBannerOpen, setIsSecurityBannerOpen] = useState(true); // Open by default for clarity!
-
-  // Vocal Audio Diagnostics State
-  const [diagnosticLogs, setDiagnosticLogs] = useState<string[]>([]);
-  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
-  const [selectedVoiceName, setSelectedVoiceName] = useState<string>('');
-  const [customTestText, setCustomTestText] = useState<string>('Penguin power!');
-  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState<boolean>(false);
+  const [isSecurityBannerOpen, setIsSecurityBannerOpen] = useState(false);
 
   // References for Web Speech API
   const recognitionRef = useRef<any>(null);
@@ -518,88 +441,6 @@ export default function StoryCard({
       setShowFirstWordFinger(false);
     }
   }, [accumulatedSpokenWords.size, clickedWords.size]);
-
-  // Vocal Audio Diagnostics and Logging Setup
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    const updateVoicesList = () => {
-      if ('speechSynthesis' in window) {
-        const voices = window.speechSynthesis.getVoices();
-        setAvailableVoices(voices);
-        
-        // If there's already a saved choice in window, sync it to state
-        if ((window as any)._selectedVoiceName) {
-          setSelectedVoiceName((window as any)._selectedVoiceName);
-        } else if (voices.length > 0) {
-          // Default selection to Google or first English voice
-          const defaultVoice = voices.find((v: any) => 
-            v.lang.startsWith('en-') && 
-            (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Zira') || v.name.includes('Hazel'))
-          ) || voices.find((v: any) => v.lang.startsWith('en-'));
-          
-          if (defaultVoice) {
-            setSelectedVoiceName(defaultVoice.name);
-            (window as any)._selectedVoiceName = defaultVoice.name;
-          }
-        }
-      }
-    };
-
-    updateVoicesList();
-    
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.onvoiceschanged = updateVoicesList;
-    }
-    
-    return () => {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.onvoiceschanged = null;
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleDiagnostic = (e: Event) => {
-      const msg = (e as CustomEvent).detail;
-      setDiagnosticLogs((prev) => [...prev.slice(-49), msg]); // keep last 50 entries
-    };
-    
-    window.addEventListener('penguin-diagnostic', handleDiagnostic);
-    
-    // Add initial setup log
-    logDiagnostic(`Diagnostic system loaded. Node ID: ${node.id}`);
-    
-    return () => {
-      window.removeEventListener('penguin-diagnostic', handleDiagnostic);
-    };
-  }, [node.id]);
-
-  const handleTestSpeak = () => {
-    logDiagnostic(`[TEST] Triggering manual test speak of text: "${customTestText}"`);
-    speakWord(customTestText, false);
-  };
-
-  const handleUnstickSpeech = () => {
-    logDiagnostic(`[TEST] Performing speechSynthesis engine unstick/flush command.`);
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      try {
-        window.speechSynthesis.cancel();
-        logDiagnostic(`[TEST] cancel() invoked.`);
-        window.speechSynthesis.resume();
-        logDiagnostic(`[TEST] resume() invoked.`);
-        
-        // Try creating a tiny silent beep using Web Audio API to ensure audio context is active
-        playWebAudioChime('click');
-        logDiagnostic(`[TEST] Audio feedback chime triggered to awaken hardware.`);
-        
-        // Double check status
-        logSynthesisQueueStatus();
-      } catch (e: any) {
-        logDiagnostic(`[TEST] Error in unstick sequence: ${e?.message || e}`);
-      }
-    }
-  };
 
   // Handle Speech Recognition Setup
   useEffect(() => {
@@ -1289,185 +1130,6 @@ export default function StoryCard({
               <p>4. You need at least a 70% match to unlock the next chapter.</p>
             </div>
           )}
-        </div>
-
-        {/* Vocal Audio & Speech Diagnostics Hub */}
-        <div className="mt-6 border-t-2 border-dashed border-slate-300 pt-6">
-          <div className="bg-slate-100 rounded-2xl border-2 border-black shadow-[4px_4px_0_0_#000] overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setIsDiagnosticOpen(!isDiagnosticOpen)}
-              className="w-full flex items-center justify-between p-4 bg-slate-200 hover:bg-slate-300/80 transition-colors cursor-pointer text-left focus:outline-none border-b-2 border-black"
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-lg">🛠️</span>
-                <span className="font-black text-sm text-slate-900 uppercase tracking-tight">Vocal Audio & Speech Diagnostics Hub</span>
-                <span className="bg-indigo-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase">For Chrome/Safari Debugging</span>
-              </div>
-              {isDiagnosticOpen ? (
-                <ChevronUp className="w-5 h-5 text-slate-900 shrink-0" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-slate-900 shrink-0" />
-              )}
-            </button>
-            
-            <AnimatePresence initial={false}>
-              {isDiagnosticOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className="p-4 space-y-4"
-                >
-                  {/* Status Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="bg-white p-3 rounded-xl border-2 border-black text-xs font-bold space-y-1">
-                      <p className="text-slate-500 uppercase tracking-widest text-[9px] font-black">Environment Context</p>
-                      <p className="text-slate-900 text-sm">
-                        {typeof window !== 'undefined' && window.self !== window.top ? (
-                          <span className="text-amber-600">⚠️ Inside IFrame (May block SpeechSynthesis unless opened in new tab)</span>
-                        ) : (
-                          <span className="text-emerald-600">✅ Opened in Direct Tab (Unlocked!)</span>
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-3 rounded-xl border-2 border-black text-xs font-bold space-y-1">
-                      <p className="text-slate-500 uppercase tracking-widest text-[9px] font-black">SpeechSynthesis Support</p>
-                      <p className="text-slate-900 text-sm">
-                        {typeof window !== 'undefined' && 'speechSynthesis' in window ? (
-                          <span className="text-emerald-600">✅ Supported by Browser</span>
-                        ) : (
-                          <span className="text-rose-600">❌ Not Supported / Blocked</span>
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-3 rounded-xl border-2 border-black text-xs font-bold space-y-1">
-                      <p className="text-slate-500 uppercase tracking-widest text-[9px] font-black">Active Synthesis Engine State</p>
-                      <p className="text-slate-900 text-xs font-mono">
-                        {typeof window !== 'undefined' && 'speechSynthesis' in window ? (
-                          `Speaking: ${window.speechSynthesis.speaking ? 'YES 🔊' : 'NO 💤'} | Pending: ${window.speechSynthesis.pending ? 'YES ⏳' : 'NO 💤'} | Paused: ${window.speechSynthesis.paused ? 'YES ⏸️' : 'NO 💤'}`
-                        ) : (
-                          'N/A'
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-3 rounded-xl border-2 border-black text-xs font-bold space-y-1">
-                      <p className="text-slate-500 uppercase tracking-widest text-[9px] font-black">Available Voices</p>
-                      <p className="text-slate-900 text-sm">
-                        <span className="bg-indigo-100 text-indigo-900 px-2.5 py-0.5 rounded-full text-xs font-black">
-                          {availableVoices.length} voices loaded
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Interactive Voice Selector */}
-                  {availableVoices.length > 0 && (
-                    <div className="bg-white p-3 rounded-xl border-2 border-black space-y-2">
-                      <label className="block text-[9px] font-black uppercase tracking-widest text-slate-500">
-                        Select Voice Accent / Character
-                      </label>
-                      <select
-                        value={selectedVoiceName}
-                        onChange={(e) => {
-                          const val = e.target.value;
-                          setSelectedVoiceName(val);
-                          if (typeof window !== 'undefined') {
-                            (window as any)._selectedVoiceName = val;
-                            logDiagnostic(`Manual voice selected: ${val}`);
-                          }
-                        }}
-                        className="w-full text-xs font-bold p-2 border-2 border-black rounded-lg focus:outline-none bg-[#FFFAF0]"
-                      >
-                        {availableVoices.map((v) => (
-                          <option key={v.name} value={v.name}>
-                            {v.name} ({v.lang}) {v.localService ? '[Local]' : '[Network]'}
-                          </option>
-                        ))}
-                      </select>
-                      <p className="text-[10px] text-slate-500 font-bold leading-normal">
-                        💡 <span className="underline">Tip for Desktop Chrome/Safari:</span> Local voices (marked as <strong>[Local]</strong>) are highly recommended. Google/Network voices sometimes fail to speak inside sandbox containers or low-connectivity frames.
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Tests Row */}
-                  <div className="bg-white p-3 rounded-xl border-2 border-black space-y-3">
-                    <p className="text-slate-500 uppercase tracking-widest text-[9px] font-black">Engine Diagnostic Commands</p>
-                    
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                      <input
-                        type="text"
-                        value={customTestText}
-                        onChange={(e) => setCustomTestText(e.target.value)}
-                        className="flex-1 p-2 border-2 border-black rounded-lg text-xs font-bold focus:outline-none"
-                        placeholder="Type test word..."
-                      />
-                      <button
-                        type="button"
-                        onClick={handleTestSpeak}
-                        className="bg-[#55E6C1] hover:bg-[#55E6C1]/80 text-black font-black text-xs py-2 px-4 rounded-lg border-2 border-black shadow-[2px_2px_0_0_#000] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
-                      >
-                        🔊 Speak Test
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handleUnstickSpeech}
-                        className="bg-[#FF7675] hover:bg-[#FF7675]/80 text-white font-black text-xs py-2 px-4 rounded-lg border-2 border-black shadow-[2px_2px_0_0_#000] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
-                      >
-                        ⚡ Unstick / Flush Engine
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Console Logger */}
-                  <div className="bg-slate-900 rounded-xl border-2 border-black overflow-hidden flex flex-col">
-                    <div className="bg-slate-800 px-3 py-1.5 border-b border-slate-700 flex items-center justify-between">
-                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest font-mono">Real-time Diagnostic Stream</span>
-                      <div className="flex gap-2">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            try {
-                              navigator.clipboard.writeText(diagnosticLogs.join('\n'));
-                              logDiagnostic(`Logs copied to clipboard successfully.`);
-                            } catch (_) {
-                              alert("Couldn't copy automatically. Please select and copy manually.");
-                            }
-                          }}
-                          className="text-[10px] bg-slate-700 hover:bg-slate-600 text-white font-bold px-2 py-0.5 rounded border border-slate-600 transition-colors cursor-pointer"
-                        >
-                          📋 Copy Logs
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setDiagnosticLogs([])}
-                          className="text-[10px] bg-slate-700 hover:bg-slate-600 text-white font-bold px-2 py-0.5 rounded border border-slate-600 transition-colors cursor-pointer"
-                        >
-                          🧹 Clear Logs
-                        </button>
-                      </div>
-                    </div>
-                    <div className="p-3 max-h-40 overflow-y-auto font-mono text-[10px] text-emerald-400 space-y-1 text-left select-text scrollbar-thin scrollbar-thumb-slate-700">
-                      {diagnosticLogs.length === 0 ? (
-                        <span className="text-slate-500 italic">No logs yet. Click some word cards above or run a test command to stream events.</span>
-                      ) : (
-                        diagnosticLogs.map((log, i) => (
-                          <div key={i} className="whitespace-pre-wrap border-b border-slate-800/50 pb-0.5">
-                            {log}
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
         </div>
 
       </div>
