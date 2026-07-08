@@ -1,0 +1,10 @@
+{
+  "name": "Penguinpower Reading Adventures",
+  "description": "An interactive, humorous Choose Your Own Adventure reading game for kids aged 7-10. Click words to hear them, and speak into the microphone to read along, earn stars, and unlock new adventure paths with the Penguinpower crew!",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
