@@ -7,38 +7,6 @@ import StorySummary from './components/StorySummary';
 
 type Screen = 'selection' | 'playing' | 'summary';
 
-// Safe localStorage helpers: guard against private-mode / disabled / partitioned
-// storage throwing (Safari in particular throws a SecurityError when storage is
-// blocked, which would otherwise crash the whole app to a blank screen), and
-// against corrupt non-numeric saved values rendering as NaN in the stats UI.
-function getSavedNumber(key: string): number | null {
-  try {
-    const saved = window.localStorage.getItem(key);
-    if (!saved) return null;
-    const parsed = Number.parseInt(saved, 10);
-    return Number.isFinite(parsed) ? parsed : null;
-  } catch (err) {
-    console.warn(`Unable to read ${key} from localStorage:`, err);
-    return null;
-  }
-}
-
-function setSavedNumber(key: string, value: number) {
-  try {
-    window.localStorage.setItem(key, value.toString());
-  } catch (err) {
-    console.warn(`Unable to save ${key} to localStorage:`, err);
-  }
-}
-
-function removeSavedNumber(key: string) {
-  try {
-    window.localStorage.removeItem(key);
-  } catch (err) {
-    console.warn(`Unable to remove ${key} from localStorage:`, err);
-  }
-}
-
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<Screen>('selection');
   const [activeStory, setActiveStory] = useState<Story | null>(null);
@@ -52,14 +20,14 @@ export default function App() {
 
   // Load global scores on mount
   useEffect(() => {
-    const savedCompleted = getSavedNumber('penguinpower_stories_completed');
-    const savedPerfect = getSavedNumber('penguinpower_perfect_pages');
-
-    if (savedCompleted !== null) {
-      setStoriesCompleted(savedCompleted);
+    const savedCompleted = localStorage.getItem('penguinpower_stories_completed');
+    const savedPerfect = localStorage.getItem('penguinpower_perfect_pages');
+    
+    if (savedCompleted) {
+      setStoriesCompleted(parseInt(savedCompleted, 10));
     }
-    if (savedPerfect !== null) {
-      setPerfectFiveStarPages(savedPerfect);
+    if (savedPerfect) {
+      setPerfectFiveStarPages(parseInt(savedPerfect, 10));
     }
   }, []);
 
@@ -68,13 +36,13 @@ export default function App() {
     // 1. Increment completed stories count
     const nextCompleted = storiesCompleted + 1;
     setStoriesCompleted(nextCompleted);
-    setSavedNumber('penguinpower_stories_completed', nextCompleted);
+    localStorage.setItem('penguinpower_stories_completed', nextCompleted.toString());
 
     // 2. Count new perfect 5-star pages in this run
     const currentRunPerfectPages = Object.values(finalScores).filter((s) => s === 5).length;
     const nextPerfect = perfectFiveStarPages + currentRunPerfectPages;
     setPerfectFiveStarPages(nextPerfect);
-    setSavedNumber('penguinpower_perfect_pages', nextPerfect);
+    localStorage.setItem('penguinpower_perfect_pages', nextPerfect.toString());
   };
 
   const handleSelectStory = (storyId: string) => {
@@ -132,8 +100,8 @@ export default function App() {
     if (window.confirm("Do you want to reset all your reading stars and trophies to start brand new?")) {
       setStoriesCompleted(0);
       setPerfectFiveStarPages(0);
-      removeSavedNumber('penguinpower_stories_completed');
-      removeSavedNumber('penguinpower_perfect_pages');
+      localStorage.removeItem('penguinpower_stories_completed');
+      localStorage.removeItem('penguinpower_perfect_pages');
       handleGoToHome();
     }
   };
