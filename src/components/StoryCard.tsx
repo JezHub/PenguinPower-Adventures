@@ -107,79 +107,86 @@ export function playWebAudioChime(type: 'click' | 'lineComplete' | 'pageComplete
   }
 }
 
+// Warm, kid-friendly voices that ship on macOS / Windows / Chrome. Preferring
+// one of these makes the read-aloud sound pleasant instead of robotic.
+const FRIENDLY_VOICE_NAMES =
+  /samantha|victoria|karen|moira|ava|allison|susan|zira|google us english/i;
+
 // Custom Child-friendly Text-to-Speech with Chrome/Safari bug workarounds
 export function speakWord(word: string, isMuted: boolean) {
-  if (isMuted) return;
-  
-  // NOTE: We got rid of the 'click' chime beep here completely as requested by the user,
-  // preventing the beep sound from overriding or blocking the speech synthesis on desktop!
+  if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  // Clean word from surrounding punctuation
+  const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
+  if (!clean) return;
+
+  const synth = window.speechSynthesis;
+
+  const buildAndSpeak = () => {
     try {
-      // Force resume in case the synthesis state is suspended/stuck
-      window.speechSynthesis.resume();
+      const utterance = new SpeechSynthesisUtterance(clean);
 
-      // Clean word from trailing punctuation
-      const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
-      if (!clean) return;
+      // Child-friendly pacing & voice settings
+      utterance.lang = 'en-US';
+      utterance.volume = 1.0;
+      utterance.rate = 0.85;
+      utterance.pitch = 1.15;
 
-      // Only cancel active speech if we are currently speaking, to avoid Chrome's empty cancel lock bug
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-      }
+      // Prefer a warm English voice when the browser exposes one.
+      const voices = synth.getVoices();
+      const friendly =
+        voices.find((v) => /^en/i.test(v.lang) && FRIENDLY_VOICE_NAMES.test(v.name)) ||
+        voices.find((v) => /^en/i.test(v.lang));
+      if (friendly) utterance.voice = friendly;
 
-      // A small timeout allows browsers (Safari/Chrome) to completely flush
-      // the cancel operation before starting the new speech.
-      setTimeout(() => {
-        try {
-          const utterance = new SpeechSynthesisUtterance(clean);
-          
-          // Child-friendly pacing & voice settings
-          utterance.lang = 'en-US';
-          utterance.volume = 1.0;
-          utterance.rate = 0.85;
-          utterance.pitch = 1.15;
+      // Keep a reference so Chrome/Safari don't garbage-collect mid-utterance.
+      const w = window as any;
+      if (!w._activeSpeechUtterances) w._activeSpeechUtterances = [];
+      w._activeSpeechUtterances.push(utterance);
+      if (w._activeSpeechUtterances.length > 50) w._activeSpeechUtterances.shift();
 
-          // Prevent GC (garbage collection) in Chrome/Safari by keeping references in a global array
-          if (!(window as any)._activeSpeechUtterances) {
-            (window as any)._activeSpeechUtterances = [];
-          }
-          (window as any)._activeSpeechUtterances.push(utterance);
+      const cleanup = () => {
+        const arr = w._activeSpeechUtterances;
+        if (!arr) return;
+        const idx = arr.indexOf(utterance);
+        if (idx > -1) arr.splice(idx, 1);
+      };
 
-          // Bound array size to avoid memory leaks
-          if ((window as any)._activeSpeechUtterances.length > 50) {
-            (window as any)._activeSpeechUtterances.shift();
-          }
-
-          utterance.onend = () => {
-            // Clean up reference when speaking is complete
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          utterance.onerror = (e) => {
-            if (e.error !== 'interrupted') {
-              console.error('Speech synthesis error on word click:', e);
-              window.speechSynthesis.resume();
-            }
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          window.speechSynthesis.speak(utterance);
-        } catch (innerError) {
-          console.error('Failed to speak word in timeout:', innerError);
+      utterance.onend = cleanup;
+      utterance.onerror = (e) => {
+        // 'interrupted' / 'canceled' just mean we started a new word on purpose.
+        if (e.error !== 'interrupted' && e.error !== 'canceled') {
+          console.error('Speech synthesis error on word click:', e.error);
         }
-      }, 30);
-    } catch (err) {
-      console.error('Failed to initialize speech synthesis for word click:', err);
+        cleanup();
+      };
+
+      synth.speak(utterance);
+    } catch (innerError) {
+      console.error('Failed to speak word:', innerError);
     }
+  };
+
+  try {
+    // Desktop Chrome can wedge itself into a paused state; nudge it awake.
+    if (synth.paused) synth.resume();
+
+    if (synth.speaking || synth.pending) {
+      // Something is already talking. Cancel it, then start the new word after a
+      // brief flush (this path is rare, so losing the gesture here is fine).
+      synth.cancel();
+      setTimeout(buildAndSpeak, 60);
+    } else {
+      // COMMON PATH: nothing is speaking, so speak *synchronously* while we are
+      // still inside the click's user-activation window. Desktop Chrome
+      // (especially inside the AI Studio preview iframe) silently drops
+      // utterances started outside a user gesture — a setTimeout() wrapper here
+      // is exactly what broke word-click speech on the iMac while it kept
+      // working on the iPhone (WebKit doesn't enforce this).
+      buildAndSpeak();
+    }
+  } catch (err) {
+    console.error('Failed to initialize speech synthesis for word click:', err);
   }
 }
 

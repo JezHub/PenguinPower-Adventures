@@ -6,6 +6,13 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      // Keep the production bundle parseable by older desktop Safari so the app
+      // doesn't white-screen before React can mount. (Note: Tailwind v4's CSS
+      // still needs Safari 16.4+, so this only guards the JS side.)
+      target: ['es2020', 'safari14'],
+      cssTarget: 'safari14',
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
