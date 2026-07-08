@@ -109,77 +109,65 @@ export function playWebAudioChime(type: 'click' | 'lineComplete' | 'pageComplete
 
 // Custom Child-friendly Text-to-Speech with Chrome/Safari bug workarounds
 export function speakWord(word: string, isMuted: boolean) {
-  if (isMuted) return;
-  
-  // NOTE: We got rid of the 'click' chime beep here completely as requested by the user,
-  // preventing the beep sound from overriding or blocking the speech synthesis on desktop!
+  if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-    try {
-      // Force resume in case the synthesis state is suspended/stuck
-      window.speechSynthesis.resume();
+  const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
+  if (!clean) return;
 
-      // Clean word from trailing punctuation
-      const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
-      if (!clean) return;
+  try {
+    const synth = window.speechSynthesis;
 
-      // Only cancel active speech if we are currently speaking, to avoid Chrome's empty cancel lock bug
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-      }
-
-      // A small timeout allows browsers (Safari/Chrome) to completely flush
-      // the cancel operation before starting the new speech.
-      setTimeout(() => {
-        try {
-          const utterance = new SpeechSynthesisUtterance(clean);
-          
-          // Child-friendly pacing & voice settings
-          utterance.lang = 'en-US';
-          utterance.volume = 1.0;
-          utterance.rate = 0.85;
-          utterance.pitch = 1.15;
-
-          // Prevent GC (garbage collection) in Chrome/Safari by keeping references in a global array
-          if (!(window as any)._activeSpeechUtterances) {
-            (window as any)._activeSpeechUtterances = [];
-          }
-          (window as any)._activeSpeechUtterances.push(utterance);
-
-          // Bound array size to avoid memory leaks
-          if ((window as any)._activeSpeechUtterances.length > 50) {
-            (window as any)._activeSpeechUtterances.shift();
-          }
-
-          utterance.onend = () => {
-            // Clean up reference when speaking is complete
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          utterance.onerror = (e) => {
-            if (e.error !== 'interrupted') {
-              console.error('Speech synthesis error on word click:', e);
-              window.speechSynthesis.resume();
-            }
-            const arr = (window as any)._activeSpeechUtterances;
-            if (arr) {
-              const idx = arr.indexOf(utterance);
-              if (idx > -1) arr.splice(idx, 1);
-            }
-          };
-
-          window.speechSynthesis.speak(utterance);
-        } catch (innerError) {
-          console.error('Failed to speak word in timeout:', innerError);
-        }
-      }, 30);
-    } catch (err) {
-      console.error('Failed to initialize speech synthesis for word click:', err);
+    // Desktop Chrome/Safari are stricter about speech being started directly
+    // from the user's click. Starting speech inside setTimeout can lose that
+    // user activation, so create and speak the utterance synchronously.
+    if (synth.speaking || synth.pending) {
+      synth.cancel();
     }
+    synth.resume();
+
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.lang = 'en-US';
+    utterance.volume = 1.0;
+    utterance.rate = 0.85;
+    utterance.pitch = 1.15;
+
+    const voices = synth.getVoices();
+    const friendlyVoice = voices.find((voice) =>
+      voice.lang.toLowerCase().startsWith('en') &&
+      /samantha|victoria|karen|moira|ava|allison|susan|zira|google us english/i.test(voice.name)
+    ) || voices.find((voice) => voice.lang.toLowerCase().startsWith('en'));
+
+    if (friendlyVoice) {
+      utterance.voice = friendlyVoice;
+    }
+
+    // Prevent GC (garbage collection) in Chrome/Safari by keeping references in a global array.
+    const speechWindow = window as Window & { _activeSpeechUtterances?: SpeechSynthesisUtterance[] };
+    speechWindow._activeSpeechUtterances = speechWindow._activeSpeechUtterances || [];
+    speechWindow._activeSpeechUtterances.push(utterance);
+
+    if (speechWindow._activeSpeechUtterances.length > 50) {
+      speechWindow._activeSpeechUtterances.shift();
+    }
+
+    const cleanup = () => {
+      const arr = speechWindow._activeSpeechUtterances;
+      if (!arr) return;
+      const idx = arr.indexOf(utterance);
+      if (idx > -1) arr.splice(idx, 1);
+    };
+
+    utterance.onend = cleanup;
+    utterance.onerror = (e) => {
+      if (e.error !== 'interrupted' && e.error !== 'canceled') {
+        console.error('Speech synthesis error on word click:', e);
+      }
+      cleanup();
+    };
+
+    synth.speak(utterance);
+  } catch (err) {
+    console.error('Failed to speak word on click:', err);
   }
 }
 
