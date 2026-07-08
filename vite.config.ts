@@ -6,6 +6,12 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      // Keep the production bundle compatible with older desktop Safari versions
+      // that are still common on iMacs and can otherwise fail before React loads.
+      target: ['es2020', 'safari14'],
+      cssTarget: 'safari14',
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
