@@ -15,6 +15,8 @@ import {
   VolumeX,
   ChevronDown,
   ChevronUp,
+  ArrowLeft,
+  ArrowRight,
 } from 'lucide-react';
 import { StoryNode } from '../data/stories';
 
@@ -112,58 +114,82 @@ export function playWebAudioChime(type: 'click' | 'lineComplete' | 'pageComplete
 const FRIENDLY_VOICE_NAMES =
   /samantha|victoria|karen|moira|ava|allison|susan|zira|google us english/i;
 
-// Custom Child-friendly Text-to-Speech with Chrome/Safari bug workarounds
-export function speakWord(word: string, isMuted: boolean) {
+function pickFriendlyVoice(): SpeechSynthesisVoice | null {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  return (
+    voices.find((v) => /^en/i.test(v.lang) && FRIENDLY_VOICE_NAMES.test(v.name)) ||
+    voices.find((v) => /^en/i.test(v.lang)) ||
+    null
+  );
+}
+
+// Build a configured, GC-protected child-friendly utterance. Shared by both the
+// single word reader and the "hear my choices" reader.
+export function makeFriendlyUtterance(text: string): SpeechSynthesisUtterance {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.volume = 1.0;
+  utterance.rate = 0.85;
+  utterance.pitch = 1.15;
+
+  const voice = pickFriendlyVoice();
+  if (voice) utterance.voice = voice;
+
+  // Keep a reference so Chrome/Safari don't garbage-collect mid-utterance.
+  const w = window as any;
+  if (!w._activeSpeechUtterances) w._activeSpeechUtterances = [];
+  w._activeSpeechUtterances.push(utterance);
+  if (w._activeSpeechUtterances.length > 50) w._activeSpeechUtterances.shift();
+  const cleanup = () => {
+    const arr = w._activeSpeechUtterances;
+    if (!arr) return;
+    const idx = arr.indexOf(utterance);
+    if (idx > -1) arr.splice(idx, 1);
+  };
+  utterance.addEventListener('end', cleanup);
+  utterance.addEventListener('error', cleanup);
+
+  return utterance;
+}
+
+// Custom Child-friendly Text-to-Speech with Chrome/Safari bug workarounds.
+// Optional callbacks let callers (e.g. the mic-suppression logic) react to the
+// real start/end of the spoken audio.
+export function speakWord(
+  word: string,
+  isMuted: boolean,
+  callbacks?: { onStart?: () => void; onEnd?: () => void },
+) {
   if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
   // Clean word from surrounding punctuation
   const clean = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '').trim();
-  if (!clean) return;
+  if (!clean) {
+    callbacks?.onEnd?.();
+    return;
+  }
 
   const synth = window.speechSynthesis;
 
   const buildAndSpeak = () => {
     try {
-      const utterance = new SpeechSynthesisUtterance(clean);
+      const utterance = makeFriendlyUtterance(clean);
 
-      // Child-friendly pacing & voice settings
-      utterance.lang = 'en-US';
-      utterance.volume = 1.0;
-      utterance.rate = 0.85;
-      utterance.pitch = 1.15;
-
-      // Prefer a warm English voice when the browser exposes one.
-      const voices = synth.getVoices();
-      const friendly =
-        voices.find((v) => /^en/i.test(v.lang) && FRIENDLY_VOICE_NAMES.test(v.name)) ||
-        voices.find((v) => /^en/i.test(v.lang));
-      if (friendly) utterance.voice = friendly;
-
-      // Keep a reference so Chrome/Safari don't garbage-collect mid-utterance.
-      const w = window as any;
-      if (!w._activeSpeechUtterances) w._activeSpeechUtterances = [];
-      w._activeSpeechUtterances.push(utterance);
-      if (w._activeSpeechUtterances.length > 50) w._activeSpeechUtterances.shift();
-
-      const cleanup = () => {
-        const arr = w._activeSpeechUtterances;
-        if (!arr) return;
-        const idx = arr.indexOf(utterance);
-        if (idx > -1) arr.splice(idx, 1);
-      };
-
-      utterance.onend = cleanup;
+      utterance.onstart = () => callbacks?.onStart?.();
+      utterance.onend = () => callbacks?.onEnd?.();
       utterance.onerror = (e) => {
         // 'interrupted' / 'canceled' just mean we started a new word on purpose.
         if (e.error !== 'interrupted' && e.error !== 'canceled') {
           console.error('Speech synthesis error on word click:', e.error);
         }
-        cleanup();
+        callbacks?.onEnd?.();
       };
 
       synth.speak(utterance);
     } catch (innerError) {
       console.error('Failed to speak word:', innerError);
+      callbacks?.onEnd?.();
     }
   };
 
@@ -188,6 +214,7 @@ export function speakWord(word: string, isMuted: boolean) {
     buildAndSpeak();
   } catch (err) {
     console.error('Failed to initialize speech synthesis for word click:', err);
+    callbacks?.onEnd?.();
   }
 }
 
@@ -270,7 +297,11 @@ export default function StoryCard({
   const [isMuted, setIsMuted] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
-  const [accumulatedSpokenWords, setAccumulatedSpokenWords] = useState<Set<string>>(new Set());
+  // Global indices of the individual word instances the child has read correctly.
+  // Tracking per-instance (not per unique word) means saying a word only greens
+  // the occurrences on lines that are actually revealed, never identical words
+  // still hidden further down the page.
+  const [readWordIndices, setReadWordIndices] = useState<Set<number>>(new Set());
   const [clickedWords, setClickedWords] = useState<Set<string>>(new Set());
   const [manuallyCompletedLines, setManuallyCompletedLines] = useState<Set<number>>(new Set());
   const [showMicHelp, setShowMicHelp] = useState(false);
@@ -278,10 +309,28 @@ export default function StoryCard({
   const [showFirstWordFinger, setShowFirstWordFinger] = useState(false);
   const [isSecurityBannerOpen, setIsSecurityBannerOpen] = useState(false);
 
+  // Which path choice is currently being read aloud (for the highlight).
+  const [readingChoiceIndex, setReadingChoiceIndex] = useState<number | null>(null);
+  // A path the child tapped that is awaiting confirmation in the fanfare overlay.
+  const [pendingChoice, setPendingChoice] = useState<
+    { nextNodeId: string; label: string; isEnding: boolean } | null
+  >(null);
+
   // References for Web Speech API
   const recognitionRef = useRef<any>(null);
   const isRecordingRef = useRef(false);
   const activeRecordingSessionRef = useRef(false);
+
+  // Mic self-hearing guard: while the app reads a word/choices aloud we ignore
+  // recognition results until this timestamp, so the app's own speech isn't
+  // credited as the child reading. A token makes sure only the most recent
+  // spoken word controls the window (avoids cancel/restart races).
+  const suppressRecognitionUntilRef = useRef<number>(0);
+  const speakTokenRef = useRef<number>(0);
+
+  // The word instances currently on revealed lines, kept in a ref so the
+  // long-lived speech-recognition handler always matches against just those.
+  const revealedItemsRef = useRef<{ index: number; clean: string }[]>([]);
 
   // Sound effects tracking refs
   const prevCompletedLinesRef = useRef(0);
@@ -319,15 +368,15 @@ export default function StoryCard({
     linesOfWords.push(currentLine);
   }
 
-  // Check if a line is completed (at least 70% of words in the line are read or manually completed)
+  // Check if a line is completed (at least 70% of its word instances are read or manually completed)
   const isLineCompleted = (lineItems: { word: string; index: number }[], lineIdx: number) => {
     if (manuallyCompletedLines.has(lineIdx)) return true;
-    const lineTargetClean = lineItems
-      .map((item) => cleanWordForMatching(item.word))
-      .filter((w) => w.length > 0);
-    if (lineTargetClean.length === 0) return true;
-    const readCount = lineTargetClean.filter((w) => accumulatedSpokenWords.has(w)).length;
-    return readCount >= lineTargetClean.length * 0.7;
+    const targetItems = lineItems.filter(
+      (item) => cleanWordForMatching(item.word).length > 0,
+    );
+    if (targetItems.length === 0) return true;
+    const readCount = targetItems.filter((item) => readWordIndices.has(item.index)).length;
+    return readCount >= targetItems.length * 0.7;
   };
 
   // Calculate sequential completed lines to dynamically adjust visible lines
@@ -342,21 +391,26 @@ export default function StoryCard({
 
   // Reveal 2 lines at a time. Number of visible lines starts at 2 and reveals the next row as they progress
   const visibleLineCount = Math.min(linesOfWords.length, Math.max(2, completedSeqCount + 1));
-  
-  // Create a map of clean words on this page
-  const targetCleanWords = words
-    .map(cleanWordForMatching)
-    .filter((w) => w.length > 0);
-  
-  const uniqueTargetWords = Array.from(new Set(targetCleanWords));
 
-  // Determine which words have been read correctly
-  const readWords = uniqueTargetWords.filter((w) => accumulatedSpokenWords.has(w));
-  
-  // Calculate match percentage
-  const totalTargetCount = uniqueTargetWords.length;
-  const matchPercentage = totalTargetCount > 0 
-    ? Math.round((readWords.length / totalTargetCount) * 100) 
+  // Word instances (with their global index) that are currently on revealed lines.
+  // Recognition only ever credits words from this set.
+  const revealedItems = linesOfWords
+    .slice(0, visibleLineCount)
+    .flat()
+    .map((item) => ({ index: item.index, clean: cleanWordForMatching(item.word) }))
+    .filter((item) => item.clean.length > 0);
+
+  // Every scorable word instance on the whole page (denominator for progress).
+  const totalWordInstances = indexedWords.filter(
+    (item) => cleanWordForMatching(item.word).length > 0,
+  ).length;
+
+  // How many word instances have been read correctly so far.
+  const readInstanceCount = readWordIndices.size;
+
+  // Calculate match percentage over the whole page's word instances.
+  const matchPercentage = totalWordInstances > 0
+    ? Math.round((readInstanceCount / totalWordInstances) * 100)
     : 100;
 
   // Calculate Star Score:
@@ -367,8 +421,22 @@ export default function StoryCard({
   else if (matchPercentage >= 70) stars = 3;
   else if (matchPercentage >= 30) stars = 2;
 
-  // The page is unlocked if they got 70% matching, OR if they've fully completed/revealed all lines of the page!
-  const isUnlocked = (matchPercentage >= 70) || (completedSeqCount === linesOfWords.length);
+  // The final line must actually be on screen before the paths can activate, so
+  // the child always has the full page of context before choosing where to go.
+  const allLinesRevealed = visibleLineCount >= linesOfWords.length;
+
+  // Once every line is revealed, the page unlocks at 70% matching (or when all
+  // lines are completed). Hitting the threshold early no longer jumps them to the
+  // choices before the last sentence has appeared.
+  const isUnlocked =
+    allLinesRevealed &&
+    ((matchPercentage >= 70) || (completedSeqCount === linesOfWords.length));
+
+  // Keep the recognition handler's view of "revealed words" current as more
+  // lines appear, without re-creating the recognition session.
+  useEffect(() => {
+    revealedItemsRef.current = revealedItems;
+  }, [node.id, visibleLineCount]);
 
   // Real-time audio rewards for line completion & page unlock
   useEffect(() => {
@@ -384,14 +452,14 @@ export default function StoryCard({
     if (isUnlocked && !prevUnlockedRef.current) {
       if (!isMuted && prevUnlockedRef.current === false) {
         // Prevent playing on mount if it's already unlocked
-        const hasSomeSpoken = accumulatedSpokenWords.size > 0;
+        const hasSomeSpoken = readWordIndices.size > 0;
         if (hasSomeSpoken) {
           playWebAudioChime('pageComplete');
         }
       }
     }
     prevUnlockedRef.current = isUnlocked;
-  }, [isUnlocked, isMuted, accumulatedSpokenWords.size]);
+  }, [isUnlocked, isMuted, readWordIndices.size]);
 
   // Reset page state when the node changes
   useEffect(() => {
@@ -400,7 +468,7 @@ export default function StoryCard({
     } else {
       // Clear current transcripts and spoken lists for the new page so they can practice again
       setTranscript('');
-      setAccumulatedSpokenWords(new Set());
+      setReadWordIndices(new Set());
     }
 
     setClickedWords(new Set());
@@ -408,6 +476,12 @@ export default function StoryCard({
     prevCompletedLinesRef.current = 0;
     prevUnlockedRef.current = false;
     setShowFirstWordFinger(false);
+    setReadingChoiceIndex(null);
+    setPendingChoice(null);
+    suppressRecognitionUntilRef.current = 0;
+    try {
+      window.speechSynthesis?.cancel();
+    } catch (e) {}
 
     // Scroll back to the absolute top of the page immediately and smoothly
     window.scrollTo(0, 0);
@@ -437,10 +511,10 @@ export default function StoryCard({
 
   // Turn off the finger pointing to the first word if any word has been spoken or clicked
   useEffect(() => {
-    if (accumulatedSpokenWords.size > 0 || clickedWords.size > 0) {
+    if (readWordIndices.size > 0 || clickedWords.size > 0) {
       setShowFirstWordFinger(false);
     }
-  }, [accumulatedSpokenWords.size, clickedWords.size]);
+  }, [readWordIndices.size, clickedWords.size]);
 
   // Handle Speech Recognition Setup
   useEffect(() => {
@@ -459,6 +533,10 @@ export default function StoryCard({
         };
 
         rec.onresult = (event: any) => {
+          // Ignore the mic while (and just after) the app is reading a word or
+          // the choices aloud, so its own speech isn't counted as the child's.
+          if (Date.now() < suppressRecognitionUntilRef.current) return;
+
           let interimTranscript = '';
           let finalTranscript = '';
 
@@ -473,12 +551,14 @@ export default function StoryCard({
           const newSpeech = (finalTranscript + ' ' + interimTranscript).toLowerCase();
           setTranscript(newSpeech);
 
-          // Process newly recognized words using our enhanced matching
-          setAccumulatedSpokenWords((prev) => {
+          // Credit only the word instances on currently-revealed lines, so a
+          // spoken word never greens identical words still hidden further down.
+          setReadWordIndices((prev) => {
             const next = new Set(prev);
-            uniqueTargetWords.forEach((target) => {
-              if (isWordMatchedInTranscript(target, newSpeech)) {
-                next.add(target);
+            revealedItemsRef.current.forEach(({ index, clean }) => {
+              if (next.has(index)) return;
+              if (isWordMatchedInTranscript(clean, newSpeech)) {
+                next.add(index);
               }
             });
             return next;
@@ -586,7 +666,104 @@ export default function StoryCard({
       return next;
     });
 
-    speakWord(word, isMuted);
+    // Suppress the mic while this word is read aloud so the app's own voice can't
+    // turn the word green on its own. The token guard means a rapid second click
+    // takes over cleanly, and a short tail after the audio ends still lets the
+    // child read the word themselves a moment later.
+    const token = ++speakTokenRef.current;
+    suppressRecognitionUntilRef.current = Date.now() + 2500; // cap if audio never starts
+    speakWord(word, isMuted, {
+      onStart: () => {
+        if (token === speakTokenRef.current) {
+          suppressRecognitionUntilRef.current = Date.now() + 8000;
+        }
+      },
+      onEnd: () => {
+        if (token === speakTokenRef.current) {
+          suppressRecognitionUntilRef.current = Date.now() + 300;
+        }
+      },
+    });
+  };
+
+  // Read the path choices out loud one at a time, lighting each up as it's read,
+  // so children who can't read the options yet can hear them.
+  const speakChoicesAloud = () => {
+    if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    const synth = window.speechSynthesis;
+
+    const items =
+      node.choices && node.choices.length > 0
+        ? node.choices.map((c, i) => ({
+            index: i,
+            text: `Option ${String.fromCharCode(65 + i)}. ${c.text}`,
+          }))
+        : [{ index: 0, text: 'Read the adventure ending to find out what happens.' }];
+
+    // Keep the mic from crediting the choices we're about to speak.
+    speakTokenRef.current += 1;
+    suppressRecognitionUntilRef.current = Date.now() + 30000;
+
+    try {
+      if (synth.paused) synth.resume();
+      synth.cancel();
+    } catch (e) {}
+
+    let pos = 0;
+    const speakNext = () => {
+      if (pos >= items.length) {
+        setReadingChoiceIndex(null);
+        suppressRecognitionUntilRef.current = Date.now() + 300;
+        return;
+      }
+      const { index, text } = items[pos];
+      setReadingChoiceIndex(index);
+      const utterance = makeFriendlyUtterance(text);
+      utterance.onend = () => {
+        pos += 1;
+        speakNext();
+      };
+      utterance.onerror = () => {
+        pos += 1;
+        speakNext();
+      };
+      try {
+        synth.speak(utterance);
+      } catch (e) {
+        setReadingChoiceIndex(null);
+        suppressRecognitionUntilRef.current = Date.now() + 300;
+      }
+    };
+
+    speakNext(); // first utterance runs inside the button-click gesture
+  };
+
+  // A path was tapped: pause on a celebratory confirmation instead of jumping
+  // straight to the next page, so there's a moment of fanfare (and a way back).
+  const handleChoiceClick = (nextNodeId: string, label: string, isEnding: boolean) => {
+    if (!isUnlocked) return;
+    try {
+      window.speechSynthesis?.cancel();
+    } catch (e) {}
+    setReadingChoiceIndex(null);
+    setPendingChoice({ nextNodeId, label, isEnding });
+    if (!isMuted) playWebAudioChime('pageComplete');
+    // Read the confirmation aloud (in-gesture) for pre-readers.
+    speakWord(isEnding ? 'You are ready for the ending!' : `You chose: ${label}`, isMuted);
+  };
+
+  const confirmPendingChoice = () => {
+    if (!pendingChoice) return;
+    const chosen = pendingChoice;
+    setPendingChoice(null);
+    onChoiceSelected(chosen.nextNodeId, stars);
+  };
+
+  const cancelPendingChoice = () => {
+    try {
+      window.speechSynthesis?.cancel();
+    } catch (e) {}
+    setPendingChoice(null);
   };
 
   // Handler to manually reveal/complete a line
@@ -603,11 +780,14 @@ export default function StoryCard({
 
   // Helper to simulate speech recognition levels
   const simulateReadScore = (percentage: number) => {
-    const wordsToPick = Math.ceil((percentage / 100) * uniqueTargetWords.length);
-    const shuffled = [...uniqueTargetWords].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, wordsToPick);
-    
-    setAccumulatedSpokenWords(new Set(selected));
+    const allIndices = indexedWords
+      .filter((item) => cleanWordForMatching(item.word).length > 0)
+      .map((item) => item.index);
+    const toPick = Math.ceil((percentage / 100) * allIndices.length);
+    const shuffled = [...allIndices].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, toPick);
+
+    setReadWordIndices(new Set(selected));
     if (percentage === 100) {
       setTranscript("Wow! I read all the words beautifully with the Penguinpower crew!");
     } else {
@@ -617,7 +797,7 @@ export default function StoryCard({
 
   // Restart practice on the current page
   const handleResetPractice = () => {
-    setAccumulatedSpokenWords(new Set());
+    setReadWordIndices(new Set());
     setClickedWords(new Set());
     setTranscript('');
     if (isRecording) {
@@ -650,7 +830,7 @@ export default function StoryCard({
               ))}
             </div>
             <div className="text-[10px] font-black text-slate-500 uppercase tracking-wider mt-0.5">
-              {matchPercentage}% Match ({readWords.length}/{totalTargetCount} words)
+              {matchPercentage}% Match ({readInstanceCount}/{totalWordInstances} words)
             </div>
           </div>
         </div>
@@ -658,7 +838,7 @@ export default function StoryCard({
         {/* Large Speak Button in the center */}
         <div className="flex-1 flex justify-center w-full md:w-auto relative">
           {/* Finger pointing to Start Reading if we haven't started yet! */}
-          {!isRecording && accumulatedSpokenWords.size === 0 && clickedWords.size === 0 && (
+          {!isRecording && readWordIndices.size === 0 && clickedWords.size === 0 && (
             <motion.div
               initial={{ y: -12, x: "-50%" }}
               animate={{ y: [0, -14, 0], x: "-50%" }}
@@ -777,7 +957,7 @@ export default function StoryCard({
                   {lineWords.map((item) => {
                     const globalIdx = item.index;
                     const clean = cleanWordForMatching(item.word);
-                    const isCorrect = accumulatedSpokenWords.has(clean);
+                    const isCorrect = readWordIndices.has(globalIdx);
                     const isClicked = clickedWords.has(clean);
 
                     let wordStyles = 'bg-white text-slate-950 border-black hover:bg-slate-50';
@@ -927,9 +1107,11 @@ export default function StoryCard({
                   {isUnlocked ? 'Choose Your Adventure!' : 'Paths are Locked!'}
                 </h3>
                 <p className="text-xs text-slate-600 font-bold mt-0.5">
-                  {isUnlocked 
-                    ? 'Click a choice button to slide into your next adventure page!' 
-                    : 'Speak into the mic or click words to reach 3 stars first!'}
+                  {isUnlocked
+                    ? 'Click a choice button to slide into your next adventure page!'
+                    : !allLinesRevealed
+                      ? 'Keep reading — the paths open once the whole page is revealed!'
+                      : 'Reach 3 stars by reading the words to unlock your paths!'}
                 </p>
               </div>
             </div>
@@ -947,9 +1129,22 @@ export default function StoryCard({
               </motion.div>
             ) : (
               <div className="bg-[#6C5CE7] border-2 border-black text-white px-3 py-1.5 rounded-xl text-xs font-black shadow-[2px_2px_0_0_#000]">
-                👑 Target: 70% Accuracy to Unlock
+                {!allLinesRevealed ? '📖 Read to the last line to unlock!' : '👑 Target: 70% Accuracy to Unlock'}
               </div>
             )}
+          </div>
+
+          {/* Hear-the-choices helper so pre-readers can listen to their options */}
+          <div className="mb-5">
+            <button
+              onClick={speakChoicesAloud}
+              disabled={isMuted}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#6C5CE7] hover:bg-[#5b4ec7] text-white font-black text-xs md:text-sm uppercase tracking-wide px-4 py-2.5 rounded-2xl border-2 border-black shadow-[3px_3px_0_0_#000] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              title="Hear the choices read out loud"
+            >
+              <Volume2 className="w-4 h-4 shrink-0" />
+              <span>Hear my choices</span>
+            </button>
           </div>
 
           {/* Display Choices */}
@@ -959,12 +1154,16 @@ export default function StoryCard({
                 <button
                   key={i}
                   id={`choice-${choice.nextNodeId}`}
-                  onClick={() => isUnlocked && onChoiceSelected(choice.nextNodeId, stars)}
+                  onClick={() => handleChoiceClick(choice.nextNodeId, choice.text, false)}
                   disabled={!isUnlocked}
                   className={`group text-left p-4 rounded-2xl border-4 border-black font-black text-sm md:text-base leading-snug shadow-[4px_4px_0_0_#000] transition-all flex items-center justify-between gap-3 ${
                     isUnlocked
                       ? 'bg-white text-slate-950 hover:bg-[#F9F8FF] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 cursor-pointer border-[#6C5CE7]'
                       : 'bg-[#F5F6FA] text-slate-400 opacity-50 cursor-not-allowed shadow-none border-dashed'
+                  } ${
+                    readingChoiceIndex === i
+                      ? 'ring-4 ring-[#F9D423] ring-offset-2 scale-[1.03] !bg-[#FFF7DA] shadow-[4px_4px_0_0_#F9D423]'
+                      : ''
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -995,7 +1194,7 @@ export default function StoryCard({
               /* Ending Button */
               <button
                 id="btn-view-ending"
-                onClick={() => isUnlocked && onChoiceSelected('', stars)}
+                onClick={() => handleChoiceClick('', 'the exciting ending', true)}
                 disabled={!isUnlocked}
                 className={`w-full text-center p-5 rounded-2xl border-4 border-black font-black text-lg shadow-[4px_4px_0_0_#000] transition-all flex items-center justify-center gap-3 ${
                   isUnlocked
@@ -1133,6 +1332,65 @@ export default function StoryCard({
         </div>
 
       </div>
+
+      {/* Path-chosen fanfare confirmation overlay */}
+      <AnimatePresence>
+        {pendingChoice && (
+          <motion.div
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="relative w-full max-w-lg bg-[#FFFDF5] border-4 border-black rounded-3xl shadow-[10px_10px_0_0_#000] p-8 text-center overflow-hidden"
+            >
+              {/* Floating fanfare emojis */}
+              {['🎉', '⭐', '✨', '🎊', '🐧'].map((emoji, idx) => (
+                <motion.span
+                  key={idx}
+                  className="absolute text-2xl md:text-3xl select-none pointer-events-none"
+                  style={{ left: `${8 + idx * 20}%`, top: idx % 2 === 0 ? '6%' : '11%' }}
+                  animate={{ y: [0, -10, 0], rotate: [0, idx % 2 === 0 ? 12 : -12, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.6 + idx * 0.15, ease: 'easeInOut' }}
+                >
+                  {emoji}
+                </motion.span>
+              ))}
+
+              <div className="text-6xl mb-3 mt-5">{pendingChoice.isEnding ? '🏁' : '🗺️'}</div>
+              <div className="text-xs font-black uppercase tracking-widest text-[#6C5CE7] mb-2">
+                {pendingChoice.isEnding ? 'The Big Finish!' : 'You picked your path!'}
+              </div>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight mb-2 px-2">
+                {pendingChoice.isEnding ? 'Ready to see how it ends?' : `“${pendingChoice.label}”`}
+              </h3>
+              <p className="text-slate-700 font-bold mb-7">Let's find out what happens next! 🐧</p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button
+                  onClick={confirmPendingChoice}
+                  className="inline-flex items-center justify-center gap-2 bg-[#FF7675] hover:bg-[#ff5d5a] text-white font-black text-base uppercase tracking-wide px-6 py-3.5 rounded-2xl border-4 border-black shadow-[4px_4px_0_0_#000] active:translate-y-0.5 active:shadow-[2px_2px_0_0_#000] transition-all cursor-pointer"
+                >
+                  <span>{pendingChoice.isEnding ? "I'm Ready!" : 'Let’s Go!'}</span>
+                  <ArrowRight className="w-5 h-5 shrink-0" />
+                </button>
+                <button
+                  onClick={cancelPendingChoice}
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-black text-sm uppercase tracking-wide px-5 py-3.5 rounded-2xl border-4 border-black shadow-[4px_4px_0_0_#000] active:translate-y-0.5 active:shadow-[2px_2px_0_0_#000] transition-all cursor-pointer"
+                >
+                  <ArrowLeft className="w-5 h-5 shrink-0" />
+                  <span>Go Back</span>
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
