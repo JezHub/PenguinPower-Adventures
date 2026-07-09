@@ -389,8 +389,11 @@ export default function StoryCard({
     }
   }
 
-  // Reveal 2 lines at a time. Number of visible lines starts at 2 and reveals the next row as they progress
-  const visibleLineCount = Math.min(linesOfWords.length, Math.max(2, completedSeqCount + 1));
+  // Keep one line revealed AHEAD of where the child is reading: start with 2
+  // lines, and each completed line reveals the next one early. That way the next
+  // line is already on screen before they finish the current one, so there's no
+  // jarring pause waiting for it to appear.
+  const visibleLineCount = Math.min(linesOfWords.length, Math.max(2, completedSeqCount + 2));
 
   // Word instances (with their global index) that are currently on revealed lines.
   // Recognition only ever credits words from this set.
