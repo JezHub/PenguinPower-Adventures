@@ -31,6 +31,291 @@ export interface Story {
 
 export const STORIES: Story[] = [
   {
+    id: "jelly_flood_heroes",
+    title: "Theo, William & Oliver and the Great Jelly Flood",
+    description: "A wobbly machine floods the Penguinpower clubhouse with strawberry jelly! Can Theo, William and Oliver switch it off with Kanga, Rhino and Penguin — before the whole place turns to jam?",
+    difficulty: "Easy",
+    coverEmoji: "🍮",
+    startNodeId: "start",
+    nodes: {
+      start: {
+        id: "start",
+        title: "Splashdown at Penguinpower!",
+        text: "Theo, William, and Oliver zoomed their bikes down to the Penguinpower clubhouse by the river in Oxfordshire. Kanga, the super-genius kangaroo who says silly things, had built a giant wobbling machine. 'Behold, the JELLY-O-TRON 3000!' Kanga cheered. 'It makes any flavour of jelly, including invisible jelly, which is my favourite because you can't see it.' Penguin, the brave leader, waddled past and bumped the big red button with his flipper. The machine began to shake, bubble, and hum. Rhino licked his lips. Uh oh! What should the three heroes do first?",
+        illustrationPrompt: "Three excited boys on bikes next to a giant humming jelly machine, with a proud kangaroo and a worried penguin in a clubhouse by a river.",
+        illustrationPreset: {
+          emoji: "🍓🤖🐧",
+          bgColor: "bg-rose-50",
+          borderColor: "border-rose-400",
+          textColor: "text-rose-900"
+        },
+        choices: [
+          { text: "Help Kanga switch the Jelly-o-Tron OFF!", nextNodeId: "jelly_lab" },
+          { text: "Run outside to warn everyone with Penguin!", nextNodeId: "scout_field" }
+        ]
+      },
+      jelly_lab: {
+        id: "jelly_lab",
+        title: "A Flood of Wibbly-Wobbly Jelly!",
+        text: "Theo, William, and Oliver grabbed the giant lever together and PULLED. But instead of stopping, the Jelly-o-Tron went WHOOSH! A huge wave of strawberry jelly burst out of the doors! Oliver slid down a giant jelly hill on his bottom, giggling, 'WHEEEE!' A big splat of jam landed right on William's face, and he licked his lips. 'Yummy!' he laughed. Rhino tried to eat his way to the off-switch but only got a wobbly jelly hat. The glowing off-switch was all the way across a lake of jiggly jelly.",
+        illustrationPrompt: "A boy sliding down a hill of red jelly, another with jam on his face, and a rhino wearing a jelly hat in a flooded clubhouse.",
+        illustrationPreset: {
+          emoji: "🌊🍓😂",
+          bgColor: "bg-pink-50",
+          borderColor: "border-pink-400",
+          textColor: "text-pink-900"
+        },
+        choices: [
+          { text: "Surf across on Waddle, the steel wrecking ball!", nextNodeId: "jelly_surf" },
+          { text: "Build a bridge out of Rhino's sandwiches!", nextNodeId: "marsh_bridge" }
+        ]
+      },
+      scout_field: {
+        id: "scout_field",
+        title: "Penguin's Big Warning",
+        text: "Outside, the air began to shimmer and sparkle like a giant soap bubble. Penguin's eyes went wide. 'Oh no. Oh nooo. Here we go,' he groaned. 'LISTEN UP, everyone! We are walking straight into a DISTORTION FIELD! Remember the rules: stay VERY still, do NOT move, and whatever you do, do NOT say a single wor—' But right then Rhino's tummy rumbled like thunder, Oliver let out a tiny nervous giggle, and William... William did a little parp. The whole world went wibbly-wobbly!",
+        illustrationPrompt: "A penguin holding up a flipper to warn three nervous boys as the air around them shimmers and sparkles like a bubble.",
+        illustrationPreset: {
+          emoji: "✨🐧🫧",
+          bgColor: "bg-indigo-50",
+          borderColor: "border-indigo-400",
+          textColor: "text-indigo-900"
+        },
+        choices: [
+          { text: "Freeze like statues and hold your breath!", nextNodeId: "distortion_zone" },
+          { text: "Hold Rhino's nose so he can't sneeze!", nextNodeId: "distortion_zone" }
+        ]
+      },
+      distortion_zone: {
+        id: "distortion_zone",
+        title: "Everything Goes BONKERS!",
+        text: "Inside the distortion field, nothing was normal! William could not stop doing the can-can, kicking his legs and shouting 'OOH LA LA!' Theo floated up and walked upside-down on the ceiling, blowing giant rainbow bubbles out of his ears. Oliver tried to say 'help me' but it came out backwards as 'EM PLEH!' Each of Kanga's toes grew a tiny face, and one named Trevor politely asked for a cup of tea. Penguin wore a saucepan as a hat and proposed marriage to a cheese sandwich. 'STAY CALM,' Penguin burbled, 'it always ends in three... two...' Then FOUR shimmering exit doors appeared!",
+        illustrationPrompt: "A wildly silly scene: a boy doing the can-can, a boy walking on the ceiling blowing bubbles, and a penguin wearing a saucepan hat, all inside a sparkly distortion field.",
+        illustrationPreset: {
+          emoji: "🌀🤸🫧",
+          bgColor: "bg-fuchsia-50",
+          borderColor: "border-fuchsia-400",
+          textColor: "text-fuchsia-900"
+        },
+        choices: [
+          { text: "Jump through the door shaped like a rocket!", nextNodeId: "jelly_surf" },
+          { text: "Dive through the wobbly marshmallow door!", nextNodeId: "sticky_trap" }
+        ]
+      },
+      jelly_surf: {
+        id: "jelly_surf",
+        title: "Waddle the Surfboard!",
+        text: "Waddle, their round penguin friend made of solid Penguinpower steel, tucked in his head and legs and turned into a shiny surfboard. Theo, William, and Oliver hopped on and surfed across the jelly lake! 'COWABUNGA!' yelled Oliver. They whooshed past floating marshmallows and one very confused duck. Theo leaned left, William leaned right, and Oliver reached out as far as he could... and SLAPPED the off-switch! The Jelly-o-Tron burped one last bubble and went quiet. The three heroes had saved the clubhouse!",
+        illustrationPrompt: "Three boys surfing across a lake of red jelly on a shiny metal penguin surfboard, reaching for a glowing switch.",
+        illustrationPreset: {
+          emoji: "🏄🐧🔴",
+          bgColor: "bg-cyan-50",
+          borderColor: "border-cyan-400",
+          textColor: "text-cyan-900"
+        },
+        choices: [
+          { text: "Celebrate with a giant jelly-and-ice-cream party!", nextNodeId: "victory_jelly" }
+        ]
+      },
+      marsh_bridge: {
+        id: "marsh_bridge",
+        title: "The Soggy Sandwich Bridge",
+        text: "Rhino, who loves sandwiches more than anything in the whole world, laid down slice after slice to build a bread bridge across the jelly. 'Do NOT eat the bridge,' Penguin warned firmly. Rhino nodded... and then ate the bridge. SPLOSH! Everyone tumbled into the wibbly jelly! They bobbed back up covered head to toe, looking exactly like three giant giggly gummy bears. Kanga laughed so hard his glasses fell off. 'Well,' said Kanga, 'at least we all match now!'",
+        illustrationPrompt: "A rhino eating a bridge made of sandwich slices while three boys splash into red jelly, coming up looking like gummy bears.",
+        illustrationPreset: {
+          emoji: "🥪🐻🍓",
+          bgColor: "bg-amber-50",
+          borderColor: "border-amber-400",
+          textColor: "text-amber-900"
+        },
+        choices: [
+          { text: "Wobble to the off-switch as a team of gummy heroes!", nextNodeId: "victory_jelly" },
+          { text: "Give up and have a cosy jelly nap!", nextNodeId: "soggy_defeat" }
+        ]
+      },
+      victory_jelly: {
+        id: "victory_jelly",
+        title: "Heroes of the Jelly Flood!",
+        text: "Theo, William, and Oliver switched off the Jelly-o-Tron just in time! Kanga invented giant sponges to clean up, and everyone scooped the leftover jelly into bowls with big wooden spoons. Mummy Penguin brought out cold ice cream and gave the three boys shiny gold medals. 'You are the bravest, cleverest readers in all of Oxfordshire!' she cheered. Rhino fell fast asleep in a warm puddle of strawberry jelly with a very happy smile. You saved the day! You are a reading superstar!",
+        illustrationPrompt: "Three proud boys wearing gold medals, eating ice cream with the animal crew, and a rhino sleeping in a puddle of jelly.",
+        illustrationPreset: {
+          emoji: "🏆🍨🥳",
+          bgColor: "bg-emerald-100",
+          borderColor: "border-emerald-500",
+          textColor: "text-emerald-950"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "victory"
+      },
+      sticky_trap: {
+        id: "sticky_trap",
+        title: "Stuck in the Marshmallow Door!",
+        text: "The boys dived through the marshmallow door and got STUCK — completely covered in gooey, sticky marshmallow! They could only wiggle their eyebrows. 'Don't worry,' mumbled Kanga, 'I will munch you free!' He nibbled and gobbled until POP, all three popped out... but now they were covered head to toe in sticky kangaroo slobber! 'EWWWW!' they laughed, and all three ran and jumped straight into the river with an enormous SPLASH to wash it all off. Silly, sticky, and soaking wet — what a giggle! Want to try a different path?",
+        illustrationPrompt: "Three boys covered in sticky marshmallow and kangaroo slobber, jumping into a river with a big splash while a kangaroo grins.",
+        illustrationPreset: {
+          emoji: "🍡😝💦",
+          bgColor: "bg-orange-50",
+          borderColor: "border-orange-400",
+          textColor: "text-orange-900"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "funny_trap"
+      },
+      soggy_defeat: {
+        id: "soggy_defeat",
+        title: "The Great Jelly Nap",
+        text: "The three heroes were far too giggly and far too wobbly to reach the switch, so they floated on their backs in the warm strawberry jelly and had a little rest instead. Rhino snored big pink bubbles. The Jelly-o-Tron kept whirring and filled the whole clubhouse right up to the roof! Mummy Penguin found them the next morning, floating and snoozing like happy jelly babies. 'Comfy, are we?' she giggled. You didn't stop the machine this time — but hop back in and give it another go!",
+        illustrationPrompt: "Three boys floating and napping on their backs in a clubhouse filled to the roof with red jelly, with a snoring rhino.",
+        illustrationPreset: {
+          emoji: "😴🍮🫧",
+          bgColor: "bg-rose-100",
+          borderColor: "border-rose-400",
+          textColor: "text-rose-950"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "defeat"
+      }
+    }
+  },
+  {
+    id: "marshmallow_blizzard",
+    title: "John, Liam & Theo and the Marshmallow Blizzard",
+    description: "A marshmallow blizzard has buried the hill in sticky white fluff! Join John, Liam and Theo, Snow Leopard and the crew on a super-silly, super-speedy rescue to switch off the wobbly cloud machine!",
+    difficulty: "Easy",
+    coverEmoji: "🍡",
+    startNodeId: "start",
+    nodes: {
+      start: {
+        id: "start",
+        title: "A Snowy Surprise!",
+        text: "John, Liam, and Theo dragged their sledges up the big hill on a frosty Oxfordshire morning. But this snow was WHITE and SQUISHY and smelled just like... marshmallows! 'It is a MARSHMALLOW BLIZZARD!' announced Kanga, the super-genius kangaroo. 'Scientifically, that means the sky is having a pyjama party.' Rhino was already munching the hill. Then Snow Leopard, the coolest cat on the mountain, zoomed up on ice-skates. 'Careful, friends — a marshmallow blizzard makes everything super sticky and super silly!' What should the three heroes do?",
+        illustrationPrompt: "Three boys with sledges on a hill of white marshmallow snow, a kangaroo explaining, a rhino eating snow, and a snow leopard on ice skates.",
+        illustrationPreset: {
+          emoji: "🍡❄️🐆",
+          bgColor: "bg-sky-50",
+          borderColor: "border-sky-400",
+          textColor: "text-sky-900"
+        },
+        choices: [
+          { text: "Build the world's fastest marshmallow sledge!", nextNodeId: "sledge_build" },
+          { text: "Follow Snow Leopard to the warm cocoa cave!", nextNodeId: "cocoa_cave" }
+        ]
+      },
+      sledge_build: {
+        id: "sledge_build",
+        title: "The Rocket Sledge!",
+        text: "John, Liam, and Theo packed squishy marshmallow snow into a super-speedy sledge. Kanga strapped a fizzy-lemonade rocket engine to the back 'for science.' 'Three, two, one, WHOOSH!' They blasted down the hill so fast their cheeks wobbled like jelly! Theo steered, Liam ducked under a low snowy branch, and John spotted something ahead. 'A giant marshmallow ramp!' he yelled. 'Do we jump it?!'",
+        illustrationPrompt: "Three boys riding a fast marshmallow sledge with a rocket on the back, zooming down a snowy hill toward a big ramp.",
+        illustrationPreset: {
+          emoji: "🛷🚀💨",
+          bgColor: "bg-blue-50",
+          borderColor: "border-blue-400",
+          textColor: "text-blue-900"
+        },
+        choices: [
+          { text: "JUMP the giant marshmallow ramp!", nextNodeId: "big_jump" },
+          { text: "Swerve into the snowy forest to be safe!", nextNodeId: "forest_swerve" }
+        ]
+      },
+      cocoa_cave: {
+        id: "cocoa_cave",
+        title: "Penguin's Big Warning",
+        text: "Inside the cosy cave, the air suddenly began to shimmer and sparkle like fizzy lemonade. Penguin froze mid-sip of his cocoa. 'Oh no. Not again. Here we go,' he sighed. 'LISTEN UP, team! DISTORTION FIELD! Everybody stay still, keep quiet, and do NOT — I repeat, do NOT — do anything sil—' But right then Rhino did an enormous, echoing BURP that smelled of sandwiches. Liam snorted with laughter. And John did a tiny wiggly dance. The whole cave turned completely INSIDE OUT!",
+        illustrationPrompt: "A penguin holding a cocoa mug and warning three boys in a glowing cave as the walls begin to shimmer and sparkle.",
+        illustrationPreset: {
+          emoji: "☕🐧✨",
+          bgColor: "bg-indigo-50",
+          borderColor: "border-indigo-400",
+          textColor: "text-indigo-900"
+        },
+        choices: [
+          { text: "Squeeze your eyes shut and count to three!", nextNodeId: "distortion_zone" },
+          { text: "Grab Snow Leopard's fluffy tail and hold on!", nextNodeId: "distortion_zone" }
+        ]
+      },
+      distortion_zone: {
+        id: "distortion_zone",
+        title: "Topsy-Turvy Tumble!",
+        text: "The distortion field made EVERYTHING go bananas! John's shoes turned into two grumpy fish who argued about football. Liam could only speak in 'MOO' and floated up like a balloon. Theo did the can-can across the ceiling while blowing bubbles that popped into tiny rainbows. Kanga grew a second nose that whistled cheerful tunes, and Rhino's tummy turned into a drum kit. Penguin, wearing a teapot for a hat, hollered, 'STAY CALM, it ends in three... two... one—' POP! Everyone tumbled out in a giggly heap. Two glowing exit tunnels appeared ahead.",
+        illustrationPrompt: "A silly distortion scene: a floating boy mooing, a boy doing the can-can on the ceiling blowing bubbles, shoes turned into fish, and a penguin in a teapot hat.",
+        illustrationPreset: {
+          emoji: "🌀🐟🫧",
+          bgColor: "bg-fuchsia-50",
+          borderColor: "border-fuchsia-400",
+          textColor: "text-fuchsia-900"
+        },
+        choices: [
+          { text: "Slide down the sparkly rainbow tunnel!", nextNodeId: "victory_snow" },
+          { text: "Dive into the squishy marshmallow tunnel!", nextNodeId: "marsh_stuck" }
+        ]
+      },
+      big_jump: {
+        id: "big_jump",
+        title: "Over the Marshmallow Moon!",
+        text: "The rocket sledge hit the ramp and FLEW! John, Liam, and Theo soared high over the whole valley, high-fiving a very surprised owl on the way past. Down below, they spotted exactly where the blizzard was coming from — a giant wobbly cloud machine that Waddle had switched on by accidentally sitting on it! 'There it is!' cheered Theo. They landed with a soft FLOMP in a pile of marshmallow and rolled straight up to the machine's big off-button.",
+        illustrationPrompt: "Three boys flying on a sledge over a snowy valley, high-fiving an owl, spotting a giant cloud machine with a round penguin on top.",
+        illustrationPreset: {
+          emoji: "🌙🦉🛷",
+          bgColor: "bg-violet-50",
+          borderColor: "border-violet-400",
+          textColor: "text-violet-900"
+        },
+        choices: [
+          { text: "Press the big OFF button together!", nextNodeId: "victory_snow" }
+        ]
+      },
+      forest_swerve: {
+        id: "forest_swerve",
+        title: "The Giant Sticky Snowball",
+        text: "They swerved into the forest, but the marshmallow snow stuck to the sledge and grew... and grew... and GREW! Soon John, Liam, and Theo were rolling inside a giant sticky snowball, bouncing off trees and laughing their socks off. 'This is the best worst idea EVER!' yelled Liam. The huge snowball finally rolled to a stop with a soft SPLAT right against Rhino's big tummy, and stuck there fast.",
+        illustrationPrompt: "Three boys laughing inside a giant rolling marshmallow snowball, bouncing through a snowy forest toward a rhino.",
+        illustrationPreset: {
+          emoji: "⚪🌲😆",
+          bgColor: "bg-teal-50",
+          borderColor: "border-teal-400",
+          textColor: "text-teal-900"
+        },
+        choices: [
+          { text: "Ask Rhino to munch you free!", nextNodeId: "marsh_stuck" },
+          { text: "Wiggle out and race to the cloud machine!", nextNodeId: "victory_snow" }
+        ]
+      },
+      victory_snow: {
+        id: "victory_snow",
+        title: "Heroes of the Blizzard!",
+        text: "John, Liam, and Theo switched off the wobbly cloud machine, and the marshmallow blizzard softened into a gentle sprinkle of sugar. Snow Leopard cheered, Kanga invented marshmallow ice-cream on the spot, and everyone toasted the leftovers over a cosy little fire. Mummy Penguin gave the three heroes shiny gold medals. 'The bravest, cleverest readers in all of Oxfordshire!' she beamed. Rhino, of course, ate the whole machine. You saved the day! You are a reading superstar!",
+        illustrationPrompt: "Three proud boys with gold medals toasting marshmallows by a fire with the animal crew as gentle sugar snow falls.",
+        illustrationPreset: {
+          emoji: "🏆🔥🍡",
+          bgColor: "bg-emerald-100",
+          borderColor: "border-emerald-500",
+          textColor: "text-emerald-950"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "victory"
+      },
+      marsh_stuck: {
+        id: "marsh_stuck",
+        title: "Sticky Marshmallow Muddle!",
+        text: "John, Liam, and Theo got completely stuck in the squishy marshmallow — arms, legs, and even their noses! They could only blink. 'Hold still,' said Kanga, 'I will nibble you loose!' He munched and gobbled until POP, all three were free... but now they were covered head to toe in sticky kangaroo slobber! 'YUCK!' they giggled, and all three ran and jumped straight into the icy stream with a giant SPLASH to wash it all off. Sticky, silly, and soaking wet — what an adventure! Want to try a different path?",
+        illustrationPrompt: "Three boys covered in sticky marshmallow and kangaroo slobber leaping into an icy stream while a kangaroo licks its lips.",
+        illustrationPreset: {
+          emoji: "🍡😝💦",
+          bgColor: "bg-orange-50",
+          borderColor: "border-orange-400",
+          textColor: "text-orange-900"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "funny_trap"
+      }
+    }
+  },
+  {
     id: "sandwich_mystery",
     title: "The Mystery of the Missing Super-Sandwich",
     description: "Rhino's giant three-decker peanut butter, marshmallow, and steel-cheese sandwich has disappeared! Can the crew solve the mystery before Rhino's tummy rumbles the roof off?",
