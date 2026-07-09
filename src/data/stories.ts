@@ -2011,51 +2011,6 @@ export const STORIES: Story[] = [
         isEnding: true,
         endingType: "victory"
       },
-      node_26: {
-        id: "node_26",
-        title: "Marshmallows Rule the Sofa!",
-        text: "Rhino’s backpack bounced and two tiny marshmallow people popped out with a flag that said: THIS SOFA IS OURS NOW! Rhino smiled: 'We made friends.' One marshmallow person threw a tiny spear at a grape and cheered as it rolled off! Mummy Penguin sighed the longest sigh in history. Kanga wrote: NEXT INVENTION: MARSHMALLOW TRANSLATOR. Penguin shook his head: 'This is why we can’t have normal adventures.' You found the sneaky marshmallow ending! Try again to find other wacky paths in space-time!",
-        illustrationPrompt: "Two tiny marshmallows sitting on top of a green sofa cushion holding a funny flag, with a rhino smiling sheepishly next to them.",
-        illustrationPreset: {
-          emoji: "🛋️⛳🍡",
-          bgColor: "bg-orange-100",
-          borderColor: "border-orange-500",
-          textColor: "text-orange-950"
-        },
-        choices: [],
-        isEnding: true,
-        endingType: "funny_trap"
-      },
-      node_27: {
-        id: "node_27",
-        title: "King Rhino of Pancake Land!",
-        text: "Rhino stood on a blueberry hill wearing Pancake Kanga as a cape. 'I declare myself King Rhino the First!' he announced and the pancakes cheered! But the Pancake Standardiser repaired itself and rolled toward them! Rhino grabbed Kanga: 'Emergency frisbee!' and threw Kanga, who knocked the machine into a sticky syrup lake. Everyone was stuck in syrup for twelve minutes! When they escaped, a glowing message said: NICE TRY. BACK TO THE MAIN ADVENTURE.",
-        illustrationPrompt: "A funny rhino wearing a flat kangaroo as a cape, standing on a golden pancake hill, laughing.",
-        illustrationPreset: {
-          emoji: "👑🥞🦏",
-          bgColor: "bg-yellow-100",
-          borderColor: "border-yellow-500",
-          textColor: "text-yellow-950"
-        },
-        choices: [
-          { text: "Go back to the syrup slide!", nextNodeId: "node_13" }
-        ]
-      },
-      node_28: {
-        id: "node_28",
-        title: "The Great Crumb Nightmare!",
-        text: "Suddenly, everything went white! Kanga, Rhino, Penguin, Waddle, and Mummy Penguin appeared in a perfectly clean room with one tiny crumb. A message appeared: REMOVE THE CRUMB. Penguin swept it, but another appeared! Rhino took that one, but two more appeared! 'This is a chore trap!' Kanga cried. Waddle sneezed and ten thousand crumbs appeared! Everyone screamed! A portal opened: PROMISE TO CONTINUE THE ADVENTURE AND YOU MAY LEAVE. They promised!",
-        illustrationPrompt: "Animal friends panicking in a glowing white room covered in tiny brown crumbs as a metallic penguin sneezes.",
-        illustrationPreset: {
-          emoji: "😱🍪🧺",
-          bgColor: "bg-neutral-50",
-          borderColor: "border-neutral-400",
-          textColor: "text-neutral-900"
-        },
-        choices: [
-          { text: "Promise to continue and escape!", nextNodeId: "node_3" }
-        ]
-      },
       node_29: {
         id: "node_29",
         title: "Lost in the Distortion Field!",
