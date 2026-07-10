@@ -41,7 +41,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "Splashdown at Penguinpower!",
-        text: "Theo, William, and Oliver zoomed their bikes down to the Penguinpower clubhouse by the river in Oxfordshire. Kanga, the super-genius kangaroo who says silly things, had built a giant wobbling machine. 'Behold, the JELLY-O-TRON 3000!' Kanga cheered. 'It makes any flavour of jelly, including invisible jelly, which is my favourite because you can't see it.' Penguin, the brave leader, waddled past and bumped the big red button with his flipper. The machine began to shake, bubble, and hum. Rhino licked his lips. Uh oh! What should the three heroes do first?",
+        text: "Theo, William, and Oliver zoomed to the Penguinpower clubhouse, where silly super-genius Kanga had built a giant machine. 'Behold, the JELLY-O-TRON 3000!' Kanga cheered. Penguin, the brave leader, bumped the big red button, and it began to shake and hum while Rhino licked his lips. What should the heroes do first?",
         illustrationPrompt: "Three excited boys on bikes next to a giant humming jelly machine, with a proud kangaroo and a worried penguin in a clubhouse by a river.",
         illustrationPreset: {
           emoji: "🍓🤖🐧",
@@ -57,7 +57,7 @@ export const STORIES: Story[] = [
       jelly_lab: {
         id: "jelly_lab",
         title: "A Flood of Wibbly-Wobbly Jelly!",
-        text: "Theo, William, and Oliver grabbed the giant lever together and PULLED. But instead of stopping, the Jelly-o-Tron went WHOOSH! A huge wave of strawberry jelly burst out of the doors! Oliver slid down a giant jelly hill on his bottom, giggling, 'WHEEEE!' A big splat of jam landed right on William's face, and he licked his lips. 'Yummy!' he laughed. Rhino tried to eat his way to the off-switch but only got a wobbly jelly hat. The glowing off-switch was all the way across a lake of jiggly jelly.",
+        text: "Theo, William, and Oliver grabbed the lever and PULLED. But the Jelly-o-Tron went WHOOSH, and a wave of strawberry jelly burst out! Oliver slid down a jelly hill while William licked jam off his face. Rhino munched at it, but the glowing off-switch was across the jiggly jelly lake.",
         illustrationPrompt: "A boy sliding down a hill of red jelly, another with jam on his face, and a rhino wearing a jelly hat in a flooded clubhouse.",
         illustrationPreset: {
           emoji: "🌊🍓😂",
@@ -73,7 +73,7 @@ export const STORIES: Story[] = [
       scout_field: {
         id: "scout_field",
         title: "Penguin's Big Warning",
-        text: "Outside, the air began to shimmer and sparkle like a giant soap bubble. Penguin's eyes went wide. 'Oh no. Oh nooo. Here we go,' he groaned. 'LISTEN UP, everyone! We are walking straight into a DISTORTION FIELD! Remember the rules: stay VERY still, do NOT move, and whatever you do, do NOT say a single wor—' But right then Rhino's tummy rumbled like thunder, Oliver let out a tiny nervous giggle, and William... William did a little parp. The whole world went wibbly-wobbly!",
+        text: "Outside, the air began to shimmer, and Penguin's eyes went wide. 'LISTEN UP! We are walking into a DISTORTION FIELD — stay VERY still and do NOT make a sou—' But right then Rhino's tummy rumbled, Oliver giggled, and William did a little parp. The whole world went wibbly-wobbly!",
         illustrationPrompt: "A penguin holding up a flipper to warn three nervous boys as the air around them shimmers and sparkles like a bubble.",
         illustrationPreset: {
           emoji: "✨🐧🫧",
@@ -89,7 +89,7 @@ export const STORIES: Story[] = [
       distortion_zone: {
         id: "distortion_zone",
         title: "Everything Goes BONKERS!",
-        text: "Inside the distortion field, nothing was normal! William could not stop doing the can-can, kicking his legs and shouting 'OOH LA LA!' Theo floated up and walked upside-down on the ceiling, blowing giant rainbow bubbles out of his ears. Oliver tried to say 'help me' but it came out backwards as 'EM PLEH!' Each of Kanga's toes grew a tiny face, and one named Trevor politely asked for a cup of tea. Penguin wore a saucepan as a hat and proposed marriage to a cheese sandwich. 'STAY CALM,' Penguin burbled, 'it always ends in three... two...' Then FOUR shimmering exit doors appeared!",
+        text: "Inside the distortion field, nothing was normal! William did the can-can shouting 'OOH LA LA!' while Theo walked upside-down and Oliver's 'help me' came out backwards as 'EM PLEH!' Kanga's toes grew tiny faces, and Penguin proposed marriage to a cheese sandwich. 'STAY CALM,' Penguin burbled, 'it ends in three... two...' — then FOUR exit doors appeared!",
         illustrationPrompt: "A wildly silly scene: a boy doing the can-can, a boy walking on the ceiling blowing bubbles, and a penguin wearing a saucepan hat, all inside a sparkly distortion field.",
         illustrationPreset: {
           emoji: "🌀🤸🫧",
@@ -105,7 +105,7 @@ export const STORIES: Story[] = [
       jelly_surf: {
         id: "jelly_surf",
         title: "Waddle the Surfboard!",
-        text: "Waddle, their round penguin friend made of solid Penguinpower steel, tucked in his head and legs and turned into a shiny surfboard. Theo, William, and Oliver hopped on and surfed across the jelly lake! 'COWABUNGA!' yelled Oliver. They whooshed past floating marshmallows and one very confused duck. Theo leaned left, William leaned right, and Oliver reached out as far as he could... and SLAPPED the off-switch! The Jelly-o-Tron burped one last bubble and went quiet. The three heroes had saved the clubhouse!",
+        text: "Waddle, their friend made of solid Penguinpower steel, tucked in his head and legs and became a surfboard. Theo, William, and Oliver surfed across the jelly lake. 'COWABUNGA!' yelled Oliver, and he SLAPPED the off-switch! The Jelly-o-Tron went quiet, and the heroes had saved the clubhouse!",
         illustrationPrompt: "Three boys surfing across a lake of red jelly on a shiny metal penguin surfboard, reaching for a glowing switch.",
         illustrationPreset: {
           emoji: "🏄🐧🔴",
@@ -120,7 +120,7 @@ export const STORIES: Story[] = [
       marsh_bridge: {
         id: "marsh_bridge",
         title: "The Soggy Sandwich Bridge",
-        text: "Rhino, who loves sandwiches more than anything in the whole world, laid down slice after slice to build a bread bridge across the jelly. 'Do NOT eat the bridge,' Penguin warned firmly. Rhino nodded... and then ate the bridge. SPLOSH! Everyone tumbled into the wibbly jelly! They bobbed back up covered head to toe, looking exactly like three giant giggly gummy bears. Kanga laughed so hard his glasses fell off. 'Well,' said Kanga, 'at least we all match now!'",
+        text: "Rhino, who loves sandwiches, laid slices down to build a bridge over the jelly. 'Do NOT eat the bridge,' Penguin warned. Rhino nodded... then ate it, and SPLOSH — everyone bobbed up like three giggly gummy bears! 'At least we all match now!' laughed Kanga.",
         illustrationPrompt: "A rhino eating a bridge made of sandwich slices while three boys splash into red jelly, coming up looking like gummy bears.",
         illustrationPreset: {
           emoji: "🥪🐻🍓",
@@ -136,7 +136,7 @@ export const STORIES: Story[] = [
       victory_jelly: {
         id: "victory_jelly",
         title: "Heroes of the Jelly Flood!",
-        text: "Theo, William, and Oliver switched off the Jelly-o-Tron just in time! Kanga invented giant sponges to clean up, and everyone scooped the leftover jelly into bowls with big wooden spoons. Mummy Penguin brought out cold ice cream and gave the three boys shiny gold medals. 'You are the bravest, cleverest readers in all of Oxfordshire!' she cheered. Rhino fell fast asleep in a warm puddle of strawberry jelly with a very happy smile. You saved the day! You are a reading superstar!",
+        text: "Theo, William, and Oliver switched off the Jelly-o-Tron! Kanga made sponges to scoop up the jelly, and Rhino fell asleep in a warm jelly puddle. Mummy Penguin gave the boys shiny gold medals and cheered, 'You are the bravest readers in Oxfordshire!' You are a reading superstar!",
         illustrationPrompt: "Three proud boys wearing gold medals, eating ice cream with the animal crew, and a rhino sleeping in a puddle of jelly.",
         illustrationPreset: {
           emoji: "🏆🍨🥳",
@@ -151,7 +151,7 @@ export const STORIES: Story[] = [
       sticky_trap: {
         id: "sticky_trap",
         title: "Stuck in the Marshmallow Door!",
-        text: "The boys dived through the marshmallow door and got STUCK — completely covered in gooey, sticky marshmallow! They could only wiggle their eyebrows. 'Don't worry,' mumbled Kanga, 'I will munch you free!' He nibbled and gobbled until POP, all three popped out... but now they were covered head to toe in sticky kangaroo slobber! 'EWWWW!' they laughed, and all three ran and jumped straight into the river with an enormous SPLASH to wash it all off. Silly, sticky, and soaking wet — what a giggle! Want to try a different path?",
+        text: "The boys dived through the marshmallow door and got STUCK! 'Don't worry, I will munch you free!' mumbled Kanga, nibbling until POP. Now they were covered in sticky kangaroo slobber, so they jumped into the river with a SPLASH. 'EWWWW!' they laughed. Want to try a different path?",
         illustrationPrompt: "Three boys covered in sticky marshmallow and kangaroo slobber, jumping into a river with a big splash while a kangaroo grins.",
         illustrationPreset: {
           emoji: "🍡😝💦",
@@ -166,7 +166,7 @@ export const STORIES: Story[] = [
       soggy_defeat: {
         id: "soggy_defeat",
         title: "The Great Jelly Nap",
-        text: "The three heroes were far too giggly and far too wobbly to reach the switch, so they floated on their backs in the warm strawberry jelly and had a little rest instead. Rhino snored big pink bubbles. The Jelly-o-Tron kept whirring and filled the whole clubhouse right up to the roof! Mummy Penguin found them the next morning, floating and snoozing like happy jelly babies. 'Comfy, are we?' she giggled. You didn't stop the machine this time — but hop back in and give it another go!",
+        text: "The heroes were too giggly to reach the switch, so they floated for a rest. Rhino snored pink bubbles while the Jelly-o-Tron filled the clubhouse to the roof! Mummy Penguin found them snoozing like jelly babies. You didn't stop the machine — but hop back in and give it another go!",
         illustrationPrompt: "Three boys floating and napping on their backs in a clubhouse filled to the roof with red jelly, with a snoring rhino.",
         illustrationPreset: {
           emoji: "😴🍮🫧",
@@ -191,7 +191,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "A Snowy Surprise!",
-        text: "John, Liam, and Theo dragged their sledges up the big hill on a frosty Oxfordshire morning. But this snow was WHITE and SQUISHY and smelled just like... marshmallows! 'It is a MARSHMALLOW BLIZZARD!' announced Kanga, the super-genius kangaroo. 'Scientifically, that means the sky is having a pyjama party.' Rhino was already munching the hill. Then Snow Leopard, the coolest cat on the mountain, zoomed up on ice-skates. 'Careful, friends — a marshmallow blizzard makes everything super sticky and super silly!' What should the three heroes do?",
+        text: "John, Liam, and Theo hauled their sledges up the frosty hill. But the snow was white, squishy, and smelled like marshmallows! 'It is a MARSHMALLOW BLIZZARD!' cheered Kanga, the super-genius kangaroo. Rhino munched happily as Snow Leopard skated up. 'Careful, friends — everything is super sticky and super silly!' What should the heroes do?",
         illustrationPrompt: "Three boys with sledges on a hill of white marshmallow snow, a kangaroo explaining, a rhino eating snow, and a snow leopard on ice skates.",
         illustrationPreset: {
           emoji: "🍡❄️🐆",
@@ -207,7 +207,7 @@ export const STORIES: Story[] = [
       sledge_build: {
         id: "sledge_build",
         title: "The Rocket Sledge!",
-        text: "John, Liam, and Theo packed squishy marshmallow snow into a super-speedy sledge. Kanga strapped a fizzy-lemonade rocket engine to the back 'for science.' 'Three, two, one, WHOOSH!' They blasted down the hill so fast their cheeks wobbled like jelly! Theo steered, Liam ducked under a low snowy branch, and John spotted something ahead. 'A giant marshmallow ramp!' he yelled. 'Do we jump it?!'",
+        text: "John, Liam, and Theo packed a super-speedy marshmallow sledge. Kanga strapped on a fizzy-lemonade rocket 'for science.' 'Three, two, one, WHOOSH!' They zoomed down so fast their cheeks wobbled like jelly! 'A giant marshmallow ramp!' yelled John. 'Do we jump it?!'",
         illustrationPrompt: "Three boys riding a fast marshmallow sledge with a rocket on the back, zooming down a snowy hill toward a big ramp.",
         illustrationPreset: {
           emoji: "🛷🚀💨",
@@ -223,7 +223,7 @@ export const STORIES: Story[] = [
       cocoa_cave: {
         id: "cocoa_cave",
         title: "Penguin's Big Warning",
-        text: "Inside the cosy cave, the air suddenly began to shimmer and sparkle like fizzy lemonade. Penguin froze mid-sip of his cocoa. 'Oh no. Not again. Here we go,' he sighed. 'LISTEN UP, team! DISTORTION FIELD! Everybody stay still, keep quiet, and do NOT — I repeat, do NOT — do anything sil—' But right then Rhino did an enormous, echoing BURP that smelled of sandwiches. Liam snorted with laughter. And John did a tiny wiggly dance. The whole cave turned completely INSIDE OUT!",
+        text: "In the cosy cave, the air shimmered and sparkled. Penguin froze mid-sip of his cocoa. 'Oh no. DISTORTION FIELD! Do NOT do anything sil—' But Rhino did a giant sandwich BURP, Liam snorted, and John wiggled a dance. The whole cave turned INSIDE OUT!",
         illustrationPrompt: "A penguin holding a cocoa mug and warning three boys in a glowing cave as the walls begin to shimmer and sparkle.",
         illustrationPreset: {
           emoji: "☕🐧✨",
@@ -239,7 +239,7 @@ export const STORIES: Story[] = [
       distortion_zone: {
         id: "distortion_zone",
         title: "Topsy-Turvy Tumble!",
-        text: "The distortion field made EVERYTHING go bananas! John's shoes turned into two grumpy fish who argued about football. Liam could only speak in 'MOO' and floated up like a balloon. Theo did the can-can across the ceiling while blowing bubbles that popped into tiny rainbows. Kanga grew a second nose that whistled cheerful tunes, and Rhino's tummy turned into a drum kit. Penguin, wearing a teapot for a hat, hollered, 'STAY CALM, it ends in three... two... one—' POP! Everyone tumbled out in a giggly heap. Two glowing exit tunnels appeared ahead.",
+        text: "The distortion field made EVERYTHING go bananas! John's shoes became two grumpy fish, and Liam floated up saying 'MOO.' Theo can-canned on the ceiling, Kanga grew a second nose, and Rhino's tummy became a drum kit. Penguin, in a teapot hat, yelled, 'STAY CALM — POP!' Everyone tumbled out giggling as two glowing tunnels appeared.",
         illustrationPrompt: "A silly distortion scene: a floating boy mooing, a boy doing the can-can on the ceiling blowing bubbles, shoes turned into fish, and a penguin in a teapot hat.",
         illustrationPreset: {
           emoji: "🌀🐟🫧",
@@ -255,7 +255,7 @@ export const STORIES: Story[] = [
       big_jump: {
         id: "big_jump",
         title: "Over the Marshmallow Moon!",
-        text: "The rocket sledge hit the ramp and FLEW! John, Liam, and Theo soared high over the whole valley, high-fiving a very surprised owl on the way past. Down below, they spotted exactly where the blizzard was coming from — a giant wobbly cloud machine that Waddle had switched on by accidentally sitting on it! 'There it is!' cheered Theo. They landed with a soft FLOMP in a pile of marshmallow and rolled straight up to the machine's big off-button.",
+        text: "The sledge hit the ramp and FLEW! John, Liam, and Theo soared high, high-fiving a surprised owl. Below they spotted the blizzard's cause — a wobbly cloud machine Waddle had switched on by sitting on it! 'There it is!' cheered Theo. They landed FLOMP by the off-button.",
         illustrationPrompt: "Three boys flying on a sledge over a snowy valley, high-fiving an owl, spotting a giant cloud machine with a round penguin on top.",
         illustrationPreset: {
           emoji: "🌙🦉🛷",
@@ -270,7 +270,7 @@ export const STORIES: Story[] = [
       forest_swerve: {
         id: "forest_swerve",
         title: "The Giant Sticky Snowball",
-        text: "They swerved into the forest, but the marshmallow snow stuck to the sledge and grew... and grew... and GREW! Soon John, Liam, and Theo were rolling inside a giant sticky snowball, bouncing off trees and laughing their socks off. 'This is the best worst idea EVER!' yelled Liam. The huge snowball finally rolled to a stop with a soft SPLAT right against Rhino's big tummy, and stuck there fast.",
+        text: "They swerved into the forest, but the marshmallow snow grew and GREW! Soon John, Liam, and Theo rolled inside a giant sticky snowball, bouncing and giggling. 'Best worst idea EVER!' yelled Liam. It stopped SPLAT against Rhino's tummy and stuck fast.",
         illustrationPrompt: "Three boys laughing inside a giant rolling marshmallow snowball, bouncing through a snowy forest toward a rhino.",
         illustrationPreset: {
           emoji: "⚪🌲😆",
@@ -286,7 +286,7 @@ export const STORIES: Story[] = [
       victory_snow: {
         id: "victory_snow",
         title: "Heroes of the Blizzard!",
-        text: "John, Liam, and Theo switched off the wobbly cloud machine, and the marshmallow blizzard softened into a gentle sprinkle of sugar. Snow Leopard cheered, Kanga invented marshmallow ice-cream on the spot, and everyone toasted the leftovers over a cosy little fire. Mummy Penguin gave the three heroes shiny gold medals. 'The bravest, cleverest readers in all of Oxfordshire!' she beamed. Rhino, of course, ate the whole machine. You saved the day! You are a reading superstar!",
+        text: "John, Liam, and Theo switched off the cloud machine, and the blizzard softened into sugar. Snow Leopard cheered and Kanga invented marshmallow ice-cream! Mummy Penguin gave the heroes shiny gold medals. 'The bravest readers in Oxfordshire!' she beamed. Rhino ate the whole machine. You are a reading superstar!",
         illustrationPrompt: "Three proud boys with gold medals toasting marshmallows by a fire with the animal crew as gentle sugar snow falls.",
         illustrationPreset: {
           emoji: "🏆🔥🍡",
@@ -301,13 +301,209 @@ export const STORIES: Story[] = [
       marsh_stuck: {
         id: "marsh_stuck",
         title: "Sticky Marshmallow Muddle!",
-        text: "John, Liam, and Theo got completely stuck in the squishy marshmallow — arms, legs, and even their noses! They could only blink. 'Hold still,' said Kanga, 'I will nibble you loose!' He munched and gobbled until POP, all three were free... but now they were covered head to toe in sticky kangaroo slobber! 'YUCK!' they giggled, and all three ran and jumped straight into the icy stream with a giant SPLASH to wash it all off. Sticky, silly, and soaking wet — what an adventure! Want to try a different path?",
+        text: "John, Liam, and Theo got stuck in the squishy marshmallow — arms, legs, and noses! 'Hold still, I will nibble you loose!' said Kanga. He munched until POP, they were free... but covered in sticky kangaroo slobber! 'YUCK!' they giggled, then jumped into the icy stream with a giant SPLASH. Want to try a different path?",
         illustrationPrompt: "Three boys covered in sticky marshmallow and kangaroo slobber leaping into an icy stream while a kangaroo licks its lips.",
         illustrationPreset: {
           emoji: "🍡😝💦",
           bgColor: "bg-orange-50",
           borderColor: "border-orange-400",
           textColor: "text-orange-900"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "funny_trap"
+      }
+    }
+  },
+  {
+    id: "pikachu_mystery",
+    title: "Theo, William & Oliver and the Missing Pikachu Card",
+    description: "Kanga's shiny illustrated Pikachu card has vanished overnight! Help Theo, William and Oliver — with Kanga, Rhino and Penguin — solve the mystery, find the card, and unlock a secret magic-word prize!",
+    difficulty: "Easy",
+    coverEmoji: "⚡",
+    startNodeId: "start",
+    nodes: {
+      start: {
+        id: "start",
+        title: "The Missing Card!",
+        text: "Kanga zoomed in, waving his arms. 'DISASTER! My shiny illustrated Pikachu card has VANISHED! It was here last night, and now it's GONE!' Theo, William, and Oliver popped on their detective hats. 'Let's crack this case!' squawked Penguin. Where should the three heroes look first?",
+        illustrationPrompt: "A panicked kangaroo waving his arms in a clubhouse while three boys in detective hats and a penguin look determined.",
+        illustrationPreset: {
+          emoji: "⚡🔎🐧",
+          bgColor: "bg-yellow-50",
+          borderColor: "border-yellow-400",
+          textColor: "text-yellow-900"
+        },
+        choices: [
+          { text: "Search Kanga's messy invention shed!", nextNodeId: "shed_search" },
+          { text: "Ask Rhino what he ate last night!", nextNodeId: "rhino_ask" }
+        ]
+      },
+      shed_search: {
+        id: "shed_search",
+        title: "The Invention Shed",
+        text: "The heroes tiptoed into Kanga's messy shed. Gadgets bleeped, and a trail of tiny yellow sparkles led two different ways. In the corner, a little robot vacuum beeped and wobbled, looking VERY guilty.",
+        illustrationPrompt: "A cluttered inventor's shed with beeping gadgets, a sparkly trail on the floor, and a guilty-looking little robot vacuum.",
+        illustrationPreset: {
+          emoji: "🛠️✨🤖",
+          bgColor: "bg-lime-50",
+          borderColor: "border-lime-400",
+          textColor: "text-lime-900"
+        },
+        choices: [
+          { text: "Peek inside the sneaky robot vacuum!", nextNodeId: "vacuum_open" },
+          { text: "Follow the sparkly trail!", nextNodeId: "sparkle_trail" }
+        ]
+      },
+      rhino_ask: {
+        id: "rhino_ask",
+        title: "Rhino's Big Burp",
+        text: "Rhino scratched his tummy. 'I ate eleven sandwiches last night... and maybe something a bit sparkly?' He BURPED, and a bubblegum wrapper floated out — but no card. He did remember seeing it shining down by the river. But the sky was turning a very funny colour.",
+        illustrationPrompt: "A big rhino burping out a gum wrapper while three boys watch, with a strange shimmering colour in the sky behind them.",
+        illustrationPreset: {
+          emoji: "🦏💨🫧",
+          bgColor: "bg-orange-50",
+          borderColor: "border-orange-400",
+          textColor: "text-orange-900"
+        },
+        choices: [
+          { text: "Race down to the river!", nextNodeId: "river_hunt" },
+          { text: "Wait — what's that shimmer?", nextNodeId: "distortion_warning" }
+        ]
+      },
+      sparkle_trail: {
+        id: "sparkle_trail",
+        title: "The Sparkly Trail",
+        text: "The trail of sparkles led out the window and up a tall oak tree. At the very top sat a cheeky magpie's nest, glittering with stolen treasure. Something bright yellow was poking out of it!",
+        illustrationPrompt: "A trail of sparkles leading up a tall oak tree to a magpie nest full of shiny objects with something yellow poking out.",
+        illustrationPreset: {
+          emoji: "✨🌳🐦",
+          bgColor: "bg-emerald-50",
+          borderColor: "border-emerald-400",
+          textColor: "text-emerald-900"
+        },
+        choices: [
+          { text: "Climb up to the magpie's shiny nest!", nextNodeId: "magpie_nest" }
+        ]
+      },
+      vacuum_open: {
+        id: "vacuum_open",
+        title: "The Sneaky Robot Vacuum",
+        text: "The robot vacuum rattled and wobbled like it was hiding a secret. Was the card stuck deep inside its dusty tummy? Or had it zoomed off somewhere even shinier?",
+        illustrationPrompt: "A wobbling round robot vacuum with three curious boys leaning in close to inspect it.",
+        illustrationPreset: {
+          emoji: "🤖💨🔦",
+          bgColor: "bg-slate-50",
+          borderColor: "border-slate-400",
+          textColor: "text-slate-900"
+        },
+        choices: [
+          { text: "Tip the vacuum out and search the dust!", nextNodeId: "gum_trap" },
+          { text: "Chase what it spat out the window!", nextNodeId: "magpie_nest" }
+        ]
+      },
+      distortion_warning: {
+        id: "distortion_warning",
+        title: "Penguin's Big Warning",
+        text: "The air began to shimmer like fizzy lemonade. 'Oh no. Here we go,' groaned Penguin. 'DISTORTION FIELD! Everyone FREEZE, stay quiet, and do NOT say a wor—' But Rhino burped, William giggled, and Oliver did a tiny wiggle. The whole world went wibbly-wobbly!",
+        illustrationPrompt: "A penguin holding up a flipper to warn three boys as the air around them shimmers and sparkles.",
+        illustrationPreset: {
+          emoji: "🌀🐧✨",
+          bgColor: "bg-indigo-50",
+          borderColor: "border-indigo-400",
+          textColor: "text-indigo-900"
+        },
+        choices: [
+          { text: "Try SO hard to stay still!", nextNodeId: "distortion_zone" },
+          { text: "Hold hands and stick together!", nextNodeId: "distortion_zone" }
+        ]
+      },
+      distortion_zone: {
+        id: "distortion_zone",
+        title: "Everything Goes Wobbly!",
+        text: "Inside the field, nothing was normal! William did the can-can on a lily pad, Theo floated up blowing rainbow bubbles, and Oliver's words came out backwards as 'PLEH!' Kanga's ears swapped places and Rhino honked like a goose. Then POP — the field spat them all out right beside a sparkly magpie's nest!",
+        illustrationPrompt: "A silly scene of a boy doing the can-can, a boy floating and blowing bubbles, and a kangaroo with swapped ears inside a sparkly distortion field.",
+        illustrationPreset: {
+          emoji: "🌀🤸🫧",
+          bgColor: "bg-fuchsia-50",
+          borderColor: "border-fuchsia-400",
+          textColor: "text-fuchsia-900"
+        },
+        choices: [
+          { text: "Peek inside the sparkly nest!", nextNodeId: "magpie_nest" }
+        ]
+      },
+      river_hunt: {
+        id: "river_hunt",
+        title: "Down by the River",
+        text: "Down by the river, a cheeky magpie flapped past with something shiny in its beak. It swooped up to a nest packed with sparkly treasure. 'That thief!' gasped Theo. 'It took your card, Kanga!'",
+        illustrationPrompt: "A magpie flying over a river with a shiny card in its beak toward a treasure-filled nest, with three boys pointing below.",
+        illustrationPreset: {
+          emoji: "🏞️🐦⚡",
+          bgColor: "bg-cyan-50",
+          borderColor: "border-cyan-400",
+          textColor: "text-cyan-900"
+        },
+        choices: [
+          { text: "Follow the magpie up to its nest!", nextNodeId: "magpie_nest" }
+        ]
+      },
+      magpie_nest: {
+        id: "magpie_nest",
+        title: "The Magpie's Treasure",
+        text: "Inside the nest sat buttons, bottle-tops, a bent spoon, and — YES! — Kanga's shiny illustrated Pikachu card! The magpie tilted its head and gave a cheeky squawk. How should the heroes get the card back?",
+        illustrationPrompt: "A magpie nest full of shiny buttons and spoons with a bright yellow card in the middle, and three boys reaching toward it.",
+        illustrationPreset: {
+          emoji: "🪺⚡✨",
+          bgColor: "bg-teal-50",
+          borderColor: "border-teal-400",
+          textColor: "text-teal-900"
+        },
+        choices: [
+          { text: "Trade the magpie a shiny bottle cap for it!", nextNodeId: "victory_card" },
+          { text: "Just grab the card and run!", nextNodeId: "splash_trap" }
+        ]
+      },
+      victory_card: {
+        id: "victory_card",
+        title: "Mystery Solved!",
+        text: "The magpie loved the shiny bottle cap and traded it happily. Theo, William, and Oliver lifted up Kanga's Pikachu card — SAVED! Then the card gave a magical GLOW and showed three secret magic words, just for brave readers who solve the whole mystery. The words are: DADDY ROCKS ALL WEEK LONG! Say them out loud to Theo's Daddy to win a REAL Pokemon pack — or a yummy ice cream! You cracked the case! You are a reading superstar!",
+        illustrationPrompt: "Three cheering boys holding up a glowing yellow card with a happy kangaroo, penguin and rhino celebrating around them.",
+        illustrationPreset: {
+          emoji: "🏆⚡🍦",
+          bgColor: "bg-yellow-100",
+          borderColor: "border-yellow-500",
+          textColor: "text-yellow-950"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "victory"
+      },
+      gum_trap: {
+        id: "gum_trap",
+        title: "A Mountain of Gum!",
+        text: "They tipped out the vacuum and WHOOSH — out came a mountain of chewed bubblegum, fluff, and one very surprised beetle! There was no Pikachu card in there at all. Now everyone was stuck to the floor by their sticky shoes. 'Well,' said Kanga, 'that was scientifically disgusting.' No card this time — try a different path to find it!",
+        illustrationPrompt: "Three boys and a kangaroo stuck to the floor beside a huge pile of chewed bubblegum and a surprised beetle.",
+        illustrationPreset: {
+          emoji: "🫧🪲🦶",
+          bgColor: "bg-pink-100",
+          borderColor: "border-pink-400",
+          textColor: "text-pink-950"
+        },
+        choices: [],
+        isEnding: true,
+        endingType: "funny_trap"
+      },
+      splash_trap: {
+        id: "splash_trap",
+        title: "Splash!",
+        text: "The boys grabbed for the card, but the magpie SQUAWKED and they all tumbled — SPLASH — into the cold river! They bobbed up with weeds on their heads and a little fish in Oliver's pocket. The magpie flapped away, still holding the shiny card. So close! Jump back in and try a cleverer way!",
+        illustrationPrompt: "Three boys splashing into a river with weeds on their heads while a magpie flies away with a shiny card.",
+        illustrationPreset: {
+          emoji: "💦🐟🐦",
+          bgColor: "bg-blue-100",
+          borderColor: "border-blue-400",
+          textColor: "text-blue-950"
         },
         choices: [],
         isEnding: true,
@@ -326,7 +522,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "Disaster in the Kitchen!",
-        text: "Rhino was crying so loud that his tears flooded the kitchen floor! 'My super-sandwich is GONE!' he sobbed. Penguin, the brave leader of the group, put on his detective hat. 'We will find it!' Penguin squawked. Kanga, who is a super-genius kangaroo but says silly things, looked under a coffee cup. 'Aha! Maybe the sandwich turned into a tiny butterfly and flew to Mars!' Kanga declared. Rhino sniffled and wiped his nose with a slice of bread. What should the crew do first?",
+        text: "Rhino cried so hard his tears flooded the kitchen! 'My super-sandwich is GONE!' he sobbed. Penguin, the brave leader, put on his detective hat. 'We will find it!' Kanga, the silly-genius kangaroo, peeked under a cup. 'Maybe it flew to Mars as a butterfly!' he said.",
         illustrationPrompt: "A giant kangaroo looking under a tiny teacup with a magnifying glass, while a penguin wearing a Sherlock Holmes hat stands next to a crying rhino in a kitchen.",
         illustrationPreset: {
           emoji: "🕵️‍♂️🥪💧",
@@ -342,7 +538,7 @@ export const STORIES: Story[] = [
       fridge_check: {
         id: "fridge_check",
         title: "The Pickle Jar Trap!",
-        text: "Penguin pulled open the giant silver fridge door. A blast of cold air hit their faces. Inside, they didn't see the sandwich. Instead, they saw Waddle, their round penguin friend! He was stuck inside a massive jar of pickles! 'I wanted to see if I could swim in pickle juice!' Waddle yelled, his voice echoing in the glass. Waddle is made of solid Penguinpower steel, so they call him Waddle Wrecking Ball! 'Get me out!' he squawked. Kanga tapped his chin. 'If we leave him there, he might turn into a delicious giant pickle-penguin!'",
+        text: "Penguin pulled open the giant fridge. No sandwich inside, just Waddle, their round steel penguin, stuck in a jar of pickles! 'I wanted to swim in pickle juice!' Waddle yelled. They call him Waddle Wrecking Ball because he is solid steel. 'Get me out!' he squawked. Kanga grinned, 'Or he might turn into a pickle-penguin!'",
         illustrationPrompt: "A perfectly round, shiny metallic penguin stuck inside a giant glass jar of green pickles inside a glowing white refrigerator.",
         illustrationPreset: {
           emoji: "🥒🐧🥶",
@@ -358,7 +554,7 @@ export const STORIES: Story[] = [
       vent_crawl: {
         id: "vent_crawl",
         title: "Squeezing into the Air Vent!",
-        text: "The vent was dark, dusty, and smelled like old cheese. Penguin led the way because he can regenerate his feathers if they scrape off. Rhino squeezed in, but his big round tummy got stuck! 'Oh no! My tummy is trapped!' Rhino cried. 'And I haven't had a snack in five minutes!' Kanga tried to push him from behind. 'Rhino, if you wiggle your ears and sing the peanut butter song, you will slide like grease!' Kanga suggested. Suddenly, they heard a loud rustling deeper in the tunnels. It sounded like a sandwich-thief!",
+        text: "The vent was dark, dusty, and smelled like old cheese. Penguin led, since he can regrow his feathers. But Rhino's tummy got stuck! 'I'm trapped, and I haven't had a snack in five minutes!' he cried. Kanga said, 'Wiggle your ears and sing the peanut butter song!' Then they heard rustling deep in the tunnels. A sandwich-thief!",
         illustrationPrompt: "A happy rhino stuck halfway inside a square metal ventilation pipe, with a kangaroo pushing his feet and a penguin crawling ahead.",
         illustrationPreset: {
           emoji: "💨🦏🕳️",
@@ -374,7 +570,7 @@ export const STORIES: Story[] = [
       waddle_smash: {
         id: "waddle_smash",
         title: "Smash! Crash! SPLAT!",
-        text: "Waddle grinned and wiggled his round steel tummy. 'WRECKING BALL ACTIVATED!' he screamed. With a giant BOOM, Waddle flexed and shattered the pickle jar into a million pieces. Pickles flew everywhere! One big green pickle landed right on Rhino's horn. 'Mmm, pickle snack!' Rhino said, munching happily. But the noise was so loud that it woke up Mummy Penguin! She marched in, waving a giant wooden spoon. 'Who made this pickle mess?!' she asked, her eyes glowing with mommy power. Waddle rolled behind Penguin to hide.",
+        text: "Waddle wiggled his steel tummy. 'WRECKING BALL ACTIVATED!' he screamed. With a giant BOOM, he shattered the pickle jar to bits! One pickle landed on Rhino's horn. 'Mmm, snack!' Rhino munched. But the noise woke Mummy Penguin! She marched in waving a wooden spoon. 'Who made this pickle mess?!' Waddle hid behind Penguin.",
         illustrationPrompt: "A round metallic penguin breaking out of a glass jar with pickles flying in the air, while an angry mother penguin holds a wooden spoon in the background.",
         illustrationPreset: {
           emoji: "💥🥒👩‍🍳",
@@ -390,7 +586,7 @@ export const STORIES: Story[] = [
       waddle_tickle: {
         id: "waddle_tickle",
         title: "The Great Pickle Tickle!",
-        text: "Kanga reached into the pickle jar and tickled Waddle's little steel feet. 'KILI KILI KILI!' Kanga chanted. Waddle began to laugh. He laughed so hard his steel body vibrated! 'AHA-HA-HA!' Waddle squawked. His laughing vibrations made the jar slippery with pickle juice. He popped out of the jar like a cork from a bottle! He flew through the air and landed directly in a mountain of dirty laundry that Mummy Penguin had just folded. 'Whoops!' squawked Waddle. In the laundry, they spotted something weird. A trail of crumbs!",
+        text: "Kanga reached in and tickled Waddle's steel feet. 'KILI KILI KILI!' Waddle laughed so hard his steel body buzzed! The jar got slippery and he popped out like a cork! He flew through the air and landed in Mummy Penguin's freshly folded laundry. 'Whoops!' Then they spotted something weird, a trail of crumbs!",
         illustrationPrompt: "A metal penguin popping out of a glass jar and landing in a pile of colourful, freshly folded laundry.",
         illustrationPreset: {
           emoji: "👉🧦😂",
@@ -406,7 +602,7 @@ export const STORIES: Story[] = [
       ghost_mode_vent: {
         id: "ghost_mode_vent",
         title: "Spooky Ghost Mode!",
-        text: "Penguin shouted, 'Things are too difficult! GHOST MODE, GO!' Instantly, the crew turned into glowing, see-through ghostly versions of themselves. They floated right out of the metal vent and fell through the ceiling, landing softly in Mummy Penguin's secret craft room. Standing in the corner was Surprise, who loved to jump out! 'SURPRISE!' she screamed, popping out of a big cardboard box wearing a fake mustache. Rhino gasped, 'A ghostly mustache monster!' Kanga tried to shake hands with the mustache box.",
+        text: "Penguin shouted, 'GHOST MODE, GO!' They turned into see-through ghosts and floated out of the vent, landing in Mummy Penguin's craft room. 'SURPRISE!' screamed Surprise, popping from a box in a fake mustache. 'A ghostly mustache monster!' gasped Rhino. Kanga tried to shake hands with the box.",
         illustrationPrompt: "Glowing blue semi-transparent cartoon animals floating through a wooden ceiling, while a cute penguin with a fake mustache jumps out of a cardboard box.",
         illustrationPreset: {
           emoji: "👻🥸📦",
@@ -422,7 +618,7 @@ export const STORIES: Story[] = [
       vent_cookie: {
         id: "vent_cookie",
         title: "The Power of the Chocolate Chip!",
-        text: "Kanga reached into his pocket and pulled out a tiny, dusty chocolate chip cookie. He stuffed it into Rhino's mouth. Rhino's eyes lit up with joy! 'NOM NOM NOM!' he chewed. The cookie gave Rhino super sandwich-seeking strength! He pushed with his legs and popped through the vent hole like a rocket. But they slid down the pipe and went SPLAT into Mummy Penguin's massive baking flour bin! Now they all looked like fluffy white snowmen. Kanga laughed, 'Look! I am a kangaroo snowman! I can leap over the sun!'",
+        text: "Kanga pulled a tiny, dusty chocolate chip cookie from his pocket and popped it in Rhino's mouth. 'NOM NOM NOM!' It gave Rhino super sandwich-seeking strength! He rocketed through the vent, and they all slid SPLAT into Mummy Penguin's flour bin. Now they looked like fluffy snowmen! Kanga laughed, 'I am a kangaroo snowman!'",
         illustrationPrompt: "Animal friends covered in white flour, looking like cute snowmen, laughing inside a giant kitchen pantry cupboard.",
         illustrationPreset: {
           emoji: "🍪☃️🌾",
@@ -438,7 +634,7 @@ export const STORIES: Story[] = [
       backyard_run: {
         id: "backyard_run",
         title: "The Squeaky Backyard Chase!",
-        text: "The crew ran out into the bright, grassy backyard. There, they saw Cheeky, the cheeky penguin! He was wearing Rhino's super-sandwich like a silly hat! 'Look at me, I am the King of Sandwiches!' Cheeky giggled, dancing on a lawn chair. Rhino drooled, 'My crown! My delicious, peanut-butter crown!' Before they could grab him, Snow Leopard leaped over the garden fence! Snow Leopard is super powerful. 'I will catch that cheeky hat!' she roared playfully. Cheeky gasped and ran toward the garden tunnels!",
+        text: "The crew ran into the grassy backyard. There was Cheeky the cheeky penguin, wearing Rhino's super-sandwich like a hat! 'I am the King of Sandwiches!' he giggled. 'My peanut-butter crown!' Rhino drooled. Then super-powerful Snow Leopard leaped the fence. 'I will catch that hat!' she roared. Cheeky gasped and ran for the garden tunnels!",
         illustrationPrompt: "A cheeky little penguin with a giant sandwich on his head, running away from a powerful, smiling white snow leopard in a sunny green garden.",
         illustrationPreset: {
           emoji: "🏃‍♂️👑🐆",
@@ -454,7 +650,7 @@ export const STORIES: Story[] = [
       clean_up: {
         id: "clean_up",
         title: "The Soap Bubble Explosion!",
-        text: "They decided to clean up. Kanga got a bucket and dumped ten bottles of dish soap onto the floor. 'If a little soap is good, a lot of soap will make the kitchen shiny as a star!' Kanga shouted. He turned on the hot water. BOOF! A mountain of bubbles exploded from the sink! In two seconds, bubbles filled the room to the ceiling! Waddle swam through the bubbles like a submarine. Rhino tried to eat the bubbles. 'Yuck! Soap sandwiches!' he coughed. Suddenly, they floated out into the yard on a bubble wave!",
+        text: "They started to clean up. Kanga dumped ten bottles of dish soap on the floor. 'A lot of soap makes the kitchen shiny as a star!' he said, turning on the hot water. BOOF! Bubbles filled the whole room! Rhino nibbled one. 'Yuck, soap sandwiches!' Then a bubble wave floated them out into the yard!",
         illustrationPrompt: "A kitchen completely filled with massive soap bubbles, with cartoon animals floating on them out of a window.",
         illustrationPreset: {
           emoji: "🧼🫧🌊",
@@ -470,7 +666,7 @@ export const STORIES: Story[] = [
       follow_crumbs: {
         id: "follow_crumbs",
         title: "The Trail of Tasty Clues!",
-        text: "The trail of crumbs went down the hall, up the stairs, and straight into the attic. Rhino sniffed the ground like a vacuum cleaner. 'I smell peanut butter! And... steel-cheese!' he declared. In the dusty attic, they found a small wooden table. Sitting at the table was a tiny baby penguin named Pippin. He was holding a crayon, drawing a map of Penguinpower. Next to him was Rhino's sandwich, with only one tiny bite taken out of it! Pippin looked up, his big blue eyes wide. 'I just wanted to make a sandwich fort!' he peeped.",
+        text: "The crumb trail led down the hall, up the stairs, and into the attic. Rhino sniffed like a vacuum. 'I smell peanut butter and steel-cheese!' At a little table sat a baby penguin named Pippin, drawing a map of Penguinpower. Beside him was Rhino's sandwich, one bite gone! 'I just wanted a sandwich fort!' Pippin peeped.",
         illustrationPrompt: "A cute tiny baby penguin sitting at a table with crayons, building a fort out of cardboard next to a giant sandwich.",
         illustrationPreset: {
           emoji: "🗺️👶🥪",
@@ -486,7 +682,7 @@ export const STORIES: Story[] = [
       laundry_search: {
         id: "laundry_search",
         title: "The Laundry Mountain Trap!",
-        text: "They climbed into the giant pile of laundry. It was so big it felt like climbing Mount Everest! Suddenly, the mountain began to slide! 'SOCKS SLIDE!' Waddle yelled. The clothes tumbled down, wrapping around them like warm cocoons. Rhino got stuck in a giant red sweater. Kanga had a sock on his nose. 'I am the sock-monster of Penguinpower!' Kanga mumbled. They were trapped in the warm, clean-smelling laundry! They couldn't move their legs. Oh no, is this the end of the search?",
+        text: "They climbed the giant laundry pile, as tall as Mount Everest! Suddenly it began to slide. 'SOCKS SLIDE!' yelled Waddle. The clothes wrapped around them like cozy cocoons. Rhino got stuck in a red sweater, and Kanga wore a sock on his nose. 'I am the sock-monster of Penguinpower!' They couldn't move. Is this the end?",
         illustrationPrompt: "Cute animals tangled up in colorful clothes, sweaters, and socks, laughing but unable to move.",
         illustrationPreset: {
           emoji: "🧺🧦🕸️",
@@ -502,7 +698,7 @@ export const STORIES: Story[] = [
       ask_surprise: {
         id: "ask_surprise",
         title: "Surprise's Big Secret!",
-        text: "Surprise giggled and pulled off her fake mustache. 'I saw Cheeky!' she whispered loudly. 'He took the sandwich to the backyard to show the squirrels!' Rhino cheered, 'The squirrels will never eat my steel-cheese! It is too tough!' Penguin nodded, 'Let us go! Snow Leopard is waiting outside!' Kanga grabbed the cardboard mustache. 'I will wear this to trick the squirrels into thinking I am a wise grandpa kangaroo!' They marched to the backdoor, ready for action.",
+        text: "Surprise pulled off her fake mustache. 'I saw Cheeky! He took the sandwich to the backyard to show the squirrels!' Rhino cheered, 'They can't eat my steel-cheese, it's too tough!' 'Snow Leopard waits outside!' said Penguin. Kanga grabbed the mustache. 'Now I'm a wise grandpa kangaroo!' They marched off.",
         illustrationPrompt: "A kangaroo wearing a funny fake mustache leading a penguin and a rhino out of a modern kitchen door.",
         illustrationPreset: {
           emoji: "🥸🏃‍♂️🔑",
@@ -518,7 +714,7 @@ export const STORIES: Story[] = [
       sneeze_blast: {
         id: "sneeze_blast",
         title: "The Mega Sneeze!",
-        text: "Rhino's nose started to tickle from all the flour. 'Ah... ah...' he gasped. Penguin shook his head, 'Don't do it, Rhino!' 'ACHOO!!!' Rhino sneezed a sneeze so powerful it blew all the flour out of the pantry like a winter snowstorm! The blast blew open the kitchen door and launched the crew sliding across the slick wooden floor, straight out into the green yard. They landed in a soft bush right next to Cheeky! Cheeky looked very surprised. The sandwich flew off his head!",
+        text: "Rhino's nose tickled from the flour. 'Ah... ah...' 'Don't do it, Rhino!' begged Penguin. 'ACHOO!!!' The mega sneeze blew flour everywhere like a snowstorm! It banged the kitchen door open and slid the crew out into the yard. They landed in a bush beside Cheeky, and the sandwich flew off his head!",
         illustrationPrompt: "A massive, funny sneeze cloud blowing animals out of a pantry, with white flour flying like a blizzard.",
         illustrationPreset: {
           emoji: "🤧🌪️🌾",
@@ -534,7 +730,7 @@ export const STORIES: Story[] = [
       catch_sandwich: {
         id: "catch_sandwich",
         title: "The Mid-Air Sandwich Catch!",
-        text: "The giant three-decker sandwich was spinning in the air. Penguin spread his flippers, activated his regeneration boost, and jumped! But his flippers missed. Suddenly, Snow Leopard bounded off the fence, did a double backflip, and caught the sandwich perfectly in her soft paws! 'Got it!' she roared happily. Rhino cheered so hard his teeth chattered. 'My baby is safe!' he cried. But Cheeky snatched the marshmallow layer and ran! 'You can't have the sugar layer!' Cheeky teased.",
+        text: "The three-decker sandwich spun in the air. Penguin used his regeneration boost and jumped, but missed! Then Snow Leopard bounded off the fence, backflipped, and caught it in her paws. 'Got it!' Rhino cheered, teeth chattering, 'My baby is safe!' But Cheeky grabbed the marshmallow layer and ran. 'You can't have the sugar layer!'",
         illustrationPrompt: "A gorgeous white leopard catching a giant sandwich in mid-air above a beautiful green garden.",
         illustrationPreset: {
           emoji: "🤸‍♀️🥪🐆",
@@ -550,7 +746,7 @@ export const STORIES: Story[] = [
       waddle_bowling: {
         id: "waddle_bowling",
         title: "Waddle Wrecking Bowling Ball!",
-        text: "Waddle tucked in his head and legs. He turned into a perfectly round, shiny steel bowling ball! 'STRIKE!' he squawked as he rolled. He zoomed across the grass, kicking up dirt, and rolled right between Cheeky's feet. Cheeky tripped and tumbled into Waddle's soft tummy with a soft 'OOF!' The sandwich layer popped into the air and landed perfectly back on Rhino's plate! 'Hooray!' they all cheered. Mummy Penguin came out with plates of fresh cookies. 'See? Sharing always wins!' she smiled.",
+        text: "Waddle tucked in his head and legs and became a shiny steel bowling ball. 'STRIKE!' he squawked, rolling across the grass right between Cheeky's feet. Cheeky tripped and bonked into Waddle's tummy with an 'OOF!' The sandwich popped up and landed on Rhino's plate! 'Hooray!' Mummy Penguin brought cookies. 'Sharing always wins!'",
         illustrationPrompt: "A round metallic penguin rolling like a bowling ball under a funny running penguin, with cookies on a tray in the background.",
         illustrationPreset: {
           emoji: "🎳🍪💖",
@@ -565,7 +761,7 @@ export const STORIES: Story[] = [
       victory_ending_share: {
         id: "victory_ending_share",
         title: "The Ultimate Picnic Victory!",
-        text: "Rhino got his sandwich back, but he decided to share it! He cut it into small pieces. Penguin got the steel-cheese, Kanga got the crusts (and pretended they were boomerangs), Snow Leopard got the peanut butter, and Pippin got the fluffy marshmallows! Mummy Penguin brought out cold jugs of delicious milk. 'You are all such good readers and sharers!' she praised. They ate, laughed, and Rhino slept with a very full, very happy tummy. You solved the mystery! You are a reading superstar!",
+        text: "Rhino got his sandwich back and shared it! Penguin got the steel-cheese, Kanga got the crusts (great boomerangs!), Snow Leopard got the peanut butter, and Pippin got the marshmallows. Mummy Penguin poured cold milk. 'You are all wonderful sharers!' Rhino fell asleep with a happy tummy. You solved the mystery! You are a reading superstar!",
         illustrationPrompt: "All the animal friends sitting on a red picnic blanket in a sunny garden, eating pieces of a giant sandwich and laughing.",
         illustrationPreset: {
           emoji: "🥳🥪🏆",
@@ -580,7 +776,7 @@ export const STORIES: Story[] = [
       fort_ending_victory: {
         id: "fort_ending_victory",
         title: "The Giant Toy Fort Masterpiece!",
-        text: "They decided to build the biggest fort ever! Waddle used his steel body to carry giant wooden blocks. Kanga designed a tower that went sideways instead of up. 'If the roof is on the floor, the rain can't hit us!' Kanga explained. Pippin cheered and wore a bowl as a helmet. They sat in their giant sugar-block fort, eating sandwich slices and telling silly jokes. Mummy Penguin joined them and read them a story about the ancient penguins of Penguinpower. What an amazing day! You won!",
+        text: "They built the biggest fort ever! Waddle carried wooden blocks with his steel body, and Kanga made a tower that went sideways. 'If the roof is on the floor, rain can't hit us!' Pippin cheered in a bowl helmet. They ate sandwich slices and told jokes while Mummy Penguin read about the penguins of Penguinpower. You won!",
         illustrationPrompt: "A giant indoor fort made of cardboard boxes and colorful blocks, with a kangaroo, baby penguin, and rhino playing inside.",
         illustrationPreset: {
           emoji: "🏰🧸✨",
@@ -595,7 +791,7 @@ export const STORIES: Story[] = [
       defeat_ending_socks: {
         id: "defeat_ending_socks",
         title: "The Sock Monster Trap!",
-        text: "Mummy Penguin found them all tangled up in the laundry. 'Oh dear!' she giggled. 'You look like a big pile of clean socks!' She decided they were too cozy to move, so she tucked them all in for an afternoon nap right there in the warm clothes. Rhino fell asleep dreaming of a sandwich land where the rivers are made of jelly. Kanga snored with a green sock still on his nose. You got cozy but didn't find the sandwich! Try again and see if you can solve the mystery!",
+        text: "Mummy Penguin found them all tangled in the laundry. 'You look like a big pile of clean socks!' she giggled. They were too cozy to move, so she tucked them in for a nap. Rhino dreamed of jelly rivers, and Kanga snored with a sock on his nose. You got cozy but never found the sandwich! Try again!",
         illustrationPrompt: "Animals sleeping soundly in a cozy, massive pile of laundry under a warm glowing light.",
         illustrationPreset: {
           emoji: "💤🧦🧸",
@@ -610,7 +806,7 @@ export const STORIES: Story[] = [
       rabbit_tunnels: {
         id: "rabbit_tunnels",
         title: "The Underground Slide!",
-        text: "They jumped down the rabbit tunnel. It turned out to be a giant slide! 'WEEEEE!' Kanga screamed, holding his ears. They slid round and round in the dark. Rhino's tummy rumbled, making the tunnel shake like an earthquake. 'Is the tunnel hungry too?' Rhino asked. At the bottom, they slid right out into Mummy Penguin's secret food pantry! Cheeky was there, looking at a jar of strawberry jam. 'Double sandwich time!' Rhino cheered, grabbing Cheeky and the sandwich.",
+        text: "Down the rabbit tunnel they jumped, a giant slide! 'WEEEE!' Kanga screamed in the dark. Rhino's tummy rumbled, shaking the tunnel like an earthquake. 'Is the tunnel hungry too?' They slid into Mummy Penguin's secret pantry, where Cheeky stood by a jar of strawberry jam. 'Double sandwich time!' Rhino cheered, grabbing Cheeky and the sandwich.",
         illustrationPrompt: "A happy rhino and kangaroo sliding down a slide inside a brown dirt tunnel with small lights.",
         illustrationPreset: {
           emoji: "🕳️🛝🍓",
@@ -625,7 +821,7 @@ export const STORIES: Story[] = [
       yarn_search: {
         id: "yarn_search",
         title: "Tangled in Yarn!",
-        text: "Kanga leaped into the giant yarn basket. 'I will search for clues!' he yelled. But he got tangled in sixty yards of fuzzy blue wool! Waddle tried to pull him out but got tangled too. Soon, they were a giant ball of wool rolling down the hallway! Mummy Penguin saw them and sighed, 'My knitting project is ruined!' She had to use her giant scissors to cut them free. The sandwich was nowhere to be found, but they did find some funny yarn hats!",
+        text: "Kanga leaped into the giant yarn basket. 'I'll search for clues!' But he got tangled in blue wool! Waddle tried to help and got tangled too. Soon they were one big rolling ball of yarn! 'My knitting is ruined!' sighed Mummy Penguin, snipping them free. No sandwich anywhere, but they found some funny yarn hats!",
         illustrationPrompt: "A giant ball of blue yarn with cartoon animal limbs sticking out, rolling down a wooden hallway.",
         illustrationPreset: {
           emoji: "🧶🐈🙀",
@@ -640,7 +836,7 @@ export const STORIES: Story[] = [
       bubble_forest: {
         id: "bubble_forest",
         title: "The Floating Bubble Forest!",
-        text: "The giant bubbles carried them high over the garden fence and landed them gently in the Whispering Woods. The trees looked like giant broccoli stalks! Rhino gasped, 'Broccoli! The sandwich's worst enemy!' Suddenly, Snow Leopard emerged from the shadows. 'I heard a rumble! Was it Rhino's stomach or a wild bear?' Kanga shook his head, 'It was just my brain thinking about a genius way to fly!' Snow Leopard smiled and showed them a secret path made of stepping stones.",
+        text: "The bubbles carried them over the fence and into the Whispering Woods. The trees looked like giant broccoli! 'Broccoli, the sandwich's worst enemy!' gasped Rhino. Then Snow Leopard stepped from the shadows. 'Was that rumble Rhino's tummy, or a wild bear?' 'Just my brain planning a way to fly!' said Kanga. She showed them a secret path of stepping stones.",
         illustrationPrompt: "Stepping stones crossing a bubbling blue river in a forest of broccoli trees, with cartoon animals walking on them.",
         illustrationPreset: {
           emoji: "🌳🫧🥦",
@@ -665,7 +861,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "A Spaceship in the Backyard!",
-        text: "A spaceship that looked like a giant purple marshmallow landed in the backyard with a soft 'SQUEAK!' The door opened and out popped three tiny, fuzzy creatures. They had orange fur, green boots, and held massive feather dusters! 'WE ARE THE TICKLE MONSTERS!' they squeaked. 'PREPARE TO LAUGH!' Penguin, the leader, stood tall. 'We must protect our ticklish ribs!' he cried. Kanga said, 'Don't worry! I have a genius plan! If we paint funny eyes on our tummies, they will think we are awake and get scared!' What should they do?",
+        text: "A purple marshmallow spaceship landed with a soft 'SQUEAK!' Out popped three fuzzy creatures with orange fur, green boots, and huge feather dusters. 'WE ARE THE TICKLE MONSTERS! PREPARE TO LAUGH!' they squeaked. Penguin the leader stood tall to protect their ticklish ribs, and Kanga grinned, 'My genius plan: paint funny eyes on our tummies so they think we're awake!'",
         illustrationPrompt: "A cute purple spaceship shaped like a marshmallow on green grass, with three small orange furry monsters holding feather dusters.",
         illustrationPreset: {
           emoji: "🛸👾😂",
@@ -681,7 +877,7 @@ export const STORIES: Story[] = [
       ghost_sneak: {
         id: "ghost_sneak",
         title: "The Floating Ghost Mission!",
-        text: "The crew held hands. 'GHOST MODE!' Penguin squawked. ZIP! They turned into glowing, blue ghosts. They floated right past the tickle monsters, who were busy dusting the lawn chair. But Rhino stopped. The smell of peanut butter was coming from inside the spaceship! 'A sandwich spaceship!' Rhino whispered. His ghost tummy let out a huge ghostly rumble: 'WUUUUU!' The tickle monsters stopped and looked around. 'Did a ghost just order a sandwich?' the lead monster asked. Kanga tried to float upside down.",
+        text: "'GHOST MODE!' Penguin squawked, and ZIP - they turned into glowing blue ghosts and floated past the monsters. But Rhino smelled peanut butter and whispered, 'A sandwich spaceship!' His ghost tummy rumbled, 'WUUUUU!' and the monsters looked around. 'Did a ghost just order a sandwich?'",
         illustrationPrompt: "Glowing cartoon ghost animals floating into a spaceship door, while furry monsters look around confused.",
         illustrationPreset: {
           emoji: "👻🛸🦏",
@@ -697,7 +893,7 @@ export const STORIES: Story[] = [
       waddle_smash: {
         id: "waddle_smash",
         title: "The Steel Smash Attack!",
-        text: "Waddle tucked in his flippers. 'Wrecking ball style!' he cheered. He launched himself across the grass like a shining metal bullet! He rolled straight into the lead tickle monster's feather duster. CRASH! The feather duster exploded into a cloud of pink feathers! The monster fell back into a soft patch of clover, laughing hysterically. 'Oh no! My tickler!' the monster squeaked. But the other two monsters ran toward Waddle with giant feather-guns! 'Tickle beam ready!' they shouted.",
+        text: "'Wrecking ball style!' Waddle cheered, tucking in his flippers. He shot across the grass like a metal bullet, and CRASH - he smashed the lead monster's feather duster into a cloud of pink feathers! 'Oh no! My tickler!' the monster squeaked, falling over laughing. But the other two charged with feather-guns, 'Tickle beam ready!'",
         illustrationPrompt: "A round steel penguin smashing into a feather duster, creating a cloud of pink feathers in a grassy yard.",
         illustrationPreset: {
           emoji: "🎳💥🪶",
@@ -713,7 +909,7 @@ export const STORIES: Story[] = [
       control_room: {
         id: "control_room",
         title: "The Marshmallow Buttons!",
-        text: "The spaceship's control room was made of candy! The steering wheel was a giant lollipop, and the buttons were soft marshmallows. Rhino sat in the pilot's chair and immediately ate the 'Launch' button. 'OM NOM NOM! Tastes like strawberry!' he mumbled. Suddenly, a siren went off: 'BEEP BEEP! BUTTON IN BELLY!' The spaceship started to shake and bounce like a rubber ball! Kanga grabbed the lollipop wheel. 'If I turn this to the left, we will fly to the moon and eat cheese!' Kanga yelled.",
+        text: "The control room was made of candy, with a lollipop steering wheel and soft marshmallow buttons! Rhino ate the 'Launch' button - 'OM NOM NOM! Strawberry!' Suddenly a siren blared, 'BUTTON IN BELLY!' and the ship bounced like a rubber ball. Kanga grabbed the lollipop wheel, 'Turn left and we'll fly to the moon and eat cheese!'",
         illustrationPrompt: "A rhino eating a pink marshmallow button on a spaceship control panel made of sweets and candy.",
         illustrationPreset: {
           emoji: "🎛️🍬🦏",
@@ -729,7 +925,7 @@ export const STORIES: Story[] = [
       ghost_boo: {
         id: "ghost_boo",
         title: "The Ghostly Giggle Fit!",
-        text: "Rhino tried to shout a spooky ghost boo, but he sneezed instead! 'BOO-NOM-ACHOO!' The sneeze blew off their Ghost Mode, and they turned solid again. The tickle monsters spotted them! 'AHA! INTRUDERS!' they squeaked. They ran forward and tickled Rhino's ribs. Rhino collapsed into a pile of laughter. 'HA-HA-HA! STOP! MY SANDWICH IS JIGGLING!' Rhino roared. Kanga tried to protect him by putting a bucket over his own head. 'You can't tickle me, I am a metal trash can!' Kanga declared.",
+        text: "Rhino tried a spooky boo but sneezed instead - 'BOO-NOM-ACHOO!' The sneeze blew off Ghost Mode, and the monsters spotted them. 'AHA! INTRUDERS!' they squeaked, tickling Rhino's ribs until he roared, 'HA-HA! STOP! MY SANDWICH IS JIGGLING!' Kanga popped a bucket over his head, 'You can't tickle me, I'm a metal trash can!'",
         illustrationPrompt: "Three monsters tickling a laughing rhino on the grass, while a kangaroo with a red bucket on his head stands nearby.",
         illustrationPreset: {
           emoji: "😂🪶🪣",
@@ -745,7 +941,7 @@ export const STORIES: Story[] = [
       snow_leopard_shield: {
         id: "snow_leopard_shield",
         title: "Snow Leopard's Ice Wall!",
-        text: "Snow Leopard leaped from the sky, roaring with freezing power! She slammed her paws onto the grass, and a giant wall of glittering blue ice rose up! The tickler beams hit the ice and bounced right back, tickling the monsters themselves! The monsters began to roll around on the floor, giggling. 'We are tickling ourselves! Save us!' they squeaked. Penguin laughed, 'Excellent shield, Snow Leopard!' Kanga licked the ice wall. 'Mmm, mint flavored ice cream!' Kanga said.",
+        text: "Snow Leopard leaped from the sky and slammed her paws down, and a giant wall of glittering blue ice rose up! The tickle beams bounced right back onto the monsters, who rolled around giggling. 'We're tickling ourselves! Save us!' they squeaked. Kanga licked the wall, 'Mmm, mint ice cream!'",
         illustrationPrompt: "A beautiful white snow leopard creating a shiny blue ice wall on a green lawn, reflecting pink tickle lasers.",
         illustrationPreset: {
           emoji: "❄️🛡️🐆",
@@ -761,7 +957,7 @@ export const STORIES: Story[] = [
       cheeky_dance: {
         id: "cheeky_dance",
         title: "The Silly Booty Dance!",
-        text: "Cheeky ran out and stood between Waddle and the monsters. He did a hilarious dance, shaking his tail feathers and making funny faces. 'Look at my cheeky wiggle!' Cheeky sang. The monsters stopped. The dance was so funny that they forgot all about tickling! They lowered their guns and started dancing too! 'Wow, you have great moves!' the monsters squeaked. Kanga joined in, doing crazy kangaroo leaps. 'This is my genius dance of the stars!' Kanga shouted, landing headfirst in a bush.",
+        text: "Cheeky jumped between Waddle and the monsters and did a hilarious dance, wiggling his tail feathers. 'Look at my cheeky wiggle!' The dance was so funny the monsters forgot tickling and danced too, squeaking, 'Wow, great moves!' Kanga joined with crazy leaps, 'My genius dance of the stars!' - and landed headfirst in a bush.",
         illustrationPrompt: "A cute penguin doing a silly dance while little aliens imitate the moves and laugh in a grassy field.",
         illustrationPreset: {
           emoji: "🕺💃👾",
@@ -777,7 +973,7 @@ export const STORIES: Story[] = [
       penguin_regenerate: {
         id: "penguin_regenerate",
         title: "Penguin's Glowing Spark!",
-        text: "Penguin closed his eyes and concentrated. Since he is from Penguinpower, he has the special power to regenerate and fix things! His flippers began to glow with a bright, warm golden light. He touched the chewed control panel. ZIP-ZAP! A brand new pink marshmallow button grew back instantly! 'Wow!' Waddle squawked. 'You are a magic leader!' The spaceship stopped shaking and hovered gently. The pilot screen lit up, showing a map of the tickle planet, Penguinpower-Two!",
+        text: "Penguin closed his eyes and used his special Penguinpower to fix things! His flippers glowed golden as he touched the chewed panel, and ZIP-ZAP - a brand new marshmallow button grew back! 'You're a magic leader!' Waddle squawked. The screen lit up with a map of the tickle planet, Penguinpower-Two!",
         illustrationPrompt: "A penguin with glowing golden flippers touching a high-tech candy control panel, making a marshmallow button grow.",
         illustrationPreset: {
           emoji: "✨🐧🎛️",
@@ -793,7 +989,7 @@ export const STORIES: Story[] = [
       spaceship_bounce: {
         id: "spaceship_bounce",
         title: "The Great Candy Bounce!",
-        text: "The spaceship bounced up into the sky like a giant bouncy ball! 'WHEEE!' Waddle screamed, rolling around the ceiling. It bounced off a cloud, bounced off the chimney, and landed SPLAT in Mummy Penguin's giant baking bowl of chocolate cake batter! Cocoa splashed everywhere! Mummy Penguin looked at the spaceship, then at the animals covered in chocolate. 'My cake!' she gasped. Rhino licked his arm. 'Mmm, this is the best accident ever!' Kanga agreed, wearing a cake-batter hat.",
+        text: "The ship bounced into the sky like a giant bouncy ball - 'WHEEE!' screamed Waddle! It bounced off a cloud, off the chimney, and landed SPLAT in Mummy Penguin's bowl of chocolate cake batter. 'My cake!' she gasped. Rhino licked his arm, 'Best accident ever!' and Kanga wore a cake-batter hat.",
         illustrationPrompt: "A marshmallow spaceship stuck in a massive bowl of dark brown cake batter in a cozy kitchen.",
         illustrationPreset: {
           emoji: "🥣🍫🛸",
@@ -809,7 +1005,7 @@ export const STORIES: Story[] = [
       mummy_soup_rescue: {
         id: "mummy_soup_rescue",
         title: "The Warm Noodle Shield!",
-        text: "Mummy Penguin marched out carrying a giant steaming pot of her famous Penguinpower Noodle Soup. 'Nobody tickles my babies!' she yelled. She waved her ladle and handed bowls of soup to the tickle monsters. The warm, delicious smell filled the air. The monsters sniffled. They took a sip. 'Ooooh!' they squeaked. 'This is warmer than tickles! It makes our tummies feel cozy!' They dropped their feather dusters and sat on the grass, eating noodles with tiny spoons. Rhino joined them immediately.",
+        text: "Mummy Penguin marched out with a giant steaming pot of Penguinpower Noodle Soup. 'Nobody tickles my babies!' she yelled, handing bowls to the monsters. They sniffled, sipped, and squeaked, 'Ooooh! This is warmer than tickles - so cozy!' They dropped their feather dusters and sat eating noodles, and Rhino joined right in.",
         illustrationPrompt: "A kind penguin mother serving steaming soup from a giant metal pot to small, happy furry monsters on grass.",
         illustrationPreset: {
           emoji: "🍜👩‍🍳👾",
@@ -824,7 +1020,7 @@ export const STORIES: Story[] = [
       surprise_scare: {
         id: "surprise_scare",
         title: "A Giant Surprise!",
-        text: "Suddenly, the bucket on Kanga's head popped open. Surprise, who had been hiding in Kanga's pouch the whole time, jumped out! 'SURPRISE!!!' she screamed, throwing confetti in the air. The tickle monsters jumped ten feet into the air with a squeak! 'AAAH! A confetti explosion!' they cried. They scrambled back into their marshmallow spaceship, closed the door, and zoomed back into space, leaving a trail of purple smoke. Kanga cheered, 'I knew my genius pouch-monster would save the day!'",
+        text: "The bucket on Kanga's head popped open, and out jumped Surprise, who'd been hiding in his pouch the whole time! 'SURPRISE!!!' she screamed, tossing confetti as the monsters leaped ten feet high. 'AAAH! Confetti explosion!' they cried, scrambling into their spaceship and zooming off in purple smoke. Kanga cheered, 'My genius pouch-monster saved the day!'",
         illustrationPrompt: "A penguin jumping out of a kangaroo pouch throwing colorful confetti, as fuzzy aliens run away toward their ship.",
         illustrationPreset: {
           emoji: "🎉🦘🐧",
@@ -839,7 +1035,7 @@ export const STORIES: Story[] = [
       tickle_castle: {
         id: "tickle_castle",
         title: "The Tickle Castle Vault!",
-        text: "They flew the ship to the Tickle Castle in the sky! The castle was made of pink cotton candy. In the center was the Giant Tickle King, a monster as big as an elephant but fluffy like a cloud. 'Who dares enter my castle without laughing?' the King boomed. Rhino stepped forward, holding a sandwich. 'I dare! Because my mouth is too busy chewing to laugh!' The King stared at the sandwich. 'What is that magical brown thing? Can I have a bite?'",
+        text: "They flew to the Tickle Castle, made of pink cotton candy! In the center sat the Giant Tickle King, big as an elephant but fluffy as a cloud. 'Who dares enter without laughing?' he boomed, and Rhino stepped up holding a sandwich, 'I dare - my mouth's too busy chewing!' The King stared, 'What is that magical brown thing? Can I have a bite?'",
         illustrationPrompt: "A giant, fluffy pink monster king sitting on a candy throne, looking with wide eyes at a rhino holding a sandwich.",
         illustrationPreset: {
           emoji: "🏰👑🥪",
@@ -855,7 +1051,7 @@ export const STORIES: Story[] = [
       victory_ending_feast: {
         id: "victory_ending_feast",
         title: "The Great Friendship Feast!",
-        text: "The Tickle King loved the sandwich so much that he declared peace! 'Sandwiches are better than tickling!' he squeaked. Mummy Penguin arrived in her flying kitchen and baked a hundred peanut butter and marshmallow sandwiches for everyone. The monsters, the king, and the crew sat on fluffy clouds and ate together. Penguin got three golden stars for being a great leader, and Kanga got a crown for his silly jokes. You helped them read and saved the day! Amazing work!",
+        text: "The Tickle King loved the sandwich so much he made peace - 'Sandwiches are better than tickling!' Mummy Penguin baked a hundred peanut butter and marshmallow sandwiches, and everyone feasted on fluffy clouds. Penguin got three golden stars, and Kanga got a crown for his jokes. You helped them read and saved the day - amazing work!",
         illustrationPrompt: "Cute animals and alien monsters having a giant sandwich feast on a white cloud in a blue sky.",
         illustrationPreset: {
           emoji: "🎉⛅🥪",
@@ -870,7 +1066,7 @@ export const STORIES: Story[] = [
       wreck_castle_ending: {
         id: "wreck_castle_ending",
         title: "The Cotton Candy Collapse!",
-        text: "Waddle Wrecking Ball got too excited! 'WRECKING BALL!' he squawked, rolling into the cotton candy walls. He smashed right through the main pillar! With a giant sticky squish, the entire Tickle Castle collapsed into a massive pile of sticky pink fluff. The crew was stuck! They looked like giant pink cotton-candy balls. Rhino opened his mouth and ate his way out. 'Mmm, strawberry castle!' he laughed. You got stuck in the candy, but it sure was delicious! Try again!",
+        text: "Waddle got too excited - 'WRECKING BALL!' he squawked, rolling into the cotton candy walls and smashing the main pillar! The whole castle collapsed into sticky pink fluff, and the crew got stuck like giant candy balls. Rhino ate his way out, 'Mmm, strawberry castle!' You got stuck, but it was delicious - try again!",
         illustrationPrompt: "Animals trapped in sticky pink cotton candy fluff, looking like funny pink candy balls and laughing.",
         illustrationPreset: {
           emoji: "💥🍭🕸️",
@@ -885,7 +1081,7 @@ export const STORIES: Story[] = [
       defeat_ending_chocolate: {
         id: "defeat_ending_chocolate",
         title: "Stuck in the Cake Batter!",
-        text: "The chocolate cake batter was too thick and sticky! The crew tried to pull their feet out, but they just got more stuck. Mummy Penguin shook her head. 'Since you are covered in cake, you must stay in the yard until the hose wash!' She turned on the sprinkler, and they got a cold, wet, but funny wash. Rhino fell asleep in a puddle, dreaming of a chocolate rainstorm. You didn't save the town from tickles, but you got a funny bath! Try again!",
+        text: "The chocolate cake batter was too thick and sticky, and the crew only got more stuck! 'You're covered in cake - stay in the yard for a hose wash!' said Mummy Penguin, turning on the sprinkler. Rhino fell asleep in a puddle, dreaming of a chocolate rainstorm. You didn't stop the tickles, but you got a funny bath - try again!",
         illustrationPrompt: "A rhino and a kangaroo getting washed with a garden sprinkler on green grass, looking wet but happy.",
         illustrationPreset: {
           emoji: "🚿🍫🦏",
@@ -900,7 +1096,7 @@ export const STORIES: Story[] = [
       monster_talk: {
         id: "monster_talk",
         title: "The Alien Secret!",
-        text: "The lead monster sniffled and wiped a tear. 'We are from Penguinpower-Two,' he explained. 'Our planet has no toys and no sandwiches. We only have feathers! We just wanted to make friends and hear you laugh!' Penguin felt soft in his heart. 'You don't need to tickle us to make us laugh! Kanga can just say a word, and we will laugh all day!' Kanga stood up and said, 'PICKLE-PANTS!' Everyone burst out laughing.",
+        text: "The lead monster wiped a tear. 'We're from Penguinpower-Two, where there are no toys and no sandwiches - only feathers! We just wanted to make friends and hear you laugh.' Penguin smiled, 'You don't need tickles to make us laugh - Kanga can do that!' Then Kanga yelled, 'PICKLE-PANTS!' and everyone burst out laughing.",
         illustrationPrompt: "An alien monster looking sad, while a kangaroo stands on a chair pointing at his own pants and laughing.",
         illustrationPreset: {
           emoji: "👽👖😂",
@@ -925,7 +1121,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "The Haunted Roller Coaster!",
-        text: "The Penguinpower Carnival was full of flashing neon lights and the smell of hot cinnamon buns. But something was very wrong! The roller coaster tracks were glowing green, and the train was zooming backward! 'Spooky!' squawked Penguin, his crown slipping. Rhino was busy eating three hot dogs at once. 'Mmm, haunted hot dogs!' he mumbled. Suddenly, a little ghost with a neon-green sheet popped out of the ticket booth! 'Ooooo! Leave my carnival!' the ghost wailed. Kanga looked closer. 'Look! The ghost's sheet has a pocket! Maybe he has a sandwich in there!'",
+        text: "The Penguinpower Carnival glowed with neon lights. But something was wrong! The roller coaster tracks glowed green, and the train zoomed backward! 'Spooky!' squawked Penguin. Rhino munched three hot dogs. Then a little green ghost popped out of the ticket booth. 'Ooooo! Leave my carnival!' he wailed. 'Look, his sheet has a pocket!' said Kanga.",
         illustrationPrompt: "A neon green roller coaster running backward under a starry night sky, with a cute little cartoon ghost popping out.",
         illustrationPreset: {
           emoji: "🎡👻🎢",
@@ -941,7 +1137,7 @@ export const STORIES: Story[] = [
       ghost_talk: {
         id: "ghost_talk",
         title: "We Are Ghosts Too!",
-        text: "The crew held hands. 'GHOST MODE!' Penguin squawked. A cool blue light wrapped around them, and they turned into friendly, glowing ghosts! They floated right up to the green ghost. 'Hello!' Kanga said, floating upside down. 'I am a ghost-kangaroo! I can leap through solid wood!' The green ghost gasped. 'Wow! You are very cool ghosts! I am not trying to be mean. I am just sad because nobody will play with me! Every time I try to ride the coaster, it runs away backward!' Rhino floated next to him. 'Do ghosts eat sandwiches?'",
+        text: "The crew held hands. 'GHOST MODE!' squawked Penguin. A blue light wrapped around them, and they became glowing ghosts! They floated up to the green ghost. 'I am a ghost-kangaroo!' said Kanga. The green ghost smiled. 'I am only sad because nobody will play with me! The coaster always runs away backward!' Rhino asked, 'Do ghosts eat sandwiches?'",
         illustrationPrompt: "Cute glowing blue cartoon animal ghosts talking to a friendly little neon-green ghost in a carnival.",
         illustrationPreset: {
           emoji: "👻🤝💚",
@@ -957,7 +1153,7 @@ export const STORIES: Story[] = [
       control_smash: {
         id: "control_smash",
         title: "Waddle's Steel Smash!",
-        text: "Waddle Wrecking Ball got a wild look in his eyes. 'SMASH TIME!' he squawked. He rolled into a tight steel ball and launched himself at the main coaster controls. CRASH! The lever snapped, sparks flew like fireworks, and the glowing tracks turned bright purple! The roller coaster train stopped with a giant SQUEAK. But now, the cotton candy machine next to them started spinning super-fast, shooting giant pink sugar clouds into the air! Kanga cheered, 'Look! A sugar volcano!'",
+        text: "Waddle Wrecking Ball got a wild look. 'SMASH TIME!' he squawked. He rolled into a steel ball and crashed into the coaster controls. CRASH! Sparks flew and the tracks turned purple. The train stopped with a SQUEAK. But now the cotton candy machine spun super fast, shooting giant pink sugar clouds! 'A sugar volcano!' cheered Kanga.",
         illustrationPrompt: "A shiny round steel penguin crashing into a control box with sparks flying, next to a spinning pink candy floss machine.",
         illustrationPreset: {
           emoji: "🎳💥🔌",
@@ -973,7 +1169,7 @@ export const STORIES: Story[] = [
       coaster_ride: {
         id: "coaster_ride",
         title: "The Gravity-Defying Loop!",
-        text: "They climbed into the front car of the roller coaster. Since they were still in Ghost Mode, they floated above the seats! The green ghost pulled the big lever. WHOOSH! The train shot forward, going up, down, and around in a massive loop-de-loop! Rhino's cheeks blew in the wind. 'WEEEEE!' he roared, holding onto a mustard bottle. Kanga yelled, 'If we go fast enough, we will loop right into tomorrow morning!' Suddenly, they saw a giant shadow on the tracks ahead! It was Waddle, stuck on a loop!",
+        text: "They climbed into the front car. Still in Ghost Mode, they floated above the seats! The green ghost pulled the lever. WHOOSH! The train shot up, down, and around a giant loop. 'WEEEEE!' roared Rhino. Then they saw a big shadow on the tracks ahead. It was Waddle, stuck on the loop!",
         illustrationPrompt: "Animals riding a colorful roller coaster car looping in the air, with a round steel penguin stuck on the track ahead.",
         illustrationPreset: {
           emoji: "🎢💨🦏",
@@ -989,7 +1185,7 @@ export const STORIES: Story[] = [
       mirror_maze: {
         id: "mirror_maze",
         title: "The Maze of Funny Reflections!",
-        text: "They entered the Mirror Maze. The walls were shiny glass. Kanga looked in a mirror and laughed. His reflection had a neck as long as a giraffe! 'Look, Penguin! I am a Kangaraffe! I can eat leaves from the highest clouds!' Rhino saw a mirror that made him look super skinny. 'Oh no! The mirror stole my sandwiches!' he cried. Suddenly, Cheeky jumped out from behind a mirror, wearing a funny clown nose. 'Cheeky!' Penguin squawked. 'Did you cause this green ghost mess?'",
+        text: "They entered the Mirror Maze of shiny glass. Kanga's reflection had a long neck. 'I am a Kangaraffe!' he laughed. Rhino saw a skinny mirror. 'The mirror stole my sandwiches!' he cried. Then Cheeky jumped out wearing a funny clown nose. 'Cheeky!' squawked Penguin. 'Did you cause this green ghost mess?'",
         illustrationPrompt: "A kangaroo looking at a funny long-necked reflection in a wavy glass mirror inside a glowing neon maze.",
         illustrationPreset: {
           emoji: "🪞🤡🦘",
@@ -1005,7 +1201,7 @@ export const STORIES: Story[] = [
       candy_clouds: {
         id: "candy_clouds",
         title: "The Sticky Sugar Flight!",
-        text: "The pink cotton candy clouds carried them high into the night sky! They floated above the Ferris wheel. Rhino chewed on his cloud. 'Mmm, strawberry sky-boats!' he laughed. But the wind started blowing hard, carrying them toward the giant duck-pond at the edge of the park! Kanga tried to flap his ears like wings. 'If we sneeze together, the wind-power will blow us back!' Kanga suggested. Waddle rolled around inside the sticky pink cloud, looking like a pink steel ball.",
+        text: "The pink cotton candy clouds carried them high above the Ferris wheel! Rhino chewed his cloud. 'Mmm, strawberry sky-boats!' he laughed. But the wind blew them toward the giant duck-pond at the park's edge! Kanga flapped his ears. 'If we all sneeze, we can blow back!' Waddle rolled inside the cloud like a pink steel ball.",
         illustrationPrompt: "Animals floating in the night sky on fluffy pink clouds, looking down at a brightly lit carnival.",
         illustrationPreset: {
           emoji: "☁️🍭🎡",
@@ -1021,7 +1217,7 @@ export const STORIES: Story[] = [
       freeze_controls: {
         id: "freeze_controls",
         title: "The Ice-Frozen Carnival!",
-        text: "Snow Leopard stepped forward, her white fur glowing. She blew a giant breath of freezing ice-air over the spinning cotton candy machine and the control box. WHOOSH! Everything froze instantly into a gorgeous, glittering ice castle! The sparks stopped, and the air smelled like cool mint. The green ghost clapped his hands. 'Wow! An ice park! I love ice!' Cheeky slid across the frozen ground on his tummy like a bobsled. 'Ice sliding!' Waddle cheered.",
+        text: "Snow Leopard stepped forward, her white fur glowing. She blew a big breath of freezing ice-air over the machine and controls. WHOOSH! Everything froze into a glittering ice castle! The sparks stopped. 'Wow, an ice park! I love ice!' the green ghost clapped. Cheeky slid on his tummy like a bobsled. 'Ice sliding!' cheered Waddle.",
         illustrationPrompt: "A white leopard breathing blue ice onto a carnival ride, turning it into a beautiful frozen ice structure.",
         illustrationPreset: {
           emoji: "❄️🏰🐆",
@@ -1036,7 +1232,7 @@ export const STORIES: Story[] = [
       leopard_save: {
         id: "leopard_save",
         title: "Snow Leopard's Flying Catch!",
-        text: "Snow Leopard jumped from the ground, soaring fifty feet into the air! She grabbed Waddle with her soft paws just as the coaster train zoomed past. She landed gracefully on a giant pile of giant teddy bears in the prize booth. 'Got him!' she purred. Waddle giggled, 'That was better than a slide!' Rhino retrieved a giant blue teddy bear and tried to feed it a hot dog. Kanga clapped his hands. 'We are the kings of the teddy bears!' Mummy Penguin arrived with a bucket of hot popcorn.",
+        text: "Snow Leopard leaped high into the air and grabbed Waddle with her soft paws, just as the coaster zoomed past! She landed on a giant pile of teddy bears. 'Got him!' she purred. 'Better than a slide!' Waddle giggled. 'We are the kings of the teddy bears!' clapped Kanga. Then Mummy Penguin arrived with hot popcorn.",
         illustrationPrompt: "A white leopard catching a steel penguin and landing on a huge pile of colorful stuffed teddy bears.",
         illustrationPreset: {
           emoji: "🐆🧸🎯",
@@ -1051,7 +1247,7 @@ export const STORIES: Story[] = [
       pass_through_waddle: {
         id: "pass_through_waddle",
         title: "The Ghostly Pass-Through!",
-        text: "Penguin shouted, 'Keep Ghost Mode active!' They held on tight. The coaster train shot straight toward Waddle on the track. Instead of a crash, the train went POOF right through Waddle's steel body like a cool breeze! Waddle tickled as they passed through. 'Ooh-la-la!' Waddle giggled. The train slowed down and stopped perfectly at the station. The green ghost cheered, 'You did it! You solved the coaster mystery and made it safe!' Mummy Penguin clapped her flippers.",
+        text: "'Keep Ghost Mode active!' shouted Penguin. The train shot straight at Waddle. But instead of a crash, it went POOF right through his steel body! 'Ooh-la-la!' Waddle giggled. The train slowed and stopped at the station. 'You did it! The coaster is safe!' cheered the green ghost. Mummy Penguin clapped her flippers.",
         illustrationPrompt: "A glowing blue roller coaster train passing straight through a round steel penguin on a track.",
         illustrationPreset: {
           emoji: "👻🌀🛤️",
@@ -1066,7 +1262,7 @@ export const STORIES: Story[] = [
       clown_trail: {
         id: "clown_trail",
         title: "The Cheeky Clown Show!",
-        text: "They followed the trail of red clown noses out of the maze. It led them to the main stage. There, Cheeky was hosting a funny circus show for a crowd of squirrels and rabbits! He was juggling sandwiches while riding Waddle like a unicycle! 'Step right up!' Cheeky shouted. The green ghost floated onto the stage and began to dance. The crowd of animals cheered and threw confetti! Rhino ran onto the stage and caught a juggled sandwich in his mouth. 'NOM! Center stage!'",
+        text: "They followed the red clown noses to the main stage. There, Cheeky hosted a funny circus for squirrels and rabbits! He juggled sandwiches while riding Waddle like a unicycle. 'Step right up!' he shouted. The green ghost floated up and danced, and the crowd cheered! Rhino caught a sandwich in his mouth. 'NOM! Center stage!'",
         illustrationPrompt: "A penguin juggling sandwiches while riding a round metal penguin, with a green ghost dancing next to them.",
         illustrationPreset: {
           emoji: "🎪🤹‍♂️🐧",
@@ -1081,7 +1277,7 @@ export const STORIES: Story[] = [
       penguin_song: {
         id: "penguin_song",
         title: "The Squawking Penguin Opera!",
-        text: "Penguin stood tall, cleared his throat, and sang a high-pitched Penguinpower opera song: 'SQUAWK-SQUAWK-YODEL-OM-NOM!' The sound was so funny and loud that the mirrors vibrated and slid open, revealing a secret door! Behind the door was Mummy Penguin, who had been setting up a surprise birthday party for the green ghost! 'Hooray!' Mummy Penguin said. 'You found the party room!' The green ghost gasped. 'A party? For ME?!' He began to dance with joy.",
+        text: "Penguin stood tall and sang a loud opera. 'SQUAWK-SQUAWK-YODEL-OM-NOM!' The mirrors shook and slid open, showing a secret door! Behind it was Mummy Penguin, setting up a surprise birthday party for the green ghost. 'You found the party room!' she said. 'A party? For ME?!' gasped the green ghost, dancing with joy.",
         illustrationPrompt: "A penguin singing with wide open beak, while mirrors slide away revealing a beautiful birthday party table with a cake.",
         illustrationPreset: {
           emoji: "🎤🎂🐧",
@@ -1096,7 +1292,7 @@ export const STORIES: Story[] = [
       ferris_slide: {
         id: "ferris_slide",
         title: "The Great Ferris Wheel Slide!",
-        text: "They popped their cotton candy cloud and dropped onto the top seat of the giant Ferris wheel. From there, they slid down the metal rails like a massive playground slide! 'WEEEEE!' Kanga cheered. They landed softly in Mummy Penguin's open arms. 'Oh my goodness!' she laughed, shaking the pink sugar out of their hair. She handed them hot cinnamon rolls. 'Here is some real food for my brave adventurers!' Rhino ate three rolls in one bite. 'Mmm, cinnamon! Saved my life!'",
+        text: "They popped their cloud and dropped onto the top of the giant Ferris wheel. Then they slid down the rails like a slide! 'WEEEEE!' cheered Kanga. They landed softly in Mummy Penguin's arms. 'Here is some real food, my brave adventurers!' she laughed, handing them hot cinnamon rolls. Rhino ate three in one bite. 'Mmm, saved my life!'",
         illustrationPrompt: "Animals sliding down the side of a giant, glowing blue Ferris wheel toward a mother penguin holding a tray of rolls.",
         illustrationPreset: {
           emoji: "🎡🛝🥐",
@@ -1111,7 +1307,7 @@ export const STORIES: Story[] = [
       victory_ending_carnival: {
         id: "victory_ending_carnival",
         title: "The Carnival Heroes!",
-        text: "The green ghost was so happy to have friends that he turned the coaster green tracks back to safe gold. Mummy Penguin fed everyone hot cinnamon rolls, popcorn, and peanut butter sandwiches. The green ghost gave the crew a lifetime pass to the carnival! Kanga wore three giant teddy bears like a suit. 'I am the teddy bear king!' he shouted. You got five stars for your amazing reading skills! The carnival is saved, and everyone is laughing! The End!",
+        text: "The green ghost was so happy to have friends that he turned the tracks back to safe gold! Mummy Penguin fed everyone cinnamon rolls, popcorn, and sandwiches. The ghost gave the crew a lifetime carnival pass! Kanga wore three teddy bears like a suit. 'I am the teddy bear king!' he shouted. Five stars for your reading! The carnival is saved. The End!",
         illustrationPrompt: "A happy green ghost, a penguin with a crown, a kangaroo, and a white leopard holding teddy bears under carnival lights.",
         illustrationPreset: {
           emoji: "🎡🏆🍿",
@@ -1126,7 +1322,7 @@ export const STORIES: Story[] = [
       duck_pond_ending: {
         id: "duck_pond_ending",
         title: "The Giant Duck Pond Splash!",
-        text: "SPLAT! They fell right into the giant yellow plastic duck pond. Water splashed fifty feet into the air! Waddle floated on his back like a metal buoy. Rhino sat in the water, wearing a giant plastic duck on his head. 'I am a duck-rhino! Quack!' he roared happily. Mummy Penguin ran over with warm towels. 'Oh you silly billies!' she laughed. You got wet, but you had a great splash! Try again to see if you can solve the coaster mystery!",
+        text: "SPLAT! They fell right into the giant yellow duck pond. Water splashed high! Waddle floated on his back like a metal buoy. Rhino sat with a plastic duck on his head. 'I am a duck-rhino! Quack!' he roared. Mummy Penguin ran over with warm towels. 'Oh you silly billies!' she laughed. You had a great splash! Try again to solve the coaster mystery!",
         illustrationPrompt: "A rhino with a yellow rubber duck on his head sitting in a shallow carnival water pool, laughing.",
         illustrationPreset: {
           emoji: "🦆🌊🦏",
@@ -1151,7 +1347,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "The Cold Mountain Climb!",
-        text: "The mountain was tall, covered in glittering blue ice and fluffy white snow. Snow Leopard stood on a rock, her tail waving. 'Come on, crew!' she called. 'The secret peak is just ahead!' Rhino chattered his teeth. 'Brrr! My toes are frozen! I need a double-decker peanut butter sandwich to warm them up!' Kanga jumped into a snowbank. 'If we leap like frogs, the wind can't catch us!' Kanga shouted. Suddenly, the wind started to howl: 'WHOOOO!' A fluffy white marshmallow blizzard was coming!",
+        text: "The tall mountain glittered with blue ice and snow. Snow Leopard waved her tail, 'Come on, crew! The peak is just ahead!' Rhino shivered, 'Brrr! I need a peanut butter sandwich!' Then Kanga leaped into a snowbank as the wind howled, and a marshmallow blizzard rolled in!",
         illustrationPrompt: "A kangaroo jumping in high snow on a beautiful blue ice mountain, with a white leopard standing on a peak.",
         illustrationPreset: {
           emoji: "🏔️❄️🦘",
@@ -1167,7 +1363,7 @@ export const STORIES: Story[] = [
       ice_slide: {
         id: "ice_slide",
         title: "The Super-Fast Glacier Slide!",
-        text: "They jumped onto a smooth, curved glacier of blue ice. 'WEEEEE!' Penguin squawked, sliding on his round belly like a bobsled! Rhino sat behind him, holding a loaf of bread, sliding on his big bottom. Waddle tucked in and rolled like a steel marble, bouncing off the sides with a loud CLANG! They zoomed down the mountain, leaving a trail of sparkling ice-dust. But ahead, the slide split into two tunnels! One tunnel was lit by blue crystals, and the other smelled like hot chocolate!",
+        text: "They jumped onto the smooth blue glacier. 'WEEEEE!' Penguin squawked, sliding on his round belly like a bobsled! Rhino slid behind him, and Waddle rolled like a clanging steel marble. Ahead, the slide split into two tunnels, one glowing with blue crystals and one smelling like hot chocolate!",
         illustrationPrompt: "Animals sliding fast down a curving blue ice slide on a snow-covered mountain, laughing.",
         illustrationPreset: {
           emoji: "🛝❄️🐧",
@@ -1183,7 +1379,7 @@ export const STORIES: Story[] = [
       caves_enter: {
         id: "caves_enter",
         title: "The Caves of the Echoes!",
-        text: "They stepped into the dark, cozy cave. The walls were made of dry brown rock. 'Hello!' Penguin shouted. 'HELLO-ELLO-LO!' the cave echoed back. Rhino giggled and yelled, 'I want a sandwich!' 'SANDWICH-WICH-CH!' the cave shouted. Rhino gasped, 'The cave wants a sandwich too! It is a sandwich-cave!' Kanga tried to build a small campfire out of icicles. 'If we rub these icicles together, we will get cold-fire!' Kanga explained. Suddenly, they saw a pair of glowing yellow eyes in the dark!",
+        text: "They stepped into the dark, cozy cave. 'Hello!' Penguin shouted, and the walls echoed back, 'HELLO-ELLO-LO!' Rhino yelled, 'I want a sandwich!' and giggled. Then Kanga rubbed icicles for cold-fire, and two glowing yellow eyes blinked in the dark!",
         illustrationPrompt: "Cute animals inside a rocky dark cave looking at two glowing yellow cartoon eyes in the background.",
         illustrationPreset: {
           emoji: "🕳️🦇👀",
@@ -1199,7 +1395,7 @@ export const STORIES: Story[] = [
       crystal_tunnel: {
         id: "crystal_tunnel",
         title: "The Glowing Crystal Chamber!",
-        text: "The crystal tunnel led to a massive, glowing blue room. Crystals as big as pine trees hung from the ceiling, shining like stars. Sitting on a crystal rock was a giant, friendly Yeti! He was wearing a tiny red woolly hat that barely fit his big head. 'Brrr!' the Yeti shivered. 'I lost my warm blanket!' Kanga hopped over. 'Don't worry, Mr. Yeti! I will build you a blanket out of kangaroo jokes!' Rhino reached into his backpack. 'Or... we can share a warm toasted cheese sandwich!'",
+        text: "The tunnel opened into a glowing blue room, where a friendly Yeti sat in a tiny red hat. 'Brrr! I lost my warm blanket!' he shivered. Kanga hopped over, 'I'll build you a blanket of kangaroo jokes!' Rhino grinned, 'Or we can share a warm toasted cheese sandwich!'",
         illustrationPrompt: "A giant, friendly white furry Yeti monster wearing a tiny red beanie hat, sitting on glowing blue crystal rocks.",
         illustrationPreset: {
           emoji: "❄️👹💎",
@@ -1215,7 +1411,7 @@ export const STORIES: Story[] = [
       chocolate_tunnel: {
         id: "chocolate_tunnel",
         title: "The Chocolate River!",
-        text: "The tunnel opened up to a secret kitchen inside the mountain. There was Mummy Penguin, standing next to a steaming, bubbling river of real hot chocolate! 'Welcome, adventurers!' she smiled, waving her ladle. 'I knew you would be cold!' She handed them giant mugs with floating marshmallows as big as pillows. Rhino jumped right into a mug of cocoa! 'I am a marshmallow-rhino!' he cheered, munching on the foam. Waddle rolled into a chocolate fountain, getting covered in sweet brown cream.",
+        text: "The tunnel opened to a secret kitchen inside the mountain. There stood Mummy Penguin beside a bubbling river of hot chocolate! She handed out giant mugs with pillow-sized marshmallows. Rhino jumped right into his cocoa, and Waddle rolled into a chocolate fountain until he was covered in sweet cream!",
         illustrationPrompt: "A warm kitchen cave with a river of dark hot chocolate, with a rhino floating in a giant mug with marshmallows.",
         illustrationPreset: {
           emoji: "🍫☕👩‍🍳",
@@ -1231,7 +1427,7 @@ export const STORIES: Story[] = [
       ghost_eyes: {
         id: "ghost_eyes",
         title: "The Ghostly Peek-a-Boo!",
-        text: "The crew activated Ghost Mode! 'GHOSTS!' they squawked. They turned into blue glowing spirits and floated toward the glowing eyes. It wasn't a monster at all! It was Cheeky, wearing a spooky mask and holding a flashlight! 'AHA-HA!' Cheeky laughed. 'I got you!' Rhino, still a ghost, floated through Cheeky's chest. 'That tickles!' Cheeky giggled, dropping his flashlight. Behind Cheeky was a secret map of the mountain treasure!",
+        text: "The crew turned into glowing ghosts and floated toward the eyes. It was only Cheeky in a spooky mask, holding a flashlight! Rhino floated through his chest, Cheeky giggled, and dropped a secret map to the mountain treasure!",
         illustrationPrompt: "A cheeky penguin holding a flashlight and looking surprised at cartoon animal ghosts floating around him in a cave.",
         illustrationPreset: {
           emoji: "👻🔦🐧",
@@ -1247,7 +1443,7 @@ export const STORIES: Story[] = [
       waddle_light: {
         id: "waddle_light",
         title: "The Sparkling Light Show!",
-        text: "Waddle Wrecking Ball rolled backward, then crashed into a giant glowing crystal boulder. CRASH! The boulder shattered into thousands of tiny, sparkling diamonds that floated in the air like stars, lighting up the entire cave. The yellow eyes belonged to a cute baby snow-leopard! She was cuddling a giant blue chest. 'You found my toy box!' she peeped. Snow Leopard purred and licked her baby sister's ears. Kanga danced, 'I am the diamond king of the cave!'",
+        text: "Waddle rolled back and CRASHED into a glowing boulder! It burst into sparkling diamonds that lit up the cave. The yellow eyes were a baby snow-leopard hugging her giant blue toy box! Snow Leopard purred, and Kanga cheered, 'I'm the diamond king!'",
         illustrationPrompt: "Sparkling diamond dust floating in a dark cave, illuminating a baby white leopard next to a big blue treasure chest.",
         illustrationPreset: {
           emoji: "💎🦁📦",
@@ -1262,7 +1458,7 @@ export const STORIES: Story[] = [
       toast_yeti: {
         id: "toast_yeti",
         title: "The Melting Cheese Miracle!",
-        text: "Rhino pulled out his special toaster-sandwich and handed it to the Yeti. The Yeti took a big bite. 'MMM-NOM!' the Yeti chewed. The hot, gooey steel-cheese warmed up his tummy instantly! A big warm steam cloud puffed out of his ears. 'I am warm!' the Yeti roared with a happy smile. He was so happy that he gave the crew a ride on his big shoulders, carrying them straight up to the mountain summit through the marshmallow blizzard!",
+        text: "Rhino handed the Yeti his toaster-sandwich, and the Yeti took a big bite. The hot steel-cheese warmed his tummy, and steam puffed from his ears. 'I am warm!' the Yeti roared, then carried the whole crew up to the summit through the marshmallow blizzard!",
         illustrationPrompt: "A giant white Yeti carrying a rhino and a penguin on his shoulders, walking happily through a soft white snowstorm.",
         illustrationPreset: {
           emoji: "👹🎒🦏",
@@ -1277,7 +1473,7 @@ export const STORIES: Story[] = [
       tail_yeti: {
         id: "tail_yeti",
         title: "The Warm Leopard Hug!",
-        text: "Snow Leopard stepped forward and wrapped her massive, fluffy white tail around the shivering Yeti like a warm winter scarf. 'Cozy leopard hug!' she purred. The Yeti stopped shivering and smiled. 'Thank you, pretty cat!' he said. To thank them, the Yeti pointed to a secret frozen doorway in the crystal wall. 'The treasure is behind that door!' he whispered. Waddle ran up, 'Let me smash it!'",
+        text: "Snow Leopard wrapped her fluffy tail around the Yeti like a warm scarf. 'Cozy leopard hug!' The Yeti smiled and pointed to a secret frozen doorway. 'The treasure is behind that door!' Waddle grinned, 'Let me smash it!'",
         illustrationPrompt: "A white leopard wrapping her long fluffy tail around a smiling white Yeti monster in a crystal cave.",
         illustrationPreset: {
           emoji: "🐆🧣👹",
@@ -1292,7 +1488,7 @@ export const STORIES: Story[] = [
       treasure_peak: {
         id: "treasure_peak",
         title: "The Mountain Summit Treasure!",
-        text: "Following the map, they reached the very top of Mount Penguinpower. The sky was bright blue, and the stars were so close they looked like glowing toys. Sitting on a stone altar was the mountain treasure: a golden lunchbox! Rhino gasped and ran to open it. Inside, there was no gold or diamonds. Instead, there was a pile of infinite-fresh peanut butter, banana, and marshmallow sandwiches! 'THE HOLY GRAL OF SANDWICHES!' Rhino cheered, falling to his knees in happiness.",
+        text: "Following the map, they reached the top of Mount Penguinpower. On a stone altar sat the treasure: a golden lunchbox! Rhino opened it and found no gold, just a pile of fresh peanut butter and marshmallow sandwiches! 'THE HOLY GRAL OF SANDWICHES!' Rhino cheered.",
         illustrationPrompt: "A golden lunchbox sitting on a stone altar on a mountain summit, shining light onto a happy, drooling rhino.",
         illustrationPreset: {
           emoji: "⛰️👑🥪",
@@ -1307,7 +1503,7 @@ export const STORIES: Story[] = [
       open_box: {
         id: "open_box",
         title: "The Box of Magic Toys!",
-        text: "Waddle rolled and smashed the box open! Inside, there were dozens of magical toys that floated in the air: glowing space tops, bubble wands that painted the air, and a mini-zeppelin that flew by itself. Kanga grabbed a space top and tried to spin it on his nose. 'If I spin this fast enough, my nose will become a helicopter!' Kanga shouted. Snow Leopard and her baby sister laughed, chasing the floating bubbles. It was the best toy room ever!",
+        text: "Waddle smashed the box open, and magical toys floated out! There were glowing space tops, bubble wands, and a mini-zeppelin that flew itself. Kanga spun a top on his nose, 'My nose will be a helicopter!' Snow Leopard and her baby sister chased the bubbles.",
         illustrationPrompt: "Magical toys, spinning tops, and colorful bubble wands floating in the air of a cozy cave, with a kangaroo and leopards playing.",
         illustrationPreset: {
           emoji: "🧸🎈✨",
@@ -1322,7 +1518,7 @@ export const STORIES: Story[] = [
       dough_slide: {
         id: "dough_slide",
         title: "The Sticky Cookie Trap!",
-        text: "Kanga and Waddle jumped onto the giant hill of cookie dough that Mummy Penguin had prepared. They started to slide, but the dough was super sticky! 'Oh no! Sticky dough!' Waddle squawked. They rolled and rolled, picking up sugar and sprinkles, until they were two giant, walking ginger-penguin cookies! Rhino saw them and chased them with a fork. 'Mmm, moving cookies!' he roared. They got stuck in the sweet, gooey dough and couldn't wiggle free!",
+        text: "Kanga and Waddle jumped onto Mummy Penguin's giant hill of cookie dough. But the dough was super sticky! They rolled and rolled, until they were two giant walking cookies covered in sprinkles. Rhino chased them with a fork, 'Mmm, moving cookies!' but they were stuck fast!",
         illustrationPrompt: "A kangaroo and a steel penguin completely covered in cookie dough and colorful sugar sprinkles, looking like funny cookies.",
         illustrationPreset: {
           emoji: "🍪🤠🐧",
@@ -1337,7 +1533,7 @@ export const STORIES: Story[] = [
       victory_ending_mountain: {
         id: "victory_ending_mountain",
         title: "The Mountain Kings and Queens!",
-        text: "They had the ultimate sandwich and cookie picnic on the very peak of Mount Penguinpower! The Yeti, Snow Leopard's family, and the crew sat in a big circle. Mummy Penguin served hot cocoa, and everyone wore funny woolly hats. Kanga got a giant golden medal for being a silly genius, and Rhino got a trophy shaped like a sandwich. You read so well that you unlocked the peak! You got five stars! Fantastic job!",
+        text: "They had the ultimate picnic on the peak of Mount Penguinpower! The Yeti, Snow Leopard's family, and Mummy Penguin shared cocoa in woolly hats. Kanga got a golden medal and Rhino a sandwich trophy! You read so well and earned five stars, fantastic job!",
         illustrationPrompt: "A happy group of animals and a giant Yeti sitting on a snow peak eating sandwiches and drinking cocoa under a sunny sky.",
         illustrationPreset: {
           emoji: "🏔️🏆🎉",
@@ -1352,7 +1548,7 @@ export const STORIES: Story[] = [
       defeat_ending_dough: {
         id: "defeat_ending_dough",
         title: "The Great Cookie Nap!",
-        text: "Mummy Penguin sighed and shook her head at her cookie-covered babies. 'Well, since you are already sweet, you can have a nap!' She wrapped them in warm kitchen towels and let them sleep by the warm oven. Rhino curled up next to the cookie tray and snored happily. You got sticky and sweet, but you didn't reach the summit treasure! Try again to see if you can make it to the top of Mount Penguinpower!",
+        text: "Mummy Penguin shook her head at her cookie-covered babies. 'Since you're already sweet, have a nap!' She wrapped them in warm towels while Rhino snored by the oven. You got sticky and sweet, so try again to reach the summit of Mount Penguinpower!",
         illustrationPrompt: "Animals wrapped in towels sleeping cozy next to a modern warm oven in a kitchen cave.",
         illustrationPreset: {
           emoji: "💤🍪👩‍🍳",
@@ -1377,7 +1573,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "The Big Festival Bake!",
-        text: "Mummy Penguin was standing on a giant ladder, stirring a bowl of cake batter as big as a swimming pool! 'I need the magic steel-sugar from the underground mines!' she squawked. 'Without it, the cake will fall flat like a pancake!' Penguin stood tall. 'I will lead the sugar-quest!' Waddle rolled around, 'I love digging! My steel belly can break any rock!' Rhino was licking the cake-spoon. 'I will come to taste-test the sugar!' Kanga looked into a sugar-shaker. 'If we crawl into the shaker, we will grow tiny as ants and ride on sugar-bugs!' Kanga declared. How should they dig?",
+        text: "Mummy Penguin stirred cake batter as big as a swimming pool. 'I need the magic steel-sugar from the mines, or my cake will fall flat!' she squawked. 'I will lead the sugar-quest!' said Penguin, while Waddle cheered that his steel belly could dig through any rock. Rhino licked the spoon and Kanga wanted to shrink tiny and ride sugar-bugs -- how should they dig?",
         illustrationPrompt: "An enormous mother penguin on a tall ladder stirring a swimming-pool-sized mixing bowl in a warm kitchen.",
         illustrationPreset: {
           emoji: "🎂👩‍🍳🐧",
@@ -1393,7 +1589,7 @@ export const STORIES: Story[] = [
       mine_drill: {
         id: "mine_drill",
         title: "Waddle the Mega-Drill!",
-        text: "Waddle Wrecking Ball tucked in his head, turned into a shiny steel ball, and started spinning super-fast. 'DRILL MODE ACTIVATED!' he screamed. With a loud ZZZT-BOOM, Waddle launched himself into the ground! He drilled a perfect round tunnel deep into the mountain, leaving a trail of sparkling sugar-crystals. Kanga and Penguin slid down behind him, holding their ears. Rhino slid on his belly, eating sugar-dust. 'Mmm, sweet snow!' Rhino cheered. Suddenly, they popped out into a glowing purple cave filled with sugar-crystals!",
+        text: "Waddle tucked in his head, turned into a steel ball, and screamed 'DRILL MODE ACTIVATED!' ZZZT-BOOM -- he drilled a tunnel deep into the mountain! Kanga and Penguin slid behind him while Rhino ate sugar-dust, cheering 'Mmm, sweet snow!' They popped out into a glowing purple cave full of sparkling sugar-crystals.",
         illustrationPrompt: "A round steel penguin spinning fast like a drill, creating a tunnel with sparkling sugar dust flying around.",
         illustrationPreset: {
           emoji: "🌀⛏️💎",
@@ -1409,7 +1605,7 @@ export const STORIES: Story[] = [
       conveyor_belt: {
         id: "conveyor_belt",
         title: "The Wild Conveyor Ride!",
-        text: "They jumped onto the sugar-factory conveyor belt. It was moving super-fast! They zoomed past giant marshmallow stamping machines and chocolate fountains. 'Hold on to your hats!' Penguin squawked, his crown sliding. Rhino stood under a chocolate fountain, opening his mouth wide. 'NOM NOM NOM! Liquid chocolate river!' he roared. Kanga tried to ride on a passing gingerbread man. 'If I press his button, he will turn into a rocket horse!' Kanga yelled. Ahead, the belt was heading straight into a giant dough-kneader!",
+        text: "They jumped onto the super-fast sugar-factory conveyor belt, zooming past marshmallow machines and chocolate fountains. 'Hold on to your hats!' squawked Penguin. Rhino gulped chocolate from a fountain, roaring 'NOM NOM NOM!' while Kanga tried to ride a gingerbread man. Ahead, the belt raced straight toward a giant dough-kneader!",
         illustrationPrompt: "Animals zooming on a fast conveyor belt in a colorful candy factory, with a chocolate waterfall in the background.",
         illustrationPreset: {
           emoji: "🎢🍫🏃‍♂️",
@@ -1425,7 +1621,7 @@ export const STORIES: Story[] = [
       goblin_vault: {
         id: "goblin_vault",
         title: "Meeting the Sugar-Goblin!",
-        text: "In the center of the purple cave stood a tiny, green goblin wearing a sugar-cube crown. He was guarding a giant chest of glittering steel-sugar. 'Stop!' the goblin squeaked, waving a giant candy cane. 'Nobody takes my sugar unless they can answer my riddle!' Penguin nodded, 'We are ready!' Kanga stepped forward, 'I am a genius! Ask me!' The goblin grinned: 'What is round, made of metal, and loves to smash things?' Kanga tapped his chin. 'Is it a shiny metal orange?'",
+        text: "A tiny green goblin in a sugar-cube crown guarded a giant chest of steel-sugar. 'Nobody takes my sugar unless you answer my riddle!' he squeaked, waving a giant candy cane. 'What is round, made of metal, and loves to smash things?' Kanga tapped his chin and guessed, 'Is it a shiny metal orange?'",
         illustrationPrompt: "A tiny green sugar goblin with a sugar crown waving a candy cane in a glowing purple cavern.",
         illustrationPreset: {
           emoji: "👺👑🍬",
@@ -1441,7 +1637,7 @@ export const STORIES: Story[] = [
       crystal_ghost: {
         id: "crystal_ghost",
         title: "The Ghostly Crystal Flight!",
-        text: "The crew activated Ghost Mode! They turned into glowing blue spirits and floated right through a solid wall of purple sugar-crystal. On the other side, they found a secret cavern. Hanging from the ceiling was the Legendary Steel-Sugar Star! It shone so bright it made their eyes sparkle. But it was guarded by a sleeping sugar-dragon! The dragon was snoring, puffing out sweet strawberry-scented pink clouds. Rhino floated toward the dragon's nose, trying to sniff the sweet scent.",
+        text: "The crew turned on Ghost Mode and floated right through the solid sugar-crystal wall! Inside a secret cavern hung the Legendary Steel-Sugar Star, shining so bright it made their eyes sparkle. But a sleeping sugar-dragon guarded it, snoring out sweet strawberry pink clouds. Rhino floated toward the dragon's nose.",
         illustrationPrompt: "Glowing blue animal ghosts floating in a cavern near a sleeping pink cartoon dragon who is puffing heart-shaped clouds.",
         illustrationPreset: {
           emoji: "👻🐉✨",
@@ -1457,7 +1653,7 @@ export const STORIES: Story[] = [
       marshmallow_pit: {
         id: "marshmallow_pit",
         title: "The Soft Marshmallow Cushion!",
-        text: "They leaped off the conveyor belt and landed PLOP in a massive pit filled with millions of soft, white mini-marshmallows! It felt like landing on a giant warm bed. Rhino lay on his back, throwing marshmallows into the air and catching them in his mouth. 'I am in marshmallow heaven!' he cheered. Cheeky was already there, throwing marshmallow snowballs at Waddle. Kanga tried to build a marshmallow kangaroo family. 'Look! They are my sweet kids! They don't jump, but they are very tasty!'",
+        text: "They leaped off the belt and landed PLOP in a huge pit of soft white mini-marshmallows! Rhino tossed marshmallows into his mouth, cheering 'I am in marshmallow heaven!' Cheeky threw marshmallow snowballs at Waddle. Kanga built a marshmallow kangaroo family, giggling 'They don't jump, but they are very tasty!'",
         illustrationPrompt: "Cartoon animals playing happily in a giant swimming pool filled with white mini-marshmallows.",
         illustrationPreset: {
           emoji: "🏊‍♂️🤍🍡",
@@ -1473,7 +1669,7 @@ export const STORIES: Story[] = [
       emergency_stop: {
         id: "emergency_stop",
         title: "Waddle's Steel Slam!",
-        text: "Waddle rolled and slammed into the giant red emergency stop button on the wall. DING! The conveyor belt stopped instantly, launching Kanga and Penguin flying through the air! They did three flips and landed perfectly in a giant sack of sweet steel-sugar that sat on a forklift. 'Wow!' Penguin squawked, adjusting his crown. 'That is exactly what we needed!' Suddenly, the forklift started to roll down a ramp toward the kitchen! Kanga grabbed the wheel.",
+        text: "Waddle slammed into the giant red emergency stop button -- DING! The belt stopped, launching Kanga and Penguin into a giant sack of steel-sugar on a forklift! 'Exactly what we needed!' squawked Penguin, as the forklift rolled down a ramp toward the kitchen. Kanga grabbed the wheel!",
         illustrationPrompt: "A kangaroo driving a yellow forklift carrying a giant sack of sugar, with a penguin holding on for dear life.",
         illustrationPreset: {
           emoji: "🚜🌾🐧",
@@ -1488,7 +1684,7 @@ export const STORIES: Story[] = [
       riddle_correct: {
         id: "riddle_correct",
         title: "The Goblin's Happy Dance!",
-        text: "Penguin squawked, 'The answer is Waddle Wrecking Ball!' The sugar-goblin's eyes lit up with joy. 'CORRECT!' he squeaked. He was so happy that he started doing a silly tap-dance on a sugar cube. He unlocked the chest and handed the crew a giant, sparkling crystal of steel-sugar. 'You are the smartest readers in Penguinpower!' the goblin praised. Snow Leopard leaped in, 'I will carry this heavy crystal! Let us run back to Mummy Penguin!'",
+        text: "'The answer is Waddle Wrecking Ball!' squawked Penguin. 'CORRECT!' squeaked the goblin, tap-dancing happily on a sugar cube. He unlocked the chest and handed them a giant crystal of steel-sugar. Snow Leopard grabbed it, cheering 'Let us run back to Mummy Penguin!'",
         illustrationPrompt: "A green goblin dancing on a sugar cube, while a white leopard carries a giant shiny purple crystal.",
         illustrationPreset: {
           emoji: "💃👹🔮",
@@ -1503,7 +1699,7 @@ export const STORIES: Story[] = [
       goblin_smash: {
         id: "goblin_smash",
         title: "Smashing the Candy Cane!",
-        text: "Waddle got too excited and rolled right into the goblin's giant candy cane. CRASH! The candy cane broke into five pieces of sweet peppermint. The goblin gasped, 'My weapon!' But instead of getting angry, he picked up a piece and licked it. 'Mmm, peppermint!' he giggled. He opened the chest and handed them the sugar. 'You are very chaotic, but I like peppermint!' Rhino grabbed a piece of candy cane too. 'Peppermint sandwich!' he cheered.",
+        text: "Waddle got too excited and rolled into the goblin's giant candy cane -- CRASH! It broke into sweet peppermint pieces. Instead of getting angry, the goblin licked one and giggled 'Mmm, peppermint!' He handed them the sugar, and Rhino grabbed a piece too, cheering 'Peppermint sandwich!'",
         illustrationPrompt: "A metal penguin next to a broken giant candy cane, with a little goblin eating a piece and smiling.",
         illustrationPreset: {
           emoji: "💥🍭👹",
@@ -1518,7 +1714,7 @@ export const STORIES: Story[] = [
       grab_star_ghost: {
         id: "grab_star_ghost",
         title: "The Ghostly Heist!",
-        text: "Floating silently, Penguin grabbed the glowing Steel-Sugar Star with his ghostly flippers. Since they were ghosts, the star became light as a feather! They floated right back through the crystal wall, leaving the dragon snoring happily. Once they were back in the tunnel, they deactivated Ghost Mode. The sugar-star was solid and sparkling in Penguin's hands! 'We got it!' Waddle squawked. 'Let's bake!'",
+        text: "Penguin grabbed the glowing Steel-Sugar Star with his ghostly flippers, light as a feather! They floated back through the crystal wall, past the snoring dragon, then turned off Ghost Mode. The star sparkled solid in Penguin's hands. 'Let's bake!' squawked Waddle.",
         illustrationPrompt: "A glowing blue penguin holding a bright golden star-shaped crystal, floating away from a sleeping pink dragon.",
         illustrationPreset: {
           emoji: "👻⭐🐧",
@@ -1533,7 +1729,7 @@ export const STORIES: Story[] = [
       tickle_dragon: {
         id: "tickle_dragon",
         title: "The Dragon's Sneeze!",
-        text: "Kanga tried to be funny and tickled the sleeping dragon's nose with a sugar-crystal. 'ACHOO!!!' The dragon sneezed a giant pink blast of strawberry smoke! The smoke blew the crew right out of the cave and sent them sliding down the mountain, landing SPLAT on Mummy Penguin's kitchen patio! The sugar-star flew out of Kanga's hand and landed perfectly in Mummy Penguin's mixing bowl! Mummy Penguin laughed, 'What a fast delivery!'",
+        text: "Kanga tickled the sleeping dragon's nose, and -- 'ACHOO!!!' -- it blasted out pink strawberry smoke! The smoke blew the crew down the mountain and onto Mummy Penguin's kitchen patio. The sugar-star flew from Kanga's hand right into her mixing bowl. Mummy Penguin laughed, 'What a fast delivery!'",
         illustrationPrompt: "A happy pink dragon sneezing strawberry smoke, sending animals sliding down a snowy hill toward a kitchen patio.",
         illustrationPreset: {
           emoji: "🤧🐉🥣",
@@ -1548,7 +1744,7 @@ export const STORIES: Story[] = [
       find_key: {
         id: "find_key",
         title: "The Sugar Key Discovery!",
-        text: "Rhino searched the marshmallow pit and found a glowing key made of solid chocolate! 'Look! Chocolate key!' he cheered. They used the key to open a secret cupboard, and inside was a sack of Mummy Penguin's steel-sugar! Waddle rolled under the sack and lifted it on his round metal back. 'Let's carry it home!' he squawked. Cheeky hopped on the sack, waving a flag. 'To the kitchen!' they cheered.",
+        text: "Rhino searched the marshmallow pit and found a glowing chocolate key! It opened a secret cupboard holding a sack of Mummy Penguin's steel-sugar. Waddle lifted the sack onto his round metal back, and Cheeky hopped on top waving a flag. 'To the kitchen!' they cheered.",
         illustrationPrompt: "A rhino holding a brown chocolate key, with a steel penguin carrying a giant white sack on his back.",
         illustrationPreset: {
           emoji: "🔑🍫🦏",
@@ -1563,7 +1759,7 @@ export const STORIES: Story[] = [
       forklift_kitchen: {
         id: "forklift_kitchen",
         title: "The Great Cake Assembly!",
-        text: "They arrived in the kitchen with the steel-sugar. Mummy Penguin dumped it into the swimming-pool-sized bowl and stirred with a giant paddle. Instantly, the batter rose and baked into a magnificent 100-foot-tall cake! The cake had layers of chocolate, peanut butter, and marshmallow, decorated with glowing sugar stars. Waddle rolled around the base, putting on frosting. Kanga wore a giant strawberry on his head. 'I am the strawberry king of the festival!' Kanga laughed.",
+        text: "They rushed into the kitchen, and Mummy Penguin stirred the steel-sugar into her giant bowl. Instantly the batter rose into a magnificent 100-foot-tall cake, with layers of chocolate, peanut butter, and marshmallow! Waddle rolled around the base adding frosting. Kanga wore a giant strawberry, laughing 'I am the strawberry king of the festival!'",
         illustrationPrompt: "All the animal friends decorating a massive, beautiful multi-tiered cake that goes up to the ceiling in a kitchen.",
         illustrationPreset: {
           emoji: "🎂🍓✨",
@@ -1578,7 +1774,7 @@ export const STORIES: Story[] = [
       victory_ending_cake: {
         id: "victory_ending_cake",
         title: "The Sweetest Festival Victory!",
-        text: "The Penguinpower Festival was a massive success! The entire town came to eat Mummy Penguin's giant cake. The cake was so delicious that it made everyone sing and dance. Waddle got a crown made of chocolate, Kanga got a medal for his funny strawberry hat, and Rhino ate forty pieces of cake! Penguin stood tall and squawked, 'We are the best readers and cake-bakers in the world!' You got five stars for your excellent reading! You won! The End!",
+        text: "The Penguinpower Festival was a massive success, and the whole town ate Mummy Penguin's giant cake! Waddle got a chocolate crown, Kanga won a medal for his strawberry hat, and Rhino ate forty pieces! Penguin squawked, 'We are the best readers and cake-bakers in the world!' You got five stars and won -- The End!",
         illustrationPrompt: "A huge crowd of animals and monsters dancing around a giant cake in a beautiful sunny town square.",
         illustrationPreset: {
           emoji: "🥳🎂🏆",
@@ -1593,7 +1789,7 @@ export const STORIES: Story[] = [
       defeat_ending_sugar: {
         id: "defeat_ending_sugar",
         title: "The Marshmallow Sleepover!",
-        text: "Rhino and Waddle ate so many marshmallows that their tummies were completely round! They couldn't move or wiggle. They lay in the marshmallow pit, rubbing their tummies and snoring. 'Cozy... sugar... nap...' Rhino mumbled. Mummy Penguin had to come and tuck them in with marshmallow blankets. You got too full to finish the cake! Try again to see if you can help Mummy Penguin bake the 100-foot cake!",
+        text: "Rhino and Waddle ate so many marshmallows that their tummies were completely round -- they couldn't even wiggle! They snored in the pit while Rhino mumbled, 'Cozy... sugar... nap...' Mummy Penguin tucked them in with marshmallow blankets. You got too full to finish the cake -- try again to bake the 100-foot cake!",
         illustrationPrompt: "Cute animals sleeping on top of a mountain of soft white marshmallows under warm glowing lights.",
         illustrationPreset: {
           emoji: "💤🤍🍡",
@@ -1618,7 +1814,7 @@ export const STORIES: Story[] = [
       start: {
         id: "start",
         title: "Kanga's Space-Time Emulator",
-        text: "Kanga had built many strange inventions: a sandwich catapult, a biscuit-powered scooter, and a sock-firing bedroom-tidier. But this time, Kanga had built something truly amazing! In the middle of Mummy Penguin’s living room stood a huge wobbling machine made from cardboard boxes, silver foil, bottle tops, string, a bicycle bell, and a suspicious banana. A sign on the front said: KANGA’S SPACE-TIME EMULATOR - DO NOT KICK - DO NOT LICK. Rhino stared at it. 'Can it send us to a dimension where snacks are free?' he asked. 'Possibly,' Kanga said. Suddenly, Waddle licked the machine! A tiny crack appeared in the cardboard. DING-DING-DING! The banana began spinning! Kanga gulped: 'Oh. That's not ideal.' What should they do?",
+        text: "Kanga had built something amazing! In the living room stood a huge wobbly machine made of cardboard, foil, string, a bicycle bell, and a banana. A sign said: DO NOT KICK - DO NOT LICK. 'Can it send us where snacks are free?' asked Rhino. Then Waddle licked it! A crack appeared, and DING-DING-DING, the banana began spinning! 'Oh. That's not ideal,' gulped Kanga. What should they do?",
         illustrationPrompt: "A cartoon kangaroo showing a funny cardboard space machine with a bicycle bell and a spinning banana on top to a round rhino, a penguin, and a shiny metallic penguin.",
         illustrationPreset: {
           emoji: "🌀🍌🔔",
@@ -1635,7 +1831,7 @@ export const STORIES: Story[] = [
       node_2: {
         id: "node_2",
         title: "The Shiny Silver Potato",
-        text: "Kanga grabbed a roll of sticky tape and wrapped it around the crack. Soon the whole machine looked like a shiny silver potato! 'There,' said Kanga. 'Fixed.' The emulator hummed. The lights flashed. The banana spun faster. Mummy Penguin peered over the sofa. 'Why is the banana doing that?' 'That's how you know it's working,' said Kanga. Suddenly, three glowing doors appeared in the middle of the living room: a red door, a green door, and a blue door! 'There were not three doors in my living room a minute ago,' Mummy Penguin muttered. Which door should they open?",
+        text: "Kanga wrapped sticky tape around the crack until the machine looked like a shiny silver potato. 'Fixed,' said Kanga. The lights flashed and the banana spun faster. 'Why is the banana doing that?' asked Mummy Penguin. Suddenly three glowing doors appeared: one red, one green, and one blue! Which door should they open?",
         illustrationPrompt: "A cardboard machine completely wrapped in shiny silver duct tape resembling a potato, with three colorful glowing doors (red, green, blue) appearing next to it.",
         illustrationPreset: {
           emoji: "🥔🚪🚪🚪",
@@ -1652,7 +1848,7 @@ export const STORIES: Story[] = [
       node_3: {
         id: "node_3",
         title: "Implosion and Vortex!",
-        text: "Kanga pressed the big red button. The Space-Time Emulator made a noise like a washing machine full of spoons! The living room stretched. The sofa bent. Mummy Penguin's fish tank floated upside down! 'This is not ideal!' shouted Penguin. 'This is very slightly ideal!' shouted Kanga. CRRRRRRACK! The emulator imploded like a cardboard sandwich and sucked everyone into a swirling tunnel of space-time. Ahead of them were three spinning tunnels. One smelled like syrup, one smelled like smoke and goblins, and one smelled like wet socks and marshmallows. Which tunnel do they choose?",
+        text: "Kanga pressed the big red button. The machine roared like a washing machine full of spoons! The sofa bent and Mummy Penguin's fish tank floated upside down. CRRRRRACK! The emulator imploded and sucked everyone into a swirling tunnel. Ahead spun three tunnels: one smelled like syrup, one like smoke and goblins, and one like wet socks and marshmallows. Which tunnel do they choose?",
         illustrationPrompt: "Funny cute animals spinning inside a colorful swirling space-time vortex tunnel with floating stars, clocks, and bananas.",
         illustrationPreset: {
           emoji: "🌪️🌀🌀",
@@ -1669,7 +1865,7 @@ export const STORIES: Story[] = [
       node_4: {
         id: "node_4",
         title: "The Worst Dimension",
-        text: "Rhino cracked his knuckles. 'Stand back,' he said. 'I know exactly how to improve this.' Rhino kicked the machine! There was a pause. Then the emulator made a tiny polite cough and swallowed everyone! They landed back in Mummy Penguin’s kitchen, but the sink was piled high with dirty dishes. A glowing message appeared in the air: YOU MAY NOT CONTINUE THE ADVENTURE UNTIL THE DISHES ARE DONE. Waddle ate the sponge! After they washed every plate, bowl, and spoon, the sink began to glow. The emulator reappeared inside the washing-up bowl, still cracked. 'Good news. We’re back where we started,' Kanga smiled. What now?",
+        text: "'Stand back, I know how to improve this,' said Rhino. He kicked the machine! It gave a polite cough and swallowed everyone. They landed in Mummy Penguin's kitchen beside a huge pile of dirty dishes. A message glowed: DO THE DISHES TO CONTINUE. Waddle ate the sponge! When every plate was washed, the cracked emulator reappeared. 'We're back where we started,' smiled Kanga. What now?",
         illustrationPrompt: "A funny rhino and penguin washing a giant pile of cartoon plates in a sparkling clean kitchen sink, with a metal penguin eating a green sponge.",
         illustrationPreset: {
           emoji: "🍽️🧼🧽",
@@ -1685,7 +1881,7 @@ export const STORIES: Story[] = [
       node_5: {
         id: "node_5",
         title: "The Chore Bedroom",
-        text: "They opened the red door and stepped through. Immediately, they found themselves in Mummy Penguin’s bedroom! The bed was an absolute disaster. Blankets and pillows everywhere, and one sock stuck to the wall! A glowing message appeared: YOU MAY NOT CONTINUE UNTIL THE BED HAS BEEN CLEANED. They made the bed, folded blankets, and fluffed pillows. Rhino tried to polish a duvet while Waddle lay down and refused to move for seven minutes! When the bed was perfect, a portal opened under the pillow, making slurping noises. What should they do?",
+        text: "They opened the red door and landed in Mummy Penguin's messy bedroom. A message glowed: CLEAN THE BED TO CONTINUE. They folded blankets and fluffed pillows while Waddle lay down and refused to move for seven minutes! When the bed was perfect, a portal opened under the pillow, making slurping noises. What should they do?",
         illustrationPrompt: "A messy bedroom with animal friends folding colorful blankets and putting pillows neatly on a huge bed.",
         illustrationPreset: {
           emoji: "🛏️🧹🧦",
@@ -1701,7 +1897,7 @@ export const STORIES: Story[] = [
       node_6: {
         id: "node_6",
         title: "The Bendy Distortion Tunnel",
-        text: "They opened the green door. Behind it was a long bendy tunnel full of floating question marks. 'This looks suspicious,' said Penguin. 'This looks educational,' said Kanga. 'This looks like it needs snacks,' said Rhino. They stepped inside. The tunnel twisted left, right, up, down, sideways, and in one direction nobody had a name for. Then everything began to wobble! Kanga’s tail looked like a trumpet, Rhino’s horn turned into a spoon, and Penguin’s flippers were briefly made of jelly. Kanga gasped: 'Oh no. We’re entering a distortion field!'",
+        text: "They opened the green door into a long bendy tunnel full of floating question marks. 'This looks suspicious,' said Penguin. 'This looks educational,' said Kanga. 'This needs snacks,' said Rhino. The tunnel twisted every way, and then everything wobbled! Kanga's tail looked like a trumpet and Rhino's horn turned into a spoon. 'Oh no. We're entering a distortion field!' gasped Kanga.",
         illustrationPrompt: "A bendy tunnel filled with colorful glowing question marks, with distorted-looking cartoon animals walking through it.",
         illustrationPreset: {
           emoji: "❓🌀🪀",
@@ -1716,7 +1912,7 @@ export const STORIES: Story[] = [
       node_7: {
         id: "node_7",
         title: "The Glowing Recycling Bin",
-        text: "They opened the blue door and stepped into Mummy Penguin’s garden. Everything looked normal. Too normal! Then the wheelie bin opened by itself! A glowing message appeared: YOU MAY NOT CONTINUE UNTIL THE TRASH HAS BEEN TAKEN OUT. Rhino groaned: 'Why does space-time care so much about chores?' They took out the trash and sorted recycling. Kanga rescued four cardboard boxes because they looked 'scientifically important.' When they were finished, the recycling bin began to glow and a portal opened inside it! Waddle jumped in, and everyone followed!",
+        text: "They opened the blue door into Mummy Penguin's garden. It looked too normal! Then the wheelie bin popped open and a message said: TAKE OUT THE TRASH TO CONTINUE. 'Why does space-time care about chores?' groaned Rhino. Kanga rescued four cardboard boxes. Then the recycling bin glowed, opened a portal, and Waddle jumped in!",
         illustrationPrompt: "A bright green glowing recycling bin in a green backyard, with animal friends jumping happily inside.",
         illustrationPreset: {
           emoji: "♻️🪴🗑️",
@@ -1731,7 +1927,7 @@ export const STORIES: Story[] = [
       node_8: {
         id: "node_8",
         title: "The Golden Pancake Land",
-        text: "They landed in a golden land that smelled delicious! The sky was butter, the rivers syrup, and the ground was one giant pancake! Rhino fell to his knees: 'I have found my people.' Suddenly, a huge machine rolled over the hill with a sign: PANCAKE STANDARDISER - ANYTHING BIGGER THAN A PANCAKE WILL BE MADE PANCAKE-SHAPED. It rolled straight over Kanga! FLUMP! Kanga was now completely flat. Rhino picked him up: 'Frisbee!' and threw Pancake Kanga across the syrup river. Then the machine rolled toward Waddle, but CLANG! The machine broke when it hit Waddle's steel body! The whole land began to crack and melt! They saw three escape routes:",
+        text: "They landed in a golden land where the sky was butter and the ground was one giant pancake! 'I have found my people,' said Rhino. Then a huge PANCAKE STANDARDISER rolled over the hill and flattened Kanga. FLUMP! 'Frisbee!' laughed Rhino, throwing flat Pancake Kanga across the syrup river. The machine rolled at Waddle, but CLANG, it broke on his steel body! The whole land began to crack, and they saw three escape routes.",
         illustrationPrompt: "A happy flat pancake-shaped kangaroo flying across a river of maple syrup in a land made of pancakes and butter.",
         illustrationPreset: {
           emoji: "🥞🍯🧈",
@@ -1748,7 +1944,7 @@ export const STORIES: Story[] = [
       node_9: {
         id: "node_9",
         title: "Minions of the Goblin Planet",
-        text: "They landed on a dark green planet under a purple sky. In the distance stood a castle shaped like an enormous angry face. 'I'm guessing this is not the snack dimension,' Penguin swallowed. A group of goblin minions marched toward them with minion guns! A loud voice boomed: 'I AM THE GREEN GOBLIN! ALL VISITORS WILL BECOME MY MINIONS!' But a minion front whispered, 'Actually, we don't like working for him. He makes us polish his throne and sings his own non-rhyming theme tune!' Kanga looked at Penguin. Rhino looked for biscuits. What should they do?",
+        text: "They landed on a green planet with a castle shaped like an angry face. 'Not the snack dimension,' gulped Penguin. Goblin minions marched up with minion guns as a voice boomed: 'I AM THE GREEN GOBLIN! ALL VISITORS BECOME MY MINIONS!' But one minion whispered, 'We don't like him. He makes us polish his throne and sing his theme tune!' Rhino looked for biscuits. What should they do?",
         illustrationPrompt: "Funny little green goblins with tiny space helmets holding funny bubble guns under a purple sky with a crazy-faced castle.",
         illustrationPreset: {
           emoji: "👺🔫🏰",
@@ -1766,7 +1962,7 @@ export const STORIES: Story[] = [
       node_10: {
         id: "node_10",
         title: "Bouncy Marshmallow Land",
-        text: "They landed in a marshmallow wonderland! The mountains, trees, and clouds were made of soft white marshmallows. Even the road was marshmallow, making walking very bouncy! 'This is lovely,' said Penguin. Suddenly, hundreds of tiny marshmallow people popped out wearing tiny helmets and holding tiny marshmallow spears! 'INTRUDERS!' squeaked the marshmallow chief. 'GET THEM!' Rhino blinked: 'They're adorable.' A marshmallow spear bounced harmlessly off his knee. The marshmallow army charged! What should they do?",
+        text: "They landed in a marshmallow wonderland! The mountains, trees, and road were all soft marshmallow, so walking was very bouncy. 'This is lovely,' said Penguin. Suddenly tiny marshmallow people popped out in helmets with tiny spears. 'INTRUDERS! GET THEM!' squeaked the marshmallow chief. 'They're adorable,' blinked Rhino. The marshmallow army charged! What should they do?",
         illustrationPrompt: "Hundreds of cute little white marshmallow characters with tiny spears and helmets chasing animal friends down a pink bouncy road.",
         illustrationPreset: {
           emoji: "🍡⛰️🛡️",
@@ -1783,7 +1979,7 @@ export const STORIES: Story[] = [
       node_11: {
         id: "node_11",
         title: "Infinite Silver Corridor",
-        text: "They landed in a shiny silver corridor that stretched forever. At the end were two big signs. One said: SAFE WAY HOME. The other said: DEFINITELY NOT A DISTORTION FIELD. Penguin folded his flippers: 'That second sign is obviously lying.' Kanga agreed: 'Definitely!' But Rhino pointed at it: 'But it says definitely not.' Mummy Penguin covered his eyes. Which way should they go?",
+        text: "They landed in a silver corridor that stretched forever. Two big signs waited at the end: one said SAFE WAY HOME, the other said DEFINITELY NOT A DISTORTION FIELD. 'That second sign is lying,' said Penguin. 'Definitely!' agreed Kanga. 'But it says definitely not,' said Rhino. Mummy Penguin covered his eyes. Which way should they go?",
         illustrationPrompt: "A futuristic metallic silver corridor with two giant glowing arrows pointing left and right under funny signs.",
         illustrationPreset: {
           emoji: "🥈🪞🛸",
@@ -1799,7 +1995,7 @@ export const STORIES: Story[] = [
       node_12: {
         id: "node_12",
         title: "The Crazy Distortion Field!",
-        text: "The distortion field swallowed them! Everything stretched like melted cheese. Penguin tried to speak, but said: 'Hey Kanga, I’ve never noticed that you have a foot where your nose is meant to be!' Kanga answered: 'Penguin, why are you wearing a dumb doggo costume?' Rhino tried to say 'Stop shouting!' but said: 'Why do I look like I’m wearing a polka-dot bikini?' Kanga's toes each got their own tiny face and one called Trevor waved! Penguin wore a pilot hat, and Mummy Penguin proposed to a cheese wardrobe! Waddle sparkled like a disco ball. The field shook and four exits appeared!",
+        text: "The distortion field swallowed them and everything stretched like melted cheese! Penguin tried to talk but said, 'Kanga, you have a foot where your nose should be!' 'Why are you in a doggo costume?' answered Kanga. Kanga's toes grew tiny faces, and one named Trevor waved. Rhino wore a polka-dot bikini, Mummy Penguin proposed to a cheese wardrobe, and Waddle sparkled like a disco ball! Four exits appeared!",
         illustrationPrompt: "Distorted animals with funny faces, a pilot hat, a polka-dot bikini, and tiny faces on toes floating in a colorful abstract dream world.",
         illustrationPreset: {
           emoji: "🤪👙🧀",
@@ -1817,7 +2013,7 @@ export const STORIES: Story[] = [
       node_13: {
         id: "node_13",
         title: "The Sticky Syrup Slide",
-        text: "They slid down a giant syrup slide! It was fast, extremely sticky, and completely uncontrolled. Pancake Kanga accidentally stuck right onto Rhino's face halfway down! 'I can't see!' shouted Rhino. 'You're using me as a mask!' shouted Kanga. They shot off the end of the slide, flying through the air, and landed splat inside a glowing portal! A sign flashed past: NEXT STOP: GOBLIN PLANET!",
+        text: "They slid down a giant syrup slide, fast and super sticky! Halfway down, Pancake Kanga stuck onto Rhino's face like a mask. 'I can't see!' yelled Rhino. They flew off the end and splatted into a glowing portal. A sign flashed past: NEXT STOP: GOBLIN PLANET!",
         illustrationPrompt: "A group of cute animals sliding down a huge river of dark golden syrup, splashing and laughing.",
         illustrationPreset: {
           emoji: "🛝🍯🍁",
@@ -1832,7 +2028,7 @@ export const STORIES: Story[] = [
       node_14: {
         id: "node_14",
         title: "The Delicious Pancake Tunnel",
-        text: "They crawled through a narrow pancake tunnel. The walls smelled incredibly delicious. Rhino couldn't resist and took one giant bite! Oh no! The tunnel rumbled. 'Do not eat the emergency exit!' Penguin screamed. Too late! The tunnel collapsed and launched them into space-time. They splatted into Mummy Penguin’s bathroom, where the bath was full of socks! A message read: SORT THE SOCKS TO CONTINUE. After sorting them, one sock glowed and opened a portal. Waddle jumped in!",
+        text: "They crawled through a pancake tunnel. Rhino took a giant bite of the wall! 'Don't eat the emergency exit!' screamed Penguin. Too late! It collapsed and flung them into Mummy Penguin's sock-filled bathroom. A message glowed: SORT THE SOCKS TO CONTINUE. When they finished, a sock became a portal and Waddle jumped in!",
         illustrationPrompt: "A funny rhino taking a big bite out of a pancake wall inside a warm golden tunnel.",
         illustrationPreset: {
           emoji: "🚇🥞🧦",
@@ -1847,7 +2043,7 @@ export const STORIES: Story[] = [
       node_15: {
         id: "node_15",
         title: "The Melting Butter Balloon",
-        text: "They climbed into a floating butter balloon. It floated high up into the melting yellow butter sky. 'This is very peaceful,' Mummy Penguin sighed. Suddenly, POP! The balloon popped! They fell through a crack in the pancake sky and landed right back in Mummy Penguin's kitchen. The dirty dishes were back! A message appeared: YOU ESCAPED TOO SOON. DO THE DISHES AGAIN. 'Nooooooo!' Rhino cried. Once they finished, the sink portal reopened, smelling of goblin smoke.",
+        text: "They climbed into a floating butter balloon and drifted up the yellow sky. 'So peaceful,' sighed Mummy Penguin. Suddenly, POP! They fell back into Mummy Penguin's kitchen, where the dirty dishes were back! A message read: DO THE DISHES AGAIN. 'Nooooooo!' cried Rhino. When they finished, the sink portal reopened, smelling of goblin smoke.",
         illustrationPrompt: "A cute round yellow balloon made of butter floating in a yellow sky, popping with a flash.",
         illustrationPreset: {
           emoji: "🎈🧈🍳",
@@ -1862,7 +2058,7 @@ export const STORIES: Story[] = [
       node_16: {
         id: "node_16",
         title: "Showdown with the Green Goblin!",
-        text: "The crew marched to the Green Goblin’s castle. The Goblin appeared on a balcony wearing a giant cape. 'You dare challenge me?' he roared. 'Yes, and your minions don't like you!' Kanga shouted. A minion held a sign: NO WE DON'T! The Goblin fired a minion gun at them. Kanga and Penguin ducked, but the blast hit Rhino! Green smoke cleared, revealing Rhino wearing... a tiny goblin hat. 'That's it?' Rhino blinked. The gun didn't work on him! Rhino charged, and the Goblin tripped into a laundry basket! The minions cheered!",
+        text: "The crew marched to the Green Goblin's castle. He appeared on his balcony in a giant cape. 'You dare challenge me?' he roared. 'Yes, and your minions don't like you!' shouted Kanga. The Goblin fired his minion gun at Rhino, but the smoke cleared to show Rhino in a tiny goblin hat. It didn't work on him! Rhino charged, and the Goblin tripped into a laundry basket. The minions cheered!",
         illustrationPrompt: "A funny rhino wearing a tiny green goblin hat charging at a green goblin who is falling backward into a wicker laundry basket.",
         illustrationPreset: {
           emoji: "🦏👒🧺",
@@ -1877,7 +2073,7 @@ export const STORIES: Story[] = [
       node_17: {
         id: "node_17",
         title: "The Minion Rebellion!",
-        text: "Kanga whispered to the minions, 'What if you just stopped obeying him?' The minions gasped. 'We can do that?' Penguin nodded: 'You are your own minions!' One shouted: 'NO MORE THRONE POLISHING!' Another: 'NO MORE THEME SONG!' They stormed the castle! The Goblin ran out in his slippers. 'What is the meaning of this?' 'You're fired!' squeaked the chief. Waddle picked up the Green Goblin and dropped him into a giant bin marked OLD VILLAINS! The lid shut, and the minions cheered!",
+        text: "'What if you stopped obeying him?' Kanga whispered to the minions. 'We can do that?' they gasped. 'You are your own minions!' nodded Penguin. 'NO MORE THRONE POLISHING! NO MORE THEME SONG!' they roared, storming the castle. The Goblin ran out in his slippers. 'You're fired!' squeaked the chief. Waddle dropped the Green Goblin into a bin marked OLD VILLAINS! The minions cheered!",
         illustrationPrompt: "Dozens of happy little goblin minions lifting a penguin and kangaroo in celebration inside a castle courtyard.",
         illustrationPreset: {
           emoji: "✊👿🗑️",
@@ -1892,7 +2088,7 @@ export const STORIES: Story[] = [
       node_18: {
         id: "node_18",
         title: "The Green Soup Catapult!",
-        text: "They sneaked into the castle kitchen and found giant pots of smelly green soup. 'The Green Goblin makes us eat this every day,' a chef goblin whispered. Penguin tasted a drop and his face turned inside out! Kanga grabbed cardboard trays from the recycling bin and built a soup-launching catapult in eleven seconds! 'FIRE!' Kanga yelled. Splash! Green soup covered the throne room. The Green Goblin slipped, slid, and crashed into his gun machine, which exploded into harmless bubbles. The minions cheered!",
+        text: "They sneaked into the castle kitchen and found pots of smelly green soup. 'The Goblin makes us eat this every day,' whispered a chef goblin. Penguin tasted a drop and his face turned inside out! In seconds, Kanga built a soup catapult from cardboard. 'FIRE!' Green soup splashed all over the throne room. The Green Goblin slipped into his gun machine, which exploded into harmless bubbles. The minions cheered!",
         illustrationPrompt: "A funny catapult made of cardboard launching green soup over a golden throne room, making a goblin slide.",
         illustrationPreset: {
           emoji: "☄️🍲🏰",
@@ -1907,7 +2103,7 @@ export const STORIES: Story[] = [
       node_19: {
         id: "node_19",
         title: "Useless Intruders!",
-        text: "Penguin stepped forward. 'We come in peace!' The marshmallow chief narrowed his eyes: 'Do you come with hot chocolate?' 'No,' said Penguin. The marshmallow people gasped. 'No hot chocolate? Then you are useless!' they squeaked. The army charged again! Rhino whispered: 'I still think they're cute.' Kanga saw a glowing marshmallow archway: 'Run!'",
+        text: "'We come in peace!' said Penguin. 'Do you come with hot chocolate?' asked the marshmallow chief. 'No,' said Penguin. 'Then you are useless!' gasped the marshmallow people, and the army charged again! 'I still think they're cute,' whispered Rhino. Kanga spotted a glowing marshmallow archway. 'Run!'",
         illustrationPrompt: "An angry little marshmallow chief holding a tiny white spear, standing in front of an army of marshmallows.",
         illustrationPreset: {
           emoji: "🍡😠☕",
@@ -1922,7 +2118,7 @@ export const STORIES: Story[] = [
       node_20: {
         id: "node_20",
         title: "Bouncing Chase!",
-        text: "They bounced down the marshmallow road. Boing! Boing! Boing! The marshmallow army bounced after them: Boing-boing-boing! Rhino laughed so hard he could barely run: 'This is the least scary chase ever!' At the end of the road were two glowing portals. One smelled like syrup, and one smelled like goblin smoke. Which one do they jump into?",
+        text: "They bounced down the marshmallow road. Boing! Boing! The marshmallow army bounced after them. 'This is the least scary chase ever!' laughed Rhino. At the road's end waited two glowing portals: one smelled like syrup, one like goblin smoke. Which one do they jump into?",
         illustrationPrompt: "Animals bouncing happily on a soft pink road while puffy marshmallow men bounce behind them under a purple cloud sky.",
         illustrationPreset: {
           emoji: "🏃‍♂️🍡🌀",
@@ -1938,7 +2134,7 @@ export const STORIES: Story[] = [
       node_21: {
         id: "node_21",
         title: "Smuggling Cute Marshmallows",
-        text: "Rhino stepped in front of the marshmallow army. He opened his mouth and roared: 'BOO!' The entire marshmallow army fainted! Except two tiny marshmallow people who looked impressed: 'You are mighty!' 'You are bouncy!' Rhino secretly hid them in his backpack. Penguin noticed: 'Rhino, did you smuggle marshmallow people?' 'No,' Rhino said. His backpack squeaked: 'Yes he did.' Penguin sighed: 'That is definitely going to be a problem in another story.' A portal opened!",
+        text: "Rhino stepped in front of the marshmallow army, opened his mouth, and roared: 'BOO!' The whole army fainted! Two tiny marshmallow people looked impressed, and Rhino secretly tucked them into his backpack. 'Did you smuggle marshmallow people?' asked Penguin. 'No,' said Rhino. His backpack squeaked: 'Yes he did.' 'That's a problem for another story,' sighed Penguin. A portal opened!",
         illustrationPrompt: "A happy rhino looking back at his backpack where two tiny cute marshmallow men are peeking out waving.",
         illustrationPreset: {
           emoji: "🦏🎒🍡",
@@ -1953,7 +2149,7 @@ export const STORIES: Story[] = [
       node_22: {
         id: "node_22",
         title: "Back to the Living Room",
-        text: "They stepped through Mummy Penguin's front door and fell onto the sofa. The fish tank was normal and the recycling bin only glowed slightly. Kanga's Space-Time Emulator stood in the room, smoking gently. 'Well, that was a successful test,' Kanga said. Penguin stared: 'Successful? Rhino has syrup on his ear, Mummy Penguin has marshmallow fluff in his feathers, and Waddle is sparkling!' Suddenly, the machine coughed out a goblin helmet, a pancake, and a tiny spear. A button flashed: COMPLETE ADVENTURE PROPERLY. Press it?",
+        text: "They stepped through Mummy Penguin's front door and flopped onto the sofa. Kanga's emulator stood in the room, smoking gently. 'A successful test!' said Kanga. 'Successful? Rhino has syrup on his ear, Mummy Penguin has marshmallow fluff in his feathers, and Waddle is sparkling!' said Penguin. Then the machine coughed out a goblin helmet, a pancake, and a tiny spear. A button flashed: COMPLETE ADVENTURE PROPERLY. Press it?",
         illustrationPrompt: "Animal friends resting on a green sofa, looking tired and messy, next to a smoking cardboard box.",
         illustrationPreset: {
           emoji: "🏡🛋️💨",
@@ -1969,7 +2165,7 @@ export const STORIES: Story[] = [
       node_23: {
         id: "node_23",
         title: "Minion Victory Feast!",
-        text: "The minions threw a huge party with music, dancing, and victory biscuits! Rhino wiped a tear: 'This is the greatest planet.' Kanga studied the broken minion guns: 'I think I can repair the emulator with these!' 'No!' Penguin and Mummy Penguin yelled. But Kanga had already started! Using a goblin battery, a pancake spring, marshmallow string, and Waddle’s disco sparkle, Kanga rebuilt the emulator. It looked worse, but it worked. A portal opened, showing Mummy Penguin’s living room!",
+        text: "The minions threw a huge party with music, dancing, and victory biscuits! 'The greatest planet,' said Rhino. Kanga studied the broken minion guns. 'I can fix the emulator with these!' 'No!' yelled Penguin and Mummy Penguin. Too late! Using a goblin battery, a pancake spring, marshmallow string, and Waddle's disco sparkle, Kanga rebuilt it. It looked worse but worked, and a portal opened to the living room!",
         illustrationPrompt: "A huge party with cute little green minions holding plates of chocolate cookies and dancing with a metallic penguin.",
         illustrationPreset: {
           emoji: "🥳🍪⚡",
@@ -1984,7 +2180,7 @@ export const STORIES: Story[] = [
       node_24: {
         id: "node_24",
         title: "The Chore Trap!",
-        text: "Mummy Penguin unplugged the Space-Time Emulator. The lights went out and the banana stopped spinning. Then a glowing message appeared on the wall: ADVENTURE ENDED EARLY. EVERYONE MUST NOW TIDY THE LIVING ROOM. Rhino dropped to the floor: 'Not another chore dimension!' They tidied up, folding blankets, scraping syrup off the ceiling, and removing a goblin helmet from the lamp. Mummy Penguin smiled: 'At least nothing else happened.' But Rhino's backpack wriggled... You ended early but got stuck with chores! Try again to get the real ending!",
+        text: "Mummy Penguin unplugged the emulator. The lights went out and the banana stopped spinning. Then a message glowed: ADVENTURE ENDED EARLY. EVERYONE MUST TIDY THE LIVING ROOM. 'Not another chore dimension!' groaned Rhino. They scraped syrup off the ceiling and pulled a goblin helmet off the lamp. Then Rhino's backpack wriggled... You ended early and got stuck with chores! Try again to get the real ending!",
         illustrationPrompt: "Animal friends sweeping the floor and wiping the windows of a living room while looking exhausted.",
         illustrationPreset: {
           emoji: "🧹🧼🗑️",
@@ -1999,7 +2195,7 @@ export const STORIES: Story[] = [
       node_25: {
         id: "node_25",
         title: "The Rise of the Marshmallow People!",
-        text: "They landed in Mummy Penguin’s living room in a heap, all back to normal size and shape! Mummy Penguin looked at the bent, smoking emulator covered in syrup and marshmallow fluff. 'We learned something important today,' he said. 'Yes, Kanga shouldn't build machines out of cardboard,' Penguin said. Rhino's backpack wriggled and two tiny marshmallow people popped out! One threw a spear at a grape, the other built a fort under the sofa! Kanga got his notebook and wrote: THE RISE OF THE MARSHMALLOW PEOPLE! You read the whole story perfectly! You got 5 stars! You won!",
+        text: "They landed in Mummy Penguin's living room, all back to normal! 'We learned something today,' said Mummy Penguin. 'Yes, Kanga shouldn't build machines out of cardboard,' said Penguin. Then Rhino's backpack wriggled and two tiny marshmallow people popped out! One threw a spear at a grape while the other built a fort under the sofa. Kanga grabbed his notebook and wrote: THE RISE OF THE MARSHMALLOW PEOPLE! You read the whole story perfectly! You got 5 stars! You won!",
         illustrationPrompt: "A happy group of animals high-fiving in a cozy living room while two tiny marshmallow men build a fort with cushions on the floor.",
         illustrationPreset: {
           emoji: "🏆✨🏰",
@@ -2014,7 +2210,7 @@ export const STORIES: Story[] = [
       node_29: {
         id: "node_29",
         title: "Lost in the Distortion Field!",
-        text: "The distortion field became stronger! Penguin tried to say 'We need to leave!' but said 'I am a sandwich with opinions!' Kanga said 'My elbow has written a novel about soup!' Rhino tried to say 'I'm hungry!' but said 'I challenge the moon to a dance battle!' The moon appeared and danced, and Rhino lost! Waddle sparkled so brightly that the distortion field got embarrassed, coughed politely, and spat them out!",
+        text: "The distortion field grew stronger! Penguin tried to speak but said, 'I am a sandwich with opinions!' 'My elbow wrote a novel about soup!' said Kanga. Rhino shouted, 'I challenge the moon to a dance battle!' The moon danced, and Rhino lost! Then Waddle sparkled so brightly the field got embarrassed and spat them out!",
         illustrationPrompt: "A funny rhino doing a breakdance battle with a smiling cartoon moon in the night sky.",
         illustrationPreset: {
           emoji: "🕺🌕🪐",
@@ -2029,7 +2225,7 @@ export const STORIES: Story[] = [
       node_30: {
         id: "node_30",
         title: "Pre-Victory Biscuits!",
-        text: "The minion chief looked serious: 'We can offer you victory biscuits, but only after victory.' Rhino folded arms: 'I would like pre-victory biscuits.' The minions whispered: 'That is unusual. Bold. Possibly wise.' The Green Goblin yelled from the balcony: 'Nobody gets biscuits until I say so!' Every minion gasped. The rebellion began instantly! Apparently, biscuits were the final straw!",
+        text: "'We offer victory biscuits, but only after victory,' said the minion chief. 'I want pre-victory biscuits,' said Rhino, folding his arms. 'Unusual. Bold. Possibly wise,' whispered the minions. Then the Green Goblin yelled: 'Nobody gets biscuits until I say so!' Every minion gasped. The rebellion began at once, because biscuits were the final straw!",
         illustrationPrompt: "A group of green minions gasping in surprise while a rhino crosses his arms demanding cookies.",
         illustrationPreset: {
           emoji: "😠🍪👿",
