@@ -428,12 +428,12 @@ export default function StoryCard({
   // the child always has the full page of context before choosing where to go.
   const allLinesRevealed = visibleLineCount >= linesOfWords.length;
 
-  // Once every line is revealed, the page unlocks at 70% matching (or when all
-  // lines are completed). Hitting the threshold early no longer jumps them to the
-  // choices before the last sentence has appeared.
-  const isUnlocked =
-    allLinesRevealed &&
-    ((matchPercentage >= 70) || (completedSeqCount === linesOfWords.length));
+  // The paths unlock ONLY when BOTH of these are true (a strict boolean AND):
+  //   1. the final line has been revealed (so there's full context), AND
+  //   2. at least 70% of the words have been read correctly (turned green).
+  // Revealing every line with "Reveal Next" is NOT enough on its own — the child
+  // still has to correctly pronounce the minimum number of words.
+  const isUnlocked = allLinesRevealed && matchPercentage >= 70;
 
   // Keep the recognition handler's view of "revealed words" current as more
   // lines appear, without re-creating the recognition session.
